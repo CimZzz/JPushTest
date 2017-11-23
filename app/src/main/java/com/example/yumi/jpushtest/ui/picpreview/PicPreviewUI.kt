@@ -1,5 +1,6 @@
 package com.example.yumi.jpushtest.ui.picpreview
 
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
@@ -28,7 +29,6 @@ class PicPreviewUI : BaseUI<IPresenter<*, *>>() {
 //        logV(intent.getStringExtra(KV_PREVIEW_PATH))
 //        picPreviewGallery.setPicture(intent.getStringExtra(KV_PREVIEW_PATH))
 //        picPreviewGallery.setPicture("/data/user/0/com.example.yumi.jpushtest/files/media/9974cd776f407222647dfed1/single_CimZzz/images/thumbnails/A92207DB2736442C8288557F354472AA")
-        picPreviewGallery.setPicture("/storage/emulated/0/MagazineUnlock/MagazinePic-01-2.3.001-bigpicture_01_5.jpg")
     }
 
 }
