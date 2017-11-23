@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowContentTransitions">true</item>
+
+        <item name="android:windowSharedElementEnterTransition">@transition/share1</item>
+        <item name="android:windowSharedElementExitTransition">@transition/share2</item>
+
+        <item name="android:windowSharedElementReenterTransition">@transition/share3</item>
+        <item name="android:windowSharedElementReturnTransition">@transition/share4</item>
+    </style>
+
+    <style name="InputUnderline" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#5e5e5e</item>
+        <item name="colorControlActivated">#afafaf</item>
+    </style>
+</resources>
