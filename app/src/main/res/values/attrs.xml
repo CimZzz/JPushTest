@@ -7,4 +7,14 @@
         <attr name="textColor" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="SliderSwitchView">
+        <attr name="fontSize" format="dimension"/>
+        <attr name="fontColor" format="color"/>
+        <attr name="fontColorFocused" format="color"/>
+        <attr name="leftFont" format="string"/>
+        <attr name="rightFont" format="string"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="lineHeightMargin" format="dimension"/>
+    </declare-styleable>
 </resources>

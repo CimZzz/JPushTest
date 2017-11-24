@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10.5dp"
+            android:layout_marginBottom="10.5dp"
+            android:background="#00000000"
+            android:hint="输入邮箱地址"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dadada"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="29.5dp"
+            android:text="下一步"
+            android:textColor="#FFF"
+            android:background="@drawable/bg_enter_loginbtn"
+            android:id="@+id/forgiveEmailNext"/>
+
+    </LinearLayout>
+</LinearLayout>

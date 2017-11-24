@@ -22,7 +22,7 @@ import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.entity.BaseChatItem
 import com.example.yumi.jpushtest.environment.REQ_CHAT
 import com.example.yumi.jpushtest.environment.RES_PIC_SUCCESS
-import com.example.yumi.jpushtest.ui.login.LoginUI
+import com.example.yumi.jpushtest.ui.logintest.LoginTestUI
 import com.example.yumi.jpushtest.ui.picpicker.PicPickerUI
 import com.example.yumi.jpushtest.ui.picpreview.PicPreviewUI
 import com.example.yumi.jpushtest.ui.picpreview.PicPreviewUI.Companion.KV_PREVIEW_PATH
@@ -301,6 +301,6 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View{
     private fun quit() {
         JMessageClient.logout()
         finish()
-        changeUI(LoginUI::class.java)
+        changeUI(LoginTestUI::class.java)
     }
 }
