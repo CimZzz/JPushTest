@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'realm-android'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -49,6 +51,8 @@ dependencies {
     implementation 'cn.jiguang.sdk:jcore:1.1.7'
     // 此处以JCore 1.1.7 版本为例。
 
+
+    implementation 'com.czt.mp3recorder:library:1.0.4'
     implementation 'com.bigkoo:alertview:1.0.3'
     implementation 'pub.devrel:easypermissions:0.4.2'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'

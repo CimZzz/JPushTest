@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     android:orientation="horizontal">
 
@@ -35,17 +35,33 @@
             android:gravity="bottom"
             android:id="@+id/chatItemContentContainer">
 
-            <com.example.yumi.jpushtest.widgets.ChatContainer
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:divider="#00ffffff"
-                android:orientation="vertical"
-                android:id="@+id/chatItemChatContainer">
-                <ImageView
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:id="@+id/chatItemChatOutContainer">
+                <com.example.yumi.jpushtest.widgets.ChatContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/chatItemImage"/>
-            </com.example.yumi.jpushtest.widgets.ChatContainer>
+                    android:divider="#00ffffff"
+                    android:orientation="vertical"
+                    android:id="@+id/chatItemChatContainer">
+                    <com.example.yumi.jpushtest.widgets.VoiceIconView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        app:lineWidth="3dp"
+                        android:id="@+id/chatItemVoice"/>
+                </com.example.yumi.jpushtest.widgets.ChatContainer>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:id="@+id/chatItemVoiceTime"/>
+            </LinearLayout>
+
+
             <com.example.yumi.jpushtest.widgets.ChatStatusView
                 android:layout_width="20dp"
                 android:layout_height="20dp"

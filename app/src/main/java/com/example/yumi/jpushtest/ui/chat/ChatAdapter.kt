@@ -10,13 +10,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import cn.jpush.im.android.api.JMessageClient
 import com.example.yumi.jpushtest.R
-import com.example.yumi.jpushtest.entity.BaseChatItem
-import com.example.yumi.jpushtest.entity.BaseItem
-import com.example.yumi.jpushtest.entity.ImageChatItem
-import com.example.yumi.jpushtest.entity.TextChatItem
+import com.example.yumi.jpushtest.entity.*
+import com.example.yumi.jpushtest.utils.convert2TimeStr
 import com.example.yumi.jpushtest.utils.loadPic
 import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.widgets.ChatContainer
+import com.example.yumi.jpushtest.widgets.ChatStatusView
+import com.example.yumi.jpushtest.widgets.VoiceIconView
 
 /**
  * Created by CimZzz(王彦雄) on 2017/11/22.<br>
@@ -28,9 +28,9 @@ import com.example.yumi.jpushtest.widgets.ChatContainer
 class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val TEXT_CHAT_ITEM: Int = 0
     val IMG_CHAT_ITEM: Int = 1
+    val VOICE_CHAT_ITEM: Int = 2
 
     val msgArray : ArrayList<BaseItem> = ArrayList()
-    val msgUniqueSet : HashSet<Int> = HashSet()
     var listener : IContentClickListener? = null
 
     val headPicClick = View.OnClickListener {
@@ -38,16 +38,74 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     val contentClick = View.OnClickListener {
-        logV("OnClick")
         val item = it.tag
         if(item is ImageChatItem) {
-            listener?.onImageContentClick(item.imgLink,it)
+            listener?.onImageContentClick(item,it)
+        }
+        else if(item is VoiceChatItem) {
+            listener?.onVoiceContentClick(item,it.findViewById(R.id.chatItemVoice))
         }
     }
 
     fun addMsg(msg : BaseChatItem) {
         msgArray.add(msg)
         notifyItemRangeInserted(msgArray.size,1)
+    }
+
+    fun updateMsgStatus(id : Int,result : Boolean) {
+        var index = -1
+        for(i in msgArray.size-1 downTo 0) {
+            val item = msgArray[i]
+            if(item is BaseChatItem) {
+                if(item.msgId == id) {
+                    index = i
+                    item.status = if(result) BaseChatItem.STATUS_NORMAL else BaseChatItem.STATUS_FAILED
+                    break
+                }
+            }
+        }
+        if(index != -1)
+            notifyItemChanged(index)
+    }
+
+    fun updateImagePath(id : Int,imgLink : String) {
+        msgArray.forEach {
+            if(it is ImageChatItem) {
+                if(it.msgId == id) {
+                    it.downloadFlag = BaseChatItem.DOWNLOAD_DOWNLOADED
+                    it.imgLink = imgLink
+                    return@forEach
+                }
+            }
+        }
+    }
+
+    fun updateVoicePath(id : Int,voiceLink : String) {
+        msgArray.forEach {
+            if(it is VoiceChatItem) {
+                if(it.msgId == id) {
+                    it.downloadFlag = BaseChatItem.DOWNLOAD_DOWNLOADED
+                    it.voiceLink = voiceLink
+                    return@forEach
+                }
+            }
+        }
+    }
+
+    fun updateVoicePlayStatus(id : Int,isPlaying : Boolean) {
+        var index = -1
+        for(i in msgArray.size-1 downTo 0) {
+            val item = msgArray[i]
+            if(item is VoiceChatItem) {
+                if(item.msgId == id) {
+                    item.isPlaying = isPlaying
+                    index = i
+                    break
+                }
+            }
+        }
+        if(index != -1)
+            notifyItemChanged(index)
     }
 
     override fun getItemCount(): Int = msgArray.size
@@ -60,16 +118,25 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 holder.headPic.setImageResource(R.drawable.icon_cat)
             else holder.headPic.setImageResource(R.drawable.icon_dog)
 
+            holder.chatStatusView.setStatus(item.status)
 
             if(holder is TextChatHolder) {
                 val concretedItem = item as TextChatItem
-                holder.contentContainer.tag = concretedItem
+                holder.chatContainer.tag = concretedItem
                 holder.textMsgView.text = concretedItem.message
             }
             else if (holder is ImageChatHolder) {
                 val concretedItem = item as ImageChatItem
-                holder.contentContainer.tag = concretedItem
+                holder.chatContainer.tag = concretedItem
                 loadPic("file:///"+concretedItem.imgLink,holder.imgMsgView)
+            }
+            else if (holder is VoiceChatHolder) {
+                val concretedItem = item as VoiceChatItem
+                holder.chatContainer.tag = concretedItem
+                holder.voiceTimeView.text = convert2TimeStr(concretedItem.second)
+                if(item.isPlaying)
+                    holder.voiceIconView.startPlaying()
+                else holder.voiceIconView.stopPlaying()
             }
             holder.isOwn(JMessageClient.getMyInfo().userName == item.fromUser)
         }
@@ -86,6 +153,10 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             holder = ImageChatHolder(inflater.inflate(R.layout.item_chat_img,parent,false))
             return holder
         }
+        else if(viewType == VOICE_CHAT_ITEM) {
+            holder = VoiceChatHolder(inflater.inflate(R.layout.item_chat_voice,parent,false))
+            return holder
+        }
 
         return null
     }
@@ -96,19 +167,33 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             return TEXT_CHAT_ITEM
         else if(item is ImageChatItem)
             return IMG_CHAT_ITEM
+        else if(item is VoiceChatItem)
+            return VOICE_CHAT_ITEM
 
         return -1
     }
 
     abstract inner class BaseChatHolder(item: View) : RecyclerView.ViewHolder(item) {
+
+        /*View inclusion relation*/
+        /*
+        * root -> headPic
+        *      -> container -> userName
+        *                   -> contentContainer -> chatContainer
+        *                                       -> chatStatusView
+        *
+        * */
+
         val headPic : ImageView = item.findViewById(R.id.chatItemHeadPic)
         val userName : TextView = item.findViewById(R.id.chatItemUserName)
-        private val container: LinearLayout = item.findViewById(R.id.chatItemContainer)
-        val contentContainer: ChatContainer = item.findViewById(R.id.chatItemContentContainer)
+        val chatContainer: ChatContainer = item.findViewById(R.id.chatItemChatContainer)
+        protected val contentContainer: LinearLayout = item.findViewById(R.id.chatItemContentContainer)
+        protected val container: LinearLayout = item.findViewById(R.id.chatItemContainer)
+        val chatStatusView : ChatStatusView = item.findViewById(R.id.chatItemStatus)
         var isOwn = false
 
         init {
-            contentContainer.setOnClickListener(contentClick)
+            chatContainer.setOnClickListener(contentClick)
         }
 
         open fun isOwn(isOwn : Boolean) {
@@ -117,15 +202,20 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             this.isOwn = isOwn
             val root = itemView as ViewGroup
             root.removeAllViews()
+            contentContainer.removeAllViews()
 
             if(!isOwn) {
-                root.addView(headPic)
                 container.gravity = Gravity.START
-                contentContainer.setSide(true)
+                chatContainer.setSide(true)
+                contentContainer.addView(chatContainer)
+                contentContainer.addView(chatStatusView)
+                root.addView(headPic)
                 root.addView(container)
             } else {
                 container.gravity = Gravity.END
-                contentContainer.setSide(false)
+                chatContainer.setSide(false)
+                contentContainer.addView(chatStatusView)
+                contentContainer.addView(chatContainer)
                 root.addView(container)
                 root.addView(headPic)
             }
@@ -142,9 +232,49 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
+    inner class VoiceChatHolder(item : View) : BaseChatHolder(item) {
+        val outContainer : ViewGroup = item.findViewById(R.id.chatItemChatOutContainer)
+        val voiceIconView : VoiceIconView = item.findViewById(R.id.chatItemVoice)
+        val voiceTimeView : TextView = item.findViewById(R.id.chatItemVoiceTime)
+
+        override fun isOwn(isOwn: Boolean) {
+            if(this.isOwn == isOwn)
+                return
+            this.isOwn = isOwn
+            val root = itemView as ViewGroup
+            root.removeAllViews()
+            contentContainer.removeAllViews()
+            outContainer.removeAllViews()
+
+            if(!isOwn) {
+                container.gravity = Gravity.START
+                chatContainer.gravity = Gravity.START
+                chatContainer.setSide(true)
+                voiceIconView.setSide(true)
+                outContainer.addView(chatContainer)
+                outContainer.addView(voiceTimeView)
+                contentContainer.addView(outContainer)
+                contentContainer.addView(chatStatusView)
+                root.addView(headPic)
+                root.addView(container)
+            } else {
+                container.gravity = Gravity.END
+                chatContainer.gravity = Gravity.END
+                chatContainer.setSide(false)
+                voiceIconView.setSide(false)
+                outContainer.addView(voiceTimeView)
+                outContainer.addView(chatContainer)
+                contentContainer.addView(chatStatusView)
+                contentContainer.addView(outContainer)
+                root.addView(container)
+                root.addView(headPic)
+            }
+        }
+    }
+
     interface IContentClickListener {
         fun onTextContentClick(text : String)
-        fun onImageContentClick(imgPath : String,view : View)
-        fun onVoiceContentClick(voicePath : String)
+        fun onImageContentClick(item : ImageChatItem,view : View)
+        fun onVoiceContentClick(item : VoiceChatItem,view : VoiceIconView)
     }
 }

@@ -44,7 +44,7 @@ class LoginTestUI : BaseUI<IPresenter<*,*>>() {
                     if(p0 == 0) {
                         val bundle = Bundle()
                         bundle.putString("UserName",userName)
-                        bundle.putString("OppositeUserName",userName)
+                        bundle.putString("OppositeUserName",oppositeUserName)
                         changeUI(ChatUI::class.java,bundle)
                     } else {
                         sendToast("登陆失败:$p1")

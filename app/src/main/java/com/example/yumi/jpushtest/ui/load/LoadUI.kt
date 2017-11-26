@@ -27,8 +27,8 @@ import android.util.DisplayMetrics
  */
 
 class LoadUI : BaseUI<IPresenter<*,*>>() {
-    var timer : Timer = Timer()
-    var task : TimerTask = Task()
+    var timer : Timer? = Timer()
+    var task : TimerTask? = Task()
     val stateRecord = StateRecord.newInstance(this.javaClass)
 
     override fun onBaseUICreate(creater: ActionBarUICreater?) {
@@ -38,6 +38,11 @@ class LoadUI : BaseUI<IPresenter<*,*>>() {
             override fun notify(vararg objects: Any?) {
                 startActivity(Intent(this@LoadUI,LoginUI::class.java)
                         ,ActivityOptionsCompat.makeSceneTransitionAnimation(this@LoadUI,loadBotText,"SHARE").toBundle())
+
+                timer!!.cancel()
+                task!!.cancel()
+                timer = null
+                task = null
                 finish()
             }
         }))
@@ -53,13 +58,15 @@ class LoadUI : BaseUI<IPresenter<*,*>>() {
         super.onResume()
         timer = Timer()
         task = Task()
-        timer.schedule(task,2000)
+        timer!!.schedule(task,2000)
     }
 
     override fun onPause() {
         super.onPause()
-        timer.cancel()
-        task.cancel()
+        timer!!.cancel()
+        task!!.cancel()
+        timer = null
+        task = null
     }
 
     override fun onDestroy() {

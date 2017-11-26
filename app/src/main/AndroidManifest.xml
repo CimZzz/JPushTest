@@ -39,10 +39,7 @@
         <activity android:name=".ui.load.LoadUI"
             android:screenOrientation="portrait"
             android:configChanges="screenSize|keyboard|orientation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".ui.login.LoginUI"
@@ -53,9 +50,17 @@
 
 
 
-        <activity android:name=".ui.logintest.LoginTestUI">
+        <activity android:name=".ui.TestUI">
+        </activity>
+        <activity android:name=".ui.logintest.LoginTestUI"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity android:name=".ui.chat.ChatUI"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:configChanges="screenSize|keyboard|orientation"
             android:windowSoftInputMode="adjustResize">

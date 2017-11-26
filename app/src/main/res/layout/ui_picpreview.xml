@@ -8,4 +8,13 @@
         android:layout_height="match_parent"
         android:transitionName="SHARE"
         android:id="@+id/picPreviewGallery"/>
+    
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_preview_download"
+        android:textColor="#747474"
+        android:id="@+id/picPreviewDownload"/>
 </FrameLayout>

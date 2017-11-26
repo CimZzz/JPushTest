@@ -16,31 +16,45 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:orientation="vertical"
         android:id="@+id/chatItemContainer">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:text="CimZzz"
             android:textSize="14sp"
             android:textColor="#313131"
             android:id="@+id/chatItemUserName"/>
 
-        <com.example.yumi.jpushtest.widgets.ChatContainer
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:divider="#00ffffff"
-            android:orientation="vertical"
+            android:gravity="bottom"
             android:id="@+id/chatItemContentContainer">
-            <TextView
+
+            <com.example.yumi.jpushtest.widgets.ChatContainer
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="sdasdasdasdasdsadsadasdasadasdasdsdasdasdasdasddasdasdasdasdsadsadasdasdsadasdsasdd123456789"
-                android:id="@+id/chatItemText"/>
-        </com.example.yumi.jpushtest.widgets.ChatContainer>
+                android:divider="#00ffffff"
+                android:orientation="vertical"
+                android:id="@+id/chatItemChatContainer">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sdasdasdasdasdsadsadasdasadasdasdsdasdasdasdasddasdasdasdasdsadsadasdasdsadasdsasdd123456789"
+                    android:id="@+id/chatItemText"/>
+            </com.example.yumi.jpushtest.widgets.ChatContainer>
+            <com.example.yumi.jpushtest.widgets.ChatStatusView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:id="@+id/chatItemStatus"/>
+        </LinearLayout>
     </LinearLayout>
 
 

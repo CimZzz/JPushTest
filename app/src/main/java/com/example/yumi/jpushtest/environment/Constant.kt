@@ -7,9 +7,14 @@ package com.example.yumi.jpushtest.environment
  * 描述
  */
 
+/*Log tag*/
 const val TAG_NORMAL = "DEBUG_TEST"
+
+/*App properties*/
+const val APP_NAME = "BangBangSuDi"
 
 /*Request code*/
 const val REQ_CHAT = 100
 /*Result code*/
 const val RES_PIC_SUCCESS = 100
+const val RES_PIC_PATH_CHANGE = 101

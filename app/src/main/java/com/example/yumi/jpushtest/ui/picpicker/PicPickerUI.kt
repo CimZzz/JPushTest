@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.environment.RES_PIC_SUCCESS
+import com.example.yumi.jpushtest.ui.chat.ChatUI.Companion.KV_PIC_PATH
 import com.example.yumi.jpushtest.utils.loadPic
 import com.example.yumi.jpushtest.utils.logV
 import kotlinx.android.synthetic.main.actionbar_picpicker.*
@@ -32,9 +33,6 @@ import kotlinx.android.synthetic.main.actionbar_picpicker.*
  */
 
 class PicPickerUI : BaseUI<IPresenter<*,*>>(),EasyPermissions.PermissionCallbacks {
-    companion object {
-        val KV_PIC_PATH = "kvpicpath"
-    }
 
     override fun onBaseUICreate(creater: ActionBarUICreater) {
         creater.setLayoutID(R.layout.ui_picpicker)
@@ -54,13 +52,15 @@ class PicPickerUI : BaseUI<IPresenter<*,*>>(),EasyPermissions.PermissionCallback
         val fileNames = ArrayList<String>()
         val cursor = contentResolver.query(
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null)
-        while (cursor.moveToNext()) {
-            //获取图片的生成日期
-            val data = cursor.getBlob(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+        if(cursor != null ) {
+            while (cursor.moveToNext()) {
+                //获取图片的生成日期
+                val data = cursor.getBlob(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
 
-            fileNames.add("file:///${String(data, 0, data.size - 1)}")
+                fileNames.add("file:///${String(data, 0, data.size - 1)}")
+            }
+            cursor.close()
         }
-        cursor.close()
         picPickerGrid.layoutManager = GridLayoutManager(this,4,OrientationHelper.VERTICAL,false)
         picPickerGrid.adapter = object : Adapter<RecyclerView.ViewHolder>() {
             val gridClickListener = View.OnClickListener {
@@ -110,7 +110,7 @@ class PicPickerUI : BaseUI<IPresenter<*,*>>(),EasyPermissions.PermissionCallback
         if (EasyPermissions.hasPermissions(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
             init()
         } else {
-            EasyPermissions.requestPermissions(this, "asdasdasdsad",
+            EasyPermissions.requestPermissions(this, "选取图片需要读取本地图片权限，请确认",
                     123, Manifest.permission.READ_EXTERNAL_STORAGE)
         }
     }

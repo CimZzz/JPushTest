@@ -16,7 +16,6 @@ import android.view.View
 import com.example.yumi.jpushtest.ui.login.BackEventSteam
 import com.example.yumi.jpushtest.utils.ModuleGetter
 import com.example.yumi.jpushtest.utils.sendToast
-import com.virtualightning.library.simple2develop.state.Analyzer
 
 
 /**

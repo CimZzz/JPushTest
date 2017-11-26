@@ -24,7 +24,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
  * 描述
  */
 public class RecyclerRefreshView extends PullToRefreshBase<View> {
-    private RecyclerView recyclerView;
+    public RecyclerView recyclerView;
     public RecyclerRefreshView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setScrollingWhileRefreshingEnabled(true);
@@ -37,7 +37,10 @@ public class RecyclerRefreshView extends PullToRefreshBase<View> {
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Boolean isLastItem = isListViewLastItemVisible();
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if(isLastItem)
+            recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount() - 1);
     }
     @Override
     public Orientation getPullToRefreshScrollDirection() {
@@ -57,7 +60,7 @@ public class RecyclerRefreshView extends PullToRefreshBase<View> {
     protected boolean isReadyForPullStart() {
         return isListViewFirstItemVisible();
     }
-    private boolean isListViewLastItemVisible() {
+    public boolean isListViewLastItemVisible() {
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
         int length;
         if (adapter == null || (length = adapter.getItemCount()) == 0)

@@ -19,5 +19,8 @@ class CustomApplication : Application() {
 //        val imageLoaderConfig = ImageLoaderConfiguration.B
 
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this))
+
+
+
     }
 }
