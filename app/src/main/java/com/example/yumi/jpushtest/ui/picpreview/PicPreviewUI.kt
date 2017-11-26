@@ -30,6 +30,7 @@ class PicPreviewUI : BaseUI<PicPreviewPresenter>(),IPicPreviewContract.View {
         val KV_MEDIA_ID = "kvmediaid"
         val KV_MEDIA_CRC = "kvmediacrc"
         val KV_FILE_SIZE = "kvfilesize"
+        val KV_USER_NAME = "kvusername"
     }
 
     var isAllowDownload = false
@@ -37,6 +38,7 @@ class PicPreviewUI : BaseUI<PicPreviewPresenter>(),IPicPreviewContract.View {
     var mediaCrc = 0L
     var fileSize = 0L
     var msgId = 0
+    var userName = ""
 
     /*implement interface function*/
     override fun setDownloadResult(result: Int, filePath: String) {
@@ -70,6 +72,7 @@ class PicPreviewUI : BaseUI<PicPreviewPresenter>(),IPicPreviewContract.View {
             msgId = intent.getIntExtra(KV_MESSAGE_ID,0)
             mediaCrc = intent.getLongExtra(KV_MEDIA_CRC,0)
             fileSize = intent.getLongExtra(KV_FILE_SIZE,0)
+            userName = intent.getStringExtra(KV_USER_NAME)
 
             picPreviewDownload.visibility = View.VISIBLE
             picPreviewDownload.text = "下载原图 ${convert2FileSize(fileSize)}"
@@ -78,7 +81,7 @@ class PicPreviewUI : BaseUI<PicPreviewPresenter>(),IPicPreviewContract.View {
                     return@setOnClickListener
                 picPreviewDownload.isSelected = true
                 picPreviewDownload.text = "正在下载中..."
-                presenter!!.downloadOriginImage(mediaId, mediaCrc)
+                presenter!!.downloadOriginImage(userName,mediaId, mediaCrc)
             }
         }
         else picPreviewDownload.visibility = View.GONE

@@ -322,6 +322,7 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View ,EasyPermissions.Per
                     intent.putExtra(PicPreviewUI.KV_MEDIA_ID,item.media_id)
                     intent.putExtra(PicPreviewUI.KV_MEDIA_CRC,item.media_crc32)
                     intent.putExtra(PicPreviewUI.KV_FILE_SIZE,item.fileSize)
+                    intent.putExtra(PicPreviewUI.KV_USER_NAME,userName)
                 }
                 intent.putExtra(PicPreviewUI.KV_PREVIEW_PATH,item.imgLink)
 

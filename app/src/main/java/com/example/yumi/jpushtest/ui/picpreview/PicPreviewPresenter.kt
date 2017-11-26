@@ -23,9 +23,9 @@ class PicPreviewPresenter(view : IPicPreviewContract.View, method :IPicPreviewCo
         val RES_INVALID = 2
     }
 
-    fun downloadOriginImage(mediaId : String, mediaCrc : Long) {
+    fun downloadOriginImage(userName:String,mediaId : String, mediaCrc : Long) {
         val content = ImageContent.fromJson("{\"media_crc32\":$mediaCrc,\"media_id\":\"$mediaId\"}", ContentType.image) as ImageContent
-        val msg = Conversation.createSingleConversation("CimZzz", JCoreInterface.getAppKey()).createSendMessage(content)
+        val msg = Conversation.createSingleConversation(userName, JCoreInterface.getAppKey()).createSendMessage(content)
         content.downloadOriginImage(msg,object : DownloadCompletionCallback() {
             override fun onComplete(p0: Int, p1: String?, p2: File?) {
                 logV("Download : $p0,$p1")
