@@ -16,12 +16,13 @@
             android:layout_height="@dimen/login_InputH"
             android:background="#00000000"
             android:textSize="@dimen/login_TextSize"
-            android:hint="输入邮箱地址"/>
+            android:hint="输入邮箱地址"
+            android:textColorHint="@color/greyColor"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dadada"/>
+            android:background="@color/splitterColor"/>
 
         <Button
             android:layout_width="match_parent"

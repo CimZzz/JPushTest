@@ -23,4 +23,8 @@
         <attr name="color" format="color"/>
         <attr name="colorActive" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomContainerView">
+        <attr name="bg" format="reference"/>
+    </declare-styleable>
 </resources>

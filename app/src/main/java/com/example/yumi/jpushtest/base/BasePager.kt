@@ -27,7 +27,7 @@ import com.example.yumi.jpushtest.utils.sendToast
 abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     var customApplication: CustomApplication? = null
     protected var presenter: T? = null
-    private var rootView: View? = null
+    var rootView: View? = null
     private val getter = ModuleGetter(this)
     var backEventSteam : BackEventSteam? = null
 

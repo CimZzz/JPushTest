@@ -35,31 +35,8 @@
         android:paddingStart="@dimen/login_ContentPaddingSide"
         android:paddingEnd="@dimen/login_ContentPaddingSide"
         android:paddingTop="@dimen/login_ContentPaddingBox"
-        android:paddingBottom="@dimen/login_ContentPaddingBox"
-        app:bg="@drawable/img_login_content_bg">
+        android:paddingBottom="@dimen/login_ContentPaddingBox">
 
     </com.example.yumi.jpushtest.widgets.CustomContainerView>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="35dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:id="@+id/loginThiLog">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="使用第三方登录"
-            android:textColor="@color/themeColorBlue"/>
-        
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/icon_wechat"/>
-    </LinearLayout>
-
 
 </FrameLayout>

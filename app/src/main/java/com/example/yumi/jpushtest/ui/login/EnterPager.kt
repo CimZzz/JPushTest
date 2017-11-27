@@ -5,6 +5,7 @@ import android.view.View
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.state.StateRecord

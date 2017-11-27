@@ -27,7 +27,7 @@ public class BasePagerPool {
         T t = null;
         if(ref == null || (t = ref.get()) == null) {
             try {
-                logV("Create Pager : " + pageCls.getSimpleName());
+//                logV("Create Pager : " + pageCls.getSimpleName());
                 t = pageCls.getDeclaredConstructor().newInstance();
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();

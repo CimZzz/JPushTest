@@ -6,46 +6,47 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 android:orientation="vertical"
 android:focusable="true"
 android:focusableInTouchMode="true" >
-
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/login_InputH"
-        android:background="#00000000"
-        android:inputType="textPassword"
-        android:textSize="@dimen/login_TextSize"
-        android:hint="输入新密码"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_InputH"
+            android:background="#00000000"
+            android:inputType="textPassword"
+            android:textSize="@dimen/login_TextSize"
+            android:hint="输入新密码"
+            android:textColorHint="@color/greyColor"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#dadada"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/splitterColor"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/login_InputH"
-        android:background="#00000000"
-        android:inputType="textPassword"
-        android:textSize="@dimen/login_TextSize"
-        android:hint="再次输入新密码"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_InputH"
+            android:background="#00000000"
+            android:inputType="textPassword"
+            android:textSize="@dimen/login_TextSize"
+            android:hint="再次输入新密码"
+            android:textColorHint="@color/greyColor"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#dadada"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/splitterColor"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/login_BigBtnH"
-        android:layout_marginTop="@dimen/login_BigBtnMarginTop"
-        style="?android:attr/borderlessButtonStyle"
-        android:text="完成"
-        android:textColor="#FFF"
-        android:background="@drawable/bg_enter_loginbtn"
-        android:id="@+id/pwdConfirmCompleted"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_BigBtnH"
+            android:layout_marginTop="@dimen/login_BigBtnMarginTop"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="完成"
+            android:textColor="#FFF"
+            android:background="@drawable/bg_enter_loginbtn"
+            android:id="@+id/pwdConfirmCompleted"/>
 
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

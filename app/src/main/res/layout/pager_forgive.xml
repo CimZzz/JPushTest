@@ -12,7 +12,7 @@
         android:layout_height="@dimen/login_TabH"
         app:leftFont="Phone"
         app:rightFont="Mail"
-        app:fontColor="@color/login_NotActiveTextColor"
+        app:fontColor="@color/greyColor"
         app:fontColorFocused="@color/themeColorBlue"
         app:fontSize="20sp"
         app:lineHeight="@dimen/login_TabLineH"

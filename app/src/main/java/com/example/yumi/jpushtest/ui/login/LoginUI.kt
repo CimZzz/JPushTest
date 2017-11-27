@@ -82,6 +82,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>() {
                 changePager(enterPager)
             }
         }))
+
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
@@ -94,13 +95,9 @@ class LoginUI : BaseUI<IPresenter<*,*>>() {
         backEventSteam.addEvent(pager.backEventSteam)
         val transition = supportFragmentManager.beginTransaction()
         transition.setCustomAnimations(R.anim.fade_in,0)
-        transition.replace(R.id.loginContainer,pager)
+        transition.replace(R.id.customContainerId,pager)
         transition.addToBackStack(null)
         transition.commit()
-    }
-
-    override fun onFirstShowView() {
-        startAnimation(loginCard,R.anim.fade_in_translate)
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
