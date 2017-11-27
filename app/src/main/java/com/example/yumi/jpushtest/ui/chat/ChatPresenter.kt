@@ -8,7 +8,9 @@ import cn.jpush.im.android.api.content.TextContent
 import cn.jpush.im.android.api.content.VoiceContent
 import cn.jpush.im.android.api.enums.ContentType
 import cn.jpush.im.android.api.event.MessageEvent
+import cn.jpush.im.android.api.event.OfflineMessageEvent
 import cn.jpush.im.android.api.model.Conversation
+import cn.jpush.im.android.api.model.Message
 import cn.jpush.im.api.BasicCallback
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.entity.BaseChatItem
@@ -53,7 +55,7 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
             override fun gotResult(p0: Int, p1: String?) {
                 if(p0 != 0)
                     view.sendToast("消息发送失败")
-                view.sendMessageResult(msg.id,p0 == 0)
+                view.sendMessageResult(msg.id,if(p0 == 0)BaseChatItem.STATUS_NORMAL else BaseChatItem.STATUS_FAILED)
             }
         })
         JMessageClient.sendMessage(msg)
@@ -77,7 +79,7 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
             override fun gotResult(p0: Int, p1: String?) {
                 if(p0 != 0)
                     view.sendToast("发送失败")
-                view.sendMessageResult(msg.id,p0 == 0)
+                view.sendMessageResult(msg.id,if(p0 == 0)BaseChatItem.STATUS_NORMAL else BaseChatItem.STATUS_FAILED)
             }
         })
         JMessageClient.sendMessage(msg)
@@ -103,7 +105,7 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
             override fun gotResult(p0: Int, p1: String?) {
                 if(p0 != 0)
                     view.sendToast("发送失败")
-                view.sendMessageResult(msg.id,p0 == 0)
+                view.sendMessageResult(msg.id,if(p0 == 0)BaseChatItem.STATUS_NORMAL else BaseChatItem.STATUS_FAILED)
             }
         })
         JMessageClient.sendMessage(msg)
@@ -122,10 +124,21 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
         })
     }
 
-    fun onEventMainThread(event: MessageEvent) {
-        val msg = event.message
-        logV("msgId : ${msg.id}")
 
+    fun onEventMainThread(event: OfflineMessageEvent) {
+        event.offlineMessageList.forEach {
+            logV("Offline message : ChatUI,type : ${it.content.javaClass.simpleName} , msgType : ${it.contentType}")
+            receiverNewMessage(it)
+        }
+    }
+
+    fun onEventMainThread(event: MessageEvent) {
+        logV("message : ChatUI")
+        receiverNewMessage(event.message)
+    }
+
+    private fun receiverNewMessage(msg: Message) {
+        logV("A")
         when(msg.contentType) {
             ContentType.text-> {
                 val convertMsg = TextChatItem(
@@ -139,19 +152,22 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
                 view.addMsg(convertMsg)
             }
             ContentType.image-> {
+                logV("B")
                 val content = msg.content as ImageContent
+                logV("B2")
                 val convertMsg = ImageChatItem(
                         msg.id,
                         msg.fromUser.userName,
                         view.getMyUserName(),
                         msg.createTime,
                         BaseChatItem.STATUS_NORMAL,
-                        content.localThumbnailPath,
-                        BaseChatItem.DOWNLOAD_NOT_DOWNLOAD,
+                        if(content.localThumbnailPath == null) "" else content.localThumbnailPath,
+                        if(content.localThumbnailPath == null) BaseChatItem.DOWNLOAD_NOT_DOWNLOAD else BaseChatItem.DOWNLOAD_NO_THUMBNAIL,
                         content.crc,
                         content.mediaID,
                         content.fileSize
                 )
+                logV("C")
                 view.addMsg(convertMsg)
             }
             ContentType.voice-> {
@@ -171,6 +187,7 @@ class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IP
                         content.fileSize)
                 view.addMsg(convertMsg)
             }
+            else -> logV("Unknown type")
         }
     }
 }

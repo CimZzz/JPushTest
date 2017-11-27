@@ -164,6 +164,7 @@ class SliderSwitchView(context : Context, attr : AttributeSet) : View(context,at
         paint.textSize = fontSize
         paint.textAlign = Paint.Align.CENTER
         paint.typeface = Typeface.DEFAULT_BOLD
+        paint.strokeCap = Paint.Cap.ROUND
 
 
         if(isLeftActive) {

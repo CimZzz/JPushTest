@@ -36,9 +36,7 @@ class LoadUI : BaseUI<IPresenter<*,*>>() {
         creater!!.setHasToolBar(false)
         stateRecord.registerObserver(ObserverBuilder().stateId("changeUI").refType(ReferenceType.STRONG).observer(object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
-                startActivity(Intent(this@LoadUI,LoginUI::class.java)
-                        ,ActivityOptionsCompat.makeSceneTransitionAnimation(this@LoadUI,loadBotText,"SHARE").toBundle())
-
+                changeUI(LoginUI::class.java)
                 timer!!.cancel()
                 task!!.cancel()
                 timer = null
@@ -49,9 +47,6 @@ class LoadUI : BaseUI<IPresenter<*,*>>() {
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
-        val dm = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(dm)
-        sendToast(dm.densityDpi)
     }
 
     override fun onResume() {
@@ -63,8 +58,10 @@ class LoadUI : BaseUI<IPresenter<*,*>>() {
 
     override fun onPause() {
         super.onPause()
-        timer!!.cancel()
-        task!!.cancel()
+        if(timer != null)
+            timer!!.cancel()
+        if(task != null)
+            task!!.cancel()
         timer = null
         task = null
     }

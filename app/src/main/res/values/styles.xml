@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/themeColorBlue</item>
+        <item name="colorPrimaryDark">@color/themeColorBlueDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:windowContentTransitions">true</item>
@@ -20,4 +20,11 @@
         <item name="colorControlNormal">#5e5e5e</item>
         <item name="colorControlActivated">#afafaf</item>
     </style>
+
+    <style name="test" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/bg_enter_loginbtn</item>
+    </style>
+    <color name="themeColorBlue">#1BB5EC</color>
+    <color name="themeColorBlueDark">#0eb4ef</color>
+    <color name="login_NotActiveTextColor">#cbcbcb</color>
 </resources>

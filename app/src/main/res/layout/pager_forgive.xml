@@ -9,14 +9,14 @@
 
     <com.example.yumi.jpushtest.widgets.SliderSwitchView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/login_TabH"
         app:leftFont="Phone"
         app:rightFont="Mail"
+        app:fontColor="@color/login_NotActiveTextColor"
+        app:fontColorFocused="@color/themeColorBlue"
         app:fontSize="20sp"
-        app:fontColor="#cbcbcb"
-        app:fontColorFocused="#1bb4eb"
-        app:lineHeight="4dp"
-        app:lineHeightMargin="3dp"
+        app:lineHeight="@dimen/login_TabLineH"
+        app:lineHeightMargin="@dimen/login_TabLineMarginTop"
         android:id="@+id/forgiveTab"/>
 
     <FrameLayout

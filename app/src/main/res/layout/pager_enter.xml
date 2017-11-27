@@ -9,14 +9,14 @@
 
     <com.example.yumi.jpushtest.widgets.SliderSwitchView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/login_TabH"
         app:leftFont="Login"
         app:rightFont="Register"
+        app:fontColor="@color/login_NotActiveTextColor"
+        app:fontColorFocused="@color/themeColorBlue"
         app:fontSize="20sp"
-        app:fontColor="#cbcbcb"
-        app:fontColorFocused="#1bb4eb"
-        app:lineHeight="4dp"
-        app:lineHeightMargin="3dp"
+        app:lineHeight="@dimen/login_TabLineH"
+        app:lineHeightMargin="@dimen/login_TabLineMarginTop"
         android:id="@+id/enterTab"/>
 
 
@@ -31,10 +31,9 @@
             android:orientation="vertical">
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="10.5dp"
-                android:layout_marginBottom="10.5dp"
+                android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
+                android:textSize="@dimen/login_TextSize"
                 android:hint="输入手机号码/邮箱"/>
 
             <View
@@ -44,11 +43,10 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginBottom="15.5dp"
+                android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
                 android:inputType="textPassword"
+                android:textSize="@dimen/login_TextSize"
                 android:hint="输入密码"/>
 
             <View
@@ -58,16 +56,17 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="29.5dp"
-                android:text="登  录"
+                android:layout_height="@dimen/login_BigBtnH"
+                android:layout_marginTop="@dimen/login_BigBtnMarginTop"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="登录"
                 android:textColor="#FFF"
                 android:background="@drawable/bg_enter_loginbtn"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="13dp">
+                android:layout_marginTop="@dimen/login_BotBtnMarginTop">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -104,10 +103,9 @@
             android:orientation="vertical">
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="10.5dp"
-                android:layout_marginBottom="10.5dp"
+                android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
+                android:textSize="@dimen/login_TextSize"
                 android:hint="输入手机号码/邮箱"/>
 
             <View
@@ -118,25 +116,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/login_InputH"
                     android:layout_weight="1"
                     android:background="#00000000"
+                    android:textSize="@dimen/login_TextSize"
                     android:hint="输入验证码"/>
                 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/login_SmallBtnW"
+                    android:layout_height="@dimen/login_SmallBtnH"
                     android:background="@drawable/bg_enter_validbtn"
                     android:textSize="12sp"
                     android:text="获取验证码"
-                    android:textColor="#1BB5EC"/>
+                    android:textColor="@color/themeColorBlue"/>
             </LinearLayout>
 
             <View
@@ -146,11 +143,10 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginBottom="15.5dp"
+                android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
                 android:inputType="textPassword"
+                android:textSize="@dimen/login_TextSize"
                 android:hint="输入密码"/>
 
             <View
@@ -160,16 +156,17 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="29.5dp"
-                android:text="注  册"
-                android:textColor="#FFF"
-                android:background="@drawable/bg_enter_loginbtn"/>
+                android:layout_height="@dimen/login_BigBtnH"
+                android:layout_marginTop="@dimen/login_BigBtnMarginTop"
+                style="@style/test"
+                android:clickable="true"
+                android:text="注册"
+                android:textColor="#FFF"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="@dimen/login_BotBtnMarginTop">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -188,7 +185,7 @@
                         android:layout_height="wrap_content"
                         android:text="《免责声明》"
                         android:textSize="12sp"
-                        android:textColor="#1BB5EC"/>
+                        android:textColor="@color/themeColorBlue"/>
 
                 </LinearLayout>
             </FrameLayout>

@@ -17,7 +17,7 @@ interface IChatContract {
         fun getOppositeUserName() : String
         fun getMyUserName() : String
         fun addMsg(msg : BaseChatItem)
-        fun sendMessageResult(msgId : Int,isSuccess : Boolean)
+        fun sendMessageResult(msgId : Int,result : Int)
         fun setDownloadVoiceResult(result:Int, msgId : Int, filePath : String)
     }
 

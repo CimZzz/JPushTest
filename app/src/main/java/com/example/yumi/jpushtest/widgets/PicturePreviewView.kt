@@ -171,9 +171,6 @@ class PicturePreviewView(context: Context, attrs: AttributeSet) : View(context, 
                     else if(tmpRatio < minimumRatio)
                         tmpRatio = minimumRatio
 
-                    if(tmpRatio == ratio)
-                        return true
-
                     val afterW = bitmap!!.width * tmpRatio
                     val afterH = bitmap!!.height * tmpRatio
 
@@ -289,8 +286,8 @@ class PicturePreviewView(context: Context, attrs: AttributeSet) : View(context, 
                 val biggerSize = if(tmpBitmap!!.width > tmpBitmap!!.height) tmpBitmap!!.width else tmpBitmap!!.height
                 val smallerSize = if(tmpBitmap!!.width > tmpBitmap!!.height) tmpBitmap!!.height else tmpBitmap!!.width
 
-                maxmumRatio = MAX_SIZE / biggerSize
-                minimumRatio = MIN_SIZE / smallerSize
+                maxmumRatio = MAX_SIZE / smallerSize
+                minimumRatio = MIN_SIZE / biggerSize
             }
 
 

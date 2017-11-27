@@ -26,6 +26,7 @@ abstract class BaseChatItem (
         val DOWNLOAD_DOWNLOADED = 0
         val DOWNLOAD_NOT_DOWNLOAD = 1
         val DOWNLOAD_INVALID = 2
+        val DOWNLOAD_NO_THUMBNAIL = 3
     }
 }
 

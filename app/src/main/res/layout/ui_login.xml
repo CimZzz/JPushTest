@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:background="#21bcf3">
+        android:layout_height="@dimen/login_TopH"
+        android:background="@color/themeColorBlue">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -18,46 +18,36 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="#F00"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="BangBangSuDi"
-                android:textColor="#FFF"
-                android:textSize="20sp"
-                android:transitionName="SHARE"
-                android:layout_gravity="bottom|center_horizontal"
-                android:id="@+id/loadBotText"/>
+                android:layout_width="@dimen/login_TopLogoW"
+                android:layout_height="@dimen/login_TopLogoH"
+                android:src="@drawable/icon_logo" />
 
         </LinearLayout>
 
     </FrameLayout>
 
-    <android.support.v7.widget.CardView
+    <com.example.yumi.jpushtest.widgets.CustomCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="225dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="30dp"
+        android:layout_marginEnd="@dimen/login_ContentMarginSide"
+        android:layout_marginStart="@dimen/login_ContentMarginSide"
+        android:layout_marginTop="@dimen/login_ContentMarginTop"
+        android:background="@drawable/bg_login_content"
         android:id="@+id/loginCard">
+
 
         <FrameLayout
             android:id="@+id/loginContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="30dp"
-            android:paddingBottom="30dp">
+            android:paddingStart="@dimen/login_ContentPaddingSide"
+            android:paddingEnd="@dimen/login_ContentPaddingSide"
+            android:paddingTop="@dimen/login_ContentPaddingBox"
+            android:paddingBottom="@dimen/login_ContentPaddingBox">
 
         </FrameLayout>
 
-    </android.support.v7.widget.CardView>
+    </com.example.yumi.jpushtest.widgets.CustomCardView>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -79,5 +69,6 @@
             android:layout_marginTop="8dp"
             android:src="@drawable/icon_wechat"/>
     </LinearLayout>
+
 
 </FrameLayout>

@@ -79,7 +79,7 @@ public class RecyclerRefreshView extends PullToRefreshBase<View> {
         if (firstView == null)
             return false;
         int indexOfAdapter = recyclerView.getChildAdapterPosition(firstView);
-        return indexOfAdapter == 0 && firstView.getTop() <= recyclerView.getTop();
+        return indexOfAdapter == 0 && firstView.getTop() == recyclerView.getTop();
     }
     public void setAdapter(RecyclerView.Adapter adapter) {
         recyclerView.setAdapter(adapter);

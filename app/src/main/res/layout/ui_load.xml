@@ -3,17 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#36afeb">
+    android:background="@drawable/img_loadbg">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BangBangSuDi"
-        android:textColor="#FFF"
-        android:textSize="20sp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="50dp"
-        android:id="@+id/loadBotText"/>
-
-
+        android:layout_marginBottom="@dimen/load_BotTextMarginBot"
+        android:text="BangBangSuDi"
+        android:textSize="18sp"
+        android:textColor="#FFF"/>
 </FrameLayout>

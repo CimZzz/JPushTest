@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.entity.BaseChatItem
+import com.handmark.pulltorefresh.library.PullToRefreshBase
 
 /**
  * Created by CimZzz(王彦雄) on 11/25/17.<br>
@@ -19,6 +20,7 @@ class ChatStatusView(context : Context,attrs : AttributeSet) : FrameLayout(conte
 
     val loadView : ProgressBar = ProgressBar(context)
     val failedView : ImageView = ImageView(context)
+    var curStatus : Int = 0
 
     init {
         val loadViewParams = FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT)
@@ -28,10 +30,12 @@ class ChatStatusView(context : Context,attrs : AttributeSet) : FrameLayout(conte
 
         addView(loadView,loadViewParams)
         addView(failedView,failedViewParams)
+        curStatus = BaseChatItem.STATUS_NORMAL
     }
 
 
     fun setStatus(status : Int) {
+        curStatus = status
         when(status) {
             BaseChatItem.STATUS_NORMAL-> {
                 loadView.visibility = View.GONE

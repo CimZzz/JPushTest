@@ -12,6 +12,7 @@ import cn.jpush.im.android.api.JMessageClient
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.entity.*
 import com.example.yumi.jpushtest.utils.convert2TimeStr
+import com.example.yumi.jpushtest.utils.isEmptyString
 import com.example.yumi.jpushtest.utils.loadPic
 import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.widgets.ChatContainer
@@ -47,19 +48,41 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
+    val statusClick = View.OnClickListener {
+        if(it is ChatStatusView) {
+            if(it.curStatus == BaseChatItem.STATUS_FAILED) {
+                listener?.onUploadFailedClick(it.tag as BaseChatItem)
+            }
+        }
+    }
+
     fun addMsg(msg : BaseChatItem) {
         msgArray.add(msg)
         notifyItemRangeInserted(msgArray.size,1)
     }
 
-    fun updateMsgStatus(id : Int,result : Boolean) {
+    fun removeMsg(msgId : Int) {
+        var index = -1
+        for(i in msgArray.size-1 downTo 0) {
+            val item = msgArray[i]
+            if(item is BaseChatItem) {
+                index = i
+            }
+        }
+        if(index != -1) {
+            msgArray.removeAt(index)
+            notifyItemRemoved(index)
+        }
+    }
+
+    fun updateMsgStatus(id : Int,status : Int) {
         var index = -1
         for(i in msgArray.size-1 downTo 0) {
             val item = msgArray[i]
             if(item is BaseChatItem) {
                 if(item.msgId == id) {
                     index = i
-                    item.status = if(result) BaseChatItem.STATUS_NORMAL else BaseChatItem.STATUS_FAILED
+                    item.status = status
                     break
                 }
             }
@@ -119,6 +142,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             else holder.headPic.setImageResource(R.drawable.icon_dog)
 
             holder.chatStatusView.setStatus(item.status)
+            holder.chatStatusView.tag = item
 
             if(holder is TextChatHolder) {
                 val concretedItem = item as TextChatItem
@@ -128,7 +152,10 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             else if (holder is ImageChatHolder) {
                 val concretedItem = item as ImageChatItem
                 holder.chatContainer.tag = concretedItem
-                loadPic("file:///"+concretedItem.imgLink,holder.imgMsgView)
+                if(isEmptyString(concretedItem.imgLink)) {
+
+                }
+                else loadPic("file:///"+concretedItem.imgLink,holder.imgMsgView)
             }
             else if (holder is VoiceChatHolder) {
                 val concretedItem = item as VoiceChatItem
@@ -194,6 +221,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         init {
             chatContainer.setOnClickListener(contentClick)
+            chatStatusView.setOnClickListener(statusClick)
         }
 
         open fun isOwn(isOwn : Boolean) {
@@ -276,5 +304,6 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun onTextContentClick(text : String)
         fun onImageContentClick(item : ImageChatItem,view : View)
         fun onVoiceContentClick(item : VoiceChatItem,view : VoiceIconView)
+        fun onUploadFailedClick(item : BaseChatItem)
     }
 }

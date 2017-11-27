@@ -1,13 +1,18 @@
 package com.example.yumi.jpushtest.ui.login
 
+import android.content.Context
 import android.os.Bundle
+import android.support.design.R.attr.height
+import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
+import android.view.WindowManager
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.utils.BasePagerPool
+import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import com.virtualightning.stateframework.constant.ReferenceType

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="load_BotTextMarginBot">42dp</dimen>
+
+    <dimen name="login_TopH">263.952dp</dimen>
+    <dimen name="login_TopLogoW">195.8dp</dimen>
+    <dimen name="login_TopLogoH">111.3dp</dimen>
+    <dimen name="login_ContentMarginTop">216dp</dimen>
+    <dimen name="login_ContentMarginSide">23.9dp</dimen>
+    <dimen name="login_ContentPaddingSide">28.8dp</dimen>
+    <dimen name="login_ContentPaddingBox">15dp</dimen>
+    <dimen name="login_ThirdMarginBot">33.59dp</dimen>
+    <dimen name="login_ThirdTextMarginBot">7.67dp</dimen>
+    <dimen name="login_TabH">30dp</dimen>
+    <dimen name="login_TabLineH">1.5dp</dimen>
+    <dimen name="login_TabLineMarginTop">5dp</dimen>
+    <dimen name="login_InputH">51.06dp</dimen>
+    <dimen name="login_BigBtnH">47.99dp</dimen>
+    <dimen name="login_BigBtnMarginTop">28.32dp</dimen>
+    <dimen name="login_BotBtnMarginTop">12.48dp</dimen>
+    <dimen name="login_SmallBtnW">79.2dp</dimen>
+    <dimen name="login_SmallBtnH">28.8dp</dimen>
+    <dimen name="login_TextSize">14sp</dimen>
+</resources>

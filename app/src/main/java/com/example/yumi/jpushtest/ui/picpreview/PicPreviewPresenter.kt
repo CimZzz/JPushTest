@@ -6,6 +6,7 @@ import cn.jpush.im.android.api.content.ImageContent
 import cn.jpush.im.android.api.enums.ContentType
 import cn.jpush.im.android.api.model.Conversation
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.utils.downloadOriginImage
 import com.example.yumi.jpushtest.utils.logV
 import java.io.File
 
@@ -24,16 +25,12 @@ class PicPreviewPresenter(view : IPicPreviewContract.View, method :IPicPreviewCo
     }
 
     fun downloadOriginImage(userName:String,mediaId : String, mediaCrc : Long) {
-        val content = ImageContent.fromJson("{\"media_crc32\":$mediaCrc,\"media_id\":\"$mediaId\"}", ContentType.image) as ImageContent
-        val msg = Conversation.createSingleConversation(userName, JCoreInterface.getAppKey()).createSendMessage(content)
-        content.downloadOriginImage(msg,object : DownloadCompletionCallback() {
-            override fun onComplete(p0: Int, p1: String?, p2: File?) {
-                logV("Download : $p0,$p1")
-                if(p0 == 0)
-                    view.setDownloadResult(RES_SUCCESS,p2!!.absolutePath)
-                else view.setDownloadResult(RES_FAILED,"")
-            }
-
+        downloadOriginImage(userName, mediaId, mediaCrc,{
+            p0,p1,p2->
+            logV("Download : $p0,$p1")
+            if(p0 == 0)
+                view.setDownloadResult(RES_SUCCESS,p2!!.absolutePath)
+            else view.setDownloadResult(RES_FAILED,"")
         })
     }
 }

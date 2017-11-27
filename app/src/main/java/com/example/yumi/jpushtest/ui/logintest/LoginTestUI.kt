@@ -3,11 +3,14 @@ package com.example.yumi.jpushtest.ui.logintest
 import android.os.Bundle
 import android.view.View
 import cn.jpush.im.android.api.JMessageClient
+import cn.jpush.im.android.api.event.MessageEvent
+import cn.jpush.im.android.api.event.OfflineMessageEvent
 import cn.jpush.im.api.BasicCallback
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.ui.chat.ChatUI
+import com.example.yumi.jpushtest.utils.logV
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import kotlinx.android.synthetic.main.ui_logintest.*
 
@@ -45,6 +48,7 @@ class LoginTestUI : BaseUI<IPresenter<*,*>>() {
                         val bundle = Bundle()
                         bundle.putString("UserName",userName)
                         bundle.putString("OppositeUserName",oppositeUserName)
+                        JMessageClient.registerEventReceiver(this@LoginTestUI)
                         changeUI(ChatUI::class.java,bundle)
                     } else {
                         sendToast("登陆失败:$p1")
@@ -59,4 +63,13 @@ class LoginTestUI : BaseUI<IPresenter<*,*>>() {
     }
 
 
+
+    fun onEventMainThread(event: OfflineMessageEvent) {
+        event.offlineMessageList.forEach {
+            logV("Offline message : LoginUI")
+        }
+    }
+
+    fun onEventMainThread(event: MessageEvent) {
+    }
 }

@@ -5,13 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.speech.tts.Voice
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
 import android.text.Editable
-import android.text.Selection
-import android.text.Spanned
 import android.text.TextWatcher
 import android.view.*
 import android.view.animation.AnimationUtils
@@ -26,6 +23,7 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.entity.BaseChatItem
 import com.example.yumi.jpushtest.entity.ImageChatItem
+import com.example.yumi.jpushtest.entity.TextChatItem
 import com.example.yumi.jpushtest.entity.VoiceChatItem
 import com.example.yumi.jpushtest.environment.REQ_CHAT
 import com.example.yumi.jpushtest.environment.RES_PIC_PATH_CHANGE
@@ -86,15 +84,19 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View ,EasyPermissions.Per
     }
 
     override fun addMsg(msg: BaseChatItem) {
+        logV("Add Msg ${msg.javaClass.simpleName}")
         val isNeedScroll = chatList.isListViewLastItemVisible
         adapter.addMsg(msg)
+        logV("Added Msg ${msg.javaClass.simpleName}")
         if(isNeedScroll)
             chatList.recyclerView.scrollToPosition(adapter.itemCount - 1)
     }
 
-    override fun sendMessageResult(msgId: Int, isSuccess: Boolean) {
-        adapter.updateMsgStatus(msgId,isSuccess)
+    override fun sendMessageResult(msgId: Int, result: Int) {
+        adapter.updateMsgStatus(msgId,result)
+
     }
+
 
     override fun onBaseUICreate(creater: ActionBarUICreater) {
         creater.setLayoutID(R.layout.ui_chat)
@@ -297,6 +299,21 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View ,EasyPermissions.Per
         })
 
         adapter.listener = object : ChatAdapter.IContentClickListener {
+            override fun onUploadFailedClick(item: BaseChatItem) {
+                if(item is TextChatItem) {
+                    adapter.removeMsg(item.msgId)
+                    presenter!!.sendTextMsg(item.message)
+                }
+                else if(item is ImageChatItem){
+                    adapter.removeMsg(item.msgId)
+                    presenter!!.sendPicMsg(item.imgLink!!)
+                }
+                else if(item is VoiceChatItem) {
+                    adapter.removeMsg(item.msgId)
+                    presenter!!.sendVoiceMsg(item.voiceLink,item.second)
+                }
+            }
+
             override fun onVoiceContentClick(item: VoiceChatItem, view: VoiceIconView) {
                 if(item.downloadFlag == BaseChatItem.DOWNLOAD_DOWNLOADED) {
                     if(stopPlayingVoice() == item.msgId)
