@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="load_BotTextMarginBot">42dp</dimen>
+    <dimen name="actionbar_H">42.33dp</dimen>
+    <dimen name="actionbar_backW">43.2dp</dimen>
+    <dimen name="actionbar_backH">34.56dp</dimen>
+    <dimen name="actionbar_titleTextSize">16sp</dimen>
+
+    <dimen name="load_BotTextMarginBot">42.7dp</dimen>
 
     <dimen name="login_TopH">263.952dp</dimen>
     <dimen name="login_TopLogoW">195.8dp</dimen>
@@ -21,4 +26,46 @@
     <dimen name="login_SmallBtnW">79.2dp</dimen>
     <dimen name="login_SmallBtnH">28.8dp</dimen>
     <dimen name="login_TextSize">14sp</dimen>
+
+    <dimen name="main_TopH">263.952dp</dimen>
+    <dimen name="main_TopLogoW">195.8dp</dimen>
+    <dimen name="main_TopLogoH">111.3dp</dimen>
+    <dimen name="main_ContentMarginTop">216dp</dimen>
+    <dimen name="main_ContentMarginSide">23.9dp</dimen>
+    <dimen name="main_ContentPaddingSide">28.8dp</dimen>
+    <dimen name="main_ContentPaddingBox">15dp</dimen>
+    <dimen name="main_TopImgH">37dp</dimen>
+    <dimen name="main_MidImgSize">21dp</dimen>
+    <dimen name="main_BigAddressTextSize">22sp</dimen>
+    <dimen name="main_SmallAddressTextSize">14sp</dimen>
+    <dimen name="main_AddressMidGap">2dp</dimen>
+    <dimen name="main_AddressDirectorMarginTop">6dp</dimen>
+    <dimen name="main_littleLogoSize">15dp</dimen>
+    <dimen name="main_littleLogoMargin">10.2dp</dimen>
+    <dimen name="main_SplitterMarginStart">35.4dp</dimen>
+    <dimen name="main_ContentTextSize">11sp</dimen>
+    <dimen name="main_BigBtnH">47.99dp</dimen>
+    <dimen name="main_BigBtnMarginBox">38dp</dimen>
+    <dimen name="main_BotBtnSize">26.78dp</dimen>
+    <dimen name="main_BotBtnMarginBot">21dp</dimen>
+
+    <dimen name="country_InputH">57.6dp</dimen>
+    <dimen name="country_InputMarginLeft">14.4dp</dimen>
+    <dimen name="country_MarginSide">19.19dp</dimen>
+    <dimen name="country_InputImgSize">14.4dp</dimen>
+    <dimen name="country_PickerW">10.5dp</dimen>
+    <dimen name="country_CapH">22.07dp</dimen>
+    <dimen name="country_CapTextSize">10sp</dimen>
+    <dimen name="country_ItemH">52.31dp</dimen>
+    <dimen name="country_ItemImgW">17.28dp</dimen>
+    <dimen name="country_ItemImgH">12.48dp</dimen>
+    <dimen name="country_ItemTextSize">12sp</dimen>
+    <dimen name="country_LetterGap">2.4dp</dimen>
+    <dimen name="country_LetterTextSize">10.5sp</dimen>
+
+    <dimen name="time_ItemDateH">64.8dp</dimen>
+    <dimen name="time_ItemDateTextSize">13sp</dimen>
+    <dimen name="time_ItemH">37.99dp</dimen>
+    <dimen name="time_ItemTextSize">10sp</dimen>
+
 </resources>

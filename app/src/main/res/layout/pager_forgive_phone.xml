@@ -59,8 +59,7 @@
             android:layout_marginTop="@dimen/login_BigBtnMarginTop"
             android:text="下一步"
             android:textColor="#FFF"
-            android:background="@drawable/bg_enter_loginbtn"
-            style="?android:attr/borderlessButtonStyle"
+            style="@style/BtnStyle_Theme"
             android:id="@+id/forgivePhoneNext"/>
 
     </LinearLayout>

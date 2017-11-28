@@ -21,7 +21,7 @@
         <item name="colorControlActivated">#afafaf</item>
     </style>
 
-    <style name="test" parent="@style/Widget.AppCompat.Button.Borderless">
+    <style name="BtnStyle_Theme" parent="@style/Widget.AppCompat.Button.Borderless">
         <item name="android:background">@drawable/bg_enter_loginbtn</item>
     </style>
 </resources>

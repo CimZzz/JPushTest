@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/country_MarginSide"
+        android:layout_marginEnd="@dimen/country_MarginSide"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center">
+        
+        <ImageView
+            android:layout_width="@dimen/country_InputImgSize"
+            android:layout_height="@dimen/country_InputImgSize"
+            android:background="#F00"/>
+
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="@dimen/country_InputH"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/country_InputMarginLeft"
+            android:background="#0000"
+            android:hint="Search"
+            android:id="@+id/countryInput"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/countryList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdgeLength="0dp"
+            android:fadeScrollbars="false"
+            android:fadingEdge="none"/>
+
+        <com.example.yumi.jpushtest.widgets.LetterPickerView
+            android:layout_width="@dimen/country_PickerW"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/country_MarginSide"
+            android:scrollbars="none"
+            android:fadingEdgeLength="0dp"
+            android:fadeScrollbars="false"
+            android:fadingEdge="none"
+            android:divider="#00000000"
+            android:dividerHeight="@dimen/country_LetterGap"
+            app:letterSize="@dimen/country_LetterTextSize"
+            app:letterColor="@color/themeColorBlue"
+            android:id="@+id/countryLetterPicker"/>
+    </FrameLayout>
+</LinearLayout>

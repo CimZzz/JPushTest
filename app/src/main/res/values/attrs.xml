@@ -27,4 +27,19 @@
     <declare-styleable name="CustomContainerView">
         <attr name="bg" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="AddressView">
+        <attr name="smallColor" format="color"/>
+        <attr name="bigColor" format="color"/>
+        <attr name="midGap" format="dimension"/>
+        <attr name="bigSize" format="dimension"/>
+        <attr name="smallSize" format="dimension"/>
+        <attr name="bigText" format="string"/>
+        <attr name="smallText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="LetterPickerView">
+        <attr name="letterColor" format="color"/>
+        <attr name="letterSize" format="dimension"/>
+    </declare-styleable>
 </resources>

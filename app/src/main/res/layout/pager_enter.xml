@@ -60,10 +60,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/login_BigBtnH"
                 android:layout_marginTop="@dimen/login_BigBtnMarginTop"
-                style="?android:attr/borderlessButtonStyle"
+                style="@style/BtnStyle_Theme"
                 android:text="登录"
-                android:textColor="#FFF"
-                android:background="@drawable/bg_enter_loginbtn"/>
+                android:textColor="#FFF"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -160,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/login_BigBtnH"
                 android:layout_marginTop="@dimen/login_BigBtnMarginTop"
-                style="@style/test"
+                style="@style/BtnStyle_Theme"
                 android:clickable="true"
                 android:text="注册"
                 android:textColor="#FFF"/>

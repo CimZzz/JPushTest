@@ -19,8 +19,8 @@ import com.example.yumi.jpushtest.utils.sp2px
  * 描述
  */
 class CustomContainerView(context: Context, attrs: AttributeSet) : FrameLayout(context, attrs) {
-    val bgView = ImageView(context)
-    val subLayout = FrameLayout(context)
+    private val bgView = ImageView(context)
+    private val subLayout = FrameLayout(context)
     var src : Int = -1
     init {
         val arr = context.obtainStyledAttributes(attrs, R.styleable.CustomContainerView)
@@ -46,9 +46,9 @@ class CustomContainerView(context: Context, attrs: AttributeSet) : FrameLayout(c
         bgView.measure(widthMeasureSpec,MeasureSpec.makeMeasureSpec(subLayout.measuredHeight,MeasureSpec.EXACTLY))
     }
 
-    override fun addView(child: View?) {
+    override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         if(bgView == child || subLayout == child)
-            super.addView(child)
-        else subLayout.addView(child)
+            super.addView(child,index, params)
+        else subLayout.addView(child,index,params)
     }
 }

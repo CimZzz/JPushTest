@@ -42,10 +42,9 @@ android:focusableInTouchMode="true" >
             android:layout_width="match_parent"
             android:layout_height="@dimen/login_BigBtnH"
             android:layout_marginTop="@dimen/login_BigBtnMarginTop"
-            style="?android:attr/borderlessButtonStyle"
+            style="@style/BtnStyle_Theme"
             android:text="完成"
             android:textColor="#FFF"
-            android:background="@drawable/bg_enter_loginbtn"
             android:id="@+id/pwdConfirmCompleted"/>
 
     </LinearLayout>

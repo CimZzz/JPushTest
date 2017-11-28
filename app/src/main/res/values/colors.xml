@@ -9,4 +9,17 @@
     <color name="themeColorBlueDark">#0eb4ef</color>
     <color name="greyColor">#97A4B0</color>
     <color name="splitterColor">#dadada</color>
+
+    <color name="main_BigAddressColor">#2F5573</color>
+    <color name="main_SmallAddressColor">#CCCCCC</color>
+    <color name="main_TextColor">#393E46</color>
+
+    <color name="country_CapColor">#fff7f7f7</color>
+    <color name="country_CapTextColor">#858585</color>
+    <color name="country_ItemTextColor">#1C1C1C</color>
+    <color name="country_DividerColor">#EBEBEB</color>
+
+    <color name="time_TopColor">#f5f4f4</color>
+    <color name="time_TopTextColor">#333333</color>
+    <color name="time_ItemTextColor">#7C86A2</color>
 </resources>

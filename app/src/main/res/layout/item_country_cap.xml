@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/country_CapH"
+    android:paddingStart="@dimen/country_MarginSide"
+    android:paddingEnd="@dimen/country_MarginSide"
+    android:background="@color/country_CapColor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="A"
+        android:textColor="@color/country_CapTextColor"
+        android:textSize="@dimen/country_CapTextSize"
+        android:id="@+id/countryItemCap"/>
+
+</FrameLayout>

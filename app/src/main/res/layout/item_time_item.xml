@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/time_ItemDateH"
+        android:gravity="center"
+        android:text="2017年11月"
+        android:textSize="@dimen/time_ItemDateTextSize"
+        android:textColor="@color/time_TopTextColor"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine2">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine3">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine4">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine5">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeItemLine6">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/time_ItemH"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/time_ItemTextSize"
+            android:textColor="@color/time_ItemTextColor"/>
+
+    </LinearLayout>
+</LinearLayout>

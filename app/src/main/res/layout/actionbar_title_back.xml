@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_H"
+    android:background="@color/themeColorBlue">
+    
+    <ImageView
+        android:layout_width="@dimen/actionbar_backW"
+        android:layout_height="@dimen/actionbar_backH"
+        android:background="#F00"
+        android:layout_gravity="center_vertical"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/actionbar_titleTextSize"
+        android:text="国家选择"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

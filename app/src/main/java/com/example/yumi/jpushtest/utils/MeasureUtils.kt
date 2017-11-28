@@ -21,10 +21,23 @@ fun px2dp(context : Context,px : Int) : Float {
     return (px * 1.0f / density + 0.5f).toInt().toFloat()
 }
 
+/**
+ * convert px to its equivalent sp
+ *
+ * 将px转换为sp
+ */
+fun px2sp(context: Context, pxValue: Float): Int {
+    val fontScale = context.resources.displayMetrics.scaledDensity
+    return (pxValue / fontScale + 0.5f).toInt()
+}
 
-fun sp2px(context: Context, spVal: Float): Int {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
 
-            spVal, context.resources.displayMetrics).toInt()
-
+/**
+ * convert sp to its equivalent px
+ *
+ * 将sp转换为px
+ */
+fun sp2px(context: Context, spValue: Float): Int {
+    val fontScale = context.resources.displayMetrics.scaledDensity
+    return (spValue * fontScale + 0.5f).toInt()
 }

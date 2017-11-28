@@ -39,16 +39,29 @@
         <activity android:name=".ui.load.LoadUI"
             android:screenOrientation="portrait"
             android:configChanges="screenSize|keyboard|orientation">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <activity android:name=".ui.login.LoginUI"
             android:screenOrientation="portrait"
             android:configChanges="screenSize|keyboard|orientation"
             android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <activity android:name=".ui.main.MainUI"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|keyboard|orientation"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
+
+        <activity android:name=".ui.country.CountryUI"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|keyboard|orientation"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
 

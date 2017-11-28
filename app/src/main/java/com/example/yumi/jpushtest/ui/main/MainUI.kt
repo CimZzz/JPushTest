@@ -1,6 +1,7 @@
 package com.example.yumi.jpushtest.ui.main
 
 import android.os.Bundle
+import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
@@ -12,7 +13,8 @@ import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
  * 描述
  */
 class MainUI : BaseUI<IPresenter<*,*>>() {
-    override fun onBaseUICreate(creater: ActionBarUICreater?) {
+    override fun onBaseUICreate(creater: ActionBarUICreater) {
+        creater.setLayoutID(R.layout.ui_main)
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
