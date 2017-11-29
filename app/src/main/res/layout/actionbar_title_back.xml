@@ -9,14 +9,15 @@
         android:layout_width="@dimen/actionbar_backW"
         android:layout_height="@dimen/actionbar_backH"
         android:background="#F00"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:id="@+id/actionbarBack"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/actionbar_titleTextSize"
-        android:text="国家选择"
         android:textColor="#FFFFFF"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:id="@+id/actionbarTitle"/>
 
 </FrameLayout>

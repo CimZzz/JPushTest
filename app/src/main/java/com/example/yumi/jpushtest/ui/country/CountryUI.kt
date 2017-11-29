@@ -17,6 +17,7 @@ import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.utils.isEmptyString
 import com.example.yumi.jpushtest.utils.logV
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
+import kotlinx.android.synthetic.main.actionbar_title_back.*
 import kotlinx.android.synthetic.main.ui_country.*
 
 /**
@@ -34,6 +35,10 @@ class CountryUI : BaseUI<IPresenter<*,*>>() {
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
+        actionbarTitle.text = "国家选择"
+        actionbarBack.setOnClickListener {
+            finish()
+        }
         countryList.layoutManager = LinearLayoutManager(this,OrientationHelper.VERTICAL,false)
         countryList.addItemDecoration(CountryItemDecoration(this))
         val adapter = object : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

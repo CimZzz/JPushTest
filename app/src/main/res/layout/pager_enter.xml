@@ -35,7 +35,8 @@
                 android:background="#00000000"
                 android:textSize="@dimen/login_TextSize"
                 android:hint="输入手机号码/邮箱"
-                android:textColorHint="@color/greyColor"/>
+                android:textColorHint="@color/greyColor"
+                android:id="@+id/enterLoginUserName"/>
 
             <View
                 android:layout_width="match_parent"
@@ -49,7 +50,8 @@
                 android:inputType="textPassword"
                 android:textSize="@dimen/login_TextSize"
                 android:hint="输入密码"
-                android:textColorHint="@color/greyColor"/>
+                android:textColorHint="@color/greyColor"
+                android:id="@+id/enterLoginUserPwd"/>
 
             <View
                 android:layout_width="match_parent"
@@ -62,7 +64,8 @@
                 android:layout_marginTop="@dimen/login_BigBtnMarginTop"
                 style="@style/BtnStyle_Theme"
                 android:text="登录"
-                android:textColor="#FFF"/>
+                android:textColor="#FFF"
+                android:id="@+id/enterLoginBtn"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -162,7 +165,8 @@
                 style="@style/BtnStyle_Theme"
                 android:clickable="true"
                 android:text="注册"
-                android:textColor="#FFF"/>
+                android:textColor="#FFF"
+                android:id="@+id/enterRegisterBtn"/>
 
             <FrameLayout
                 android:layout_width="match_parent"

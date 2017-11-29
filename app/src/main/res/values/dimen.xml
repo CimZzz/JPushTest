@@ -63,9 +63,30 @@
     <dimen name="country_LetterGap">2.4dp</dimen>
     <dimen name="country_LetterTextSize">10.5sp</dimen>
 
-    <dimen name="time_ItemDateH">64.8dp</dimen>
-    <dimen name="time_ItemDateTextSize">13sp</dimen>
-    <dimen name="time_ItemH">37.99dp</dimen>
-    <dimen name="time_ItemTextSize">10sp</dimen>
+    <dimen name="time_ItemDateH">55dp</dimen>
+    <dimen name="time_ItemDateTextSize">15sp</dimen>
+    <dimen name="time_ItemH">40dp</dimen>
+    <dimen name="time_ItemTextSize">11.5sp</dimen>
 
+    <dimen name="send_ToolH">45.11dp</dimen>
+    <dimen name="send_MarginSide">24dp</dimen>
+    <dimen name="send_AddressTextSize">18sp</dimen>
+    <dimen name="send_AddressConnectorSize">14dp</dimen>
+    <dimen name="send_AddressConnectorMarginSide">11.52dp</dimen>
+
+    <dimen name="send_TimeW">121.43dp</dimen>
+    <dimen name="send_TimeH">32.11dp</dimen>
+    <dimen name="send_TimeTextSize">16sp</dimen>
+    <dimen name="send_TimeMarginSide">9.40dp</dimen>
+    <dimen name="send_TimeImageSize">15.06dp</dimen>
+    <dimen name="send_ItemH">137.76dp</dimen>
+    <dimen name="send_ItemTopH">81.60dp</dimen>
+    <dimen name="send_ItemHeadSize">38.40dp</dimen>
+    <dimen name="send_ItemHeadMarginRight">12.96dp</dimen>
+    <dimen name="send_ItemUserInfoTextSize">11sp</dimen>
+    <dimen name="send_ItemUserStatusSize">4.32dp</dimen>
+    <dimen name="send_ItemUserStatusMarginLeft">4.32dp</dimen>
+    <dimen name="send_ItemBtnW">57.6dp</dimen>
+    <dimen name="send_ItemBtnH">28.8dp</dimen>
+    <dimen name="send_ItemBtnTextSize">12sp</dimen>
 </resources>

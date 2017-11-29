@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/send_ItemH"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/send_ItemTopH"
+        android:paddingEnd="@dimen/send_MarginSide"
+        android:paddingStart="@dimen/send_MarginSide">
+
+        <android.support.v4.widget.CircleImageView
+            android:layout_width="@dimen/send_ItemHeadSize"
+            android:layout_height="@dimen/send_ItemHeadSize"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_cat"
+            android:layout_marginRight="@dimen/send_ItemHeadMarginRight"
+            android:id="@+id/sendItemHeadPic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/sendItemHeadPic"
+            android:layout_alignTop="@+id/sendItemHeadPic"
+            android:text="asdasdd"
+            android:textSize="@dimen/send_ItemUserInfoTextSize"
+            android:textColor="@color/send_ItemUserNameTextColor"
+            android:id="@+id/sendItemUserName"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sendItemUserName"
+            android:layout_alignStart="@+id/sendItemUserName"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线"
+                android:textSize="@dimen/send_ItemUserInfoTextSize"
+                android:id="@+id/sendItemUserStatusText"/>
+
+            <View
+                android:layout_width="@dimen/send_ItemUserStatusSize"
+                android:layout_height="@dimen/send_ItemUserStatusSize"
+                android:layout_marginStart="@dimen/send_ItemUserStatusMarginLeft"
+                android:background="#F00"/>
+        </LinearLayout>
+
+        
+        <Button
+            android:layout_width="@dimen/send_ItemBtnW"
+            android:layout_height="@dimen/send_ItemBtnH"
+            style="@style/BtnStyle_Theme"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:text="沟通"
+            android:textSize="@dimen/send_ItemBtnTextSize"
+            android:textColor="#FFF"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:paddingStart="@dimen/send_MarginSide"
+        android:paddingEnd="@dimen/send_MarginSide"
+        android:background="@color/send_ItemBotColor">
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,9 +1,8 @@
 package com.example.yumi.jpushtest.base
 
-import com.example.yumi.jpushtest.utils.ModuleGetter
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
-
+import com.virtualightning.stateframework.state.StateRecord
 
 
 /**
@@ -13,9 +12,8 @@ import android.content.IntentFilter
  * 描述
  */
 interface IView {
-    fun getModuleGetter() : ModuleGetter
-
     fun sendToast(toast: Any)
     fun registerBroadcastReceiver(receiver: BroadcastReceiver, intentFilter: IntentFilter)
     fun unregisterBroadcastReceiver(receiver: BroadcastReceiver)
+    fun gainStateRecord() : StateRecord?
 }

@@ -5,17 +5,15 @@ import android.support.annotation.CallSuper
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
 import com.example.yumi.jpushtest.environment.CustomApplication
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.content.Intent
-import android.support.annotation.Nullable
 import android.support.v4.app.Fragment
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
 import com.example.yumi.jpushtest.ui.login.BackEventSteam
-import com.example.yumi.jpushtest.utils.ModuleGetter
 import com.example.yumi.jpushtest.utils.sendToast
+import com.virtualightning.stateframework.state.ObserverBuilder
+import com.virtualightning.stateframework.state.StateRecord
 
 
 /**
@@ -28,7 +26,6 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     var customApplication: CustomApplication? = null
     protected var presenter: T? = null
     var rootView: View? = null
-    private val getter = ModuleGetter(this)
     var backEventSteam : BackEventSteam? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,8 +49,6 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     protected abstract fun onViewInitialization(savedInstanceState: Bundle?)
     protected open fun getPresenter(savedInstanceState: Bundle?): T? = null
 
-    fun getModuleGetter() : ModuleGetter = getter
-
     fun findViewById(resId: Int): View = rootView!!.findViewById(resId)
 
     fun changeUI(baseUICls: Class<out BaseUI<*>>, requestCode: Int?) {
@@ -62,7 +57,7 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
 
     @JvmOverloads
     fun changeUI(baseUICls: Class<out BaseUI<*>>, bundle: Bundle? = null, requestCode: Int? = null) {
-        val intent = Intent(getContext(), baseUICls)
+        val intent = Intent(context, baseUICls)
         if (bundle != null)
             intent.putExtras(bundle)
         if (requestCode != null)
@@ -82,6 +77,9 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     fun unregisterBroadcastReceiver(receiver: BroadcastReceiver) {
         customApplication!!.applicationContext.unregisterReceiver(receiver)
     }
+
+
+    open fun gainStateRecord() : StateRecord? = null
 
     @CallSuper
     override fun onResume() {

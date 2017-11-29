@@ -9,6 +9,7 @@ import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.state.StateRecord
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.pager_enter.*
 
 /**
@@ -53,6 +54,14 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
 
         enterForgive.setOnClickListener {
             stateRecord!!.notifyState(LoginUI.STATE_FORGIVE)
+        }
+
+        enterLoginBtn.setOnClickListener {
+            stateRecord!!.notifyState(LoginPresenter.STATE_LOGIN,enterLoginUserName.text.toString(),enterLoginUserPwd.text.toString())
+        }
+
+        enterRegisterBtn.setOnClickListener {
+            stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD)
         }
     }
 

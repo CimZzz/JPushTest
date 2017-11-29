@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/send_ToolH"
+        android:background="@color/themeColorBlue"
+        android:paddingStart="@dimen/send_MarginSide"
+        android:paddingEnd="@dimen/send_MarginSide">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中国"
+                android:textSize="@dimen/send_AddressTextSize"
+                android:textColor="@color/send_AddressTextColor"/>
+
+            <ImageView
+                android:layout_width="@dimen/send_AddressConnectorSize"
+                android:layout_height="@dimen/send_AddressConnectorSize"
+                android:layout_marginStart="@dimen/send_AddressConnectorMarginSide"
+                android:layout_marginEnd="@dimen/send_AddressConnectorMarginSide"
+                android:background="#F00"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日本"
+                android:textSize="@dimen/send_AddressTextSize"
+                android:textColor="@color/send_AddressTextColor"/>
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/send_TimeH"
+            android:minWidth="@dimen/send_TimeW"
+            android:layout_gravity="end|center_vertical"
+            android:paddingStart="@dimen/send_TimeMarginSide"
+            android:paddingEnd="@dimen/send_TimeMarginSide"
+            android:background="@drawable/bg_send_time">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="11/27 周一"
+                    android:gravity="end"
+                    android:textSize="@dimen/send_TimeTextSize"
+                    android:textColor="@color/send_AddressTextColor"/>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#F00"
+                    android:layout_marginEnd="@dimen/send_TimeMarginSide"
+                    android:layout_marginStart="@dimen/send_TimeMarginSide"/>
+                
+                <ImageView
+                    android:layout_width="@dimen/send_TimeImageSize"
+                    android:layout_height="@dimen/send_TimeImageSize"
+                    android:background="#F00"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+
+    </FrameLayout>
+</LinearLayout>

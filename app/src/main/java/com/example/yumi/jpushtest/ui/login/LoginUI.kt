@@ -1,18 +1,13 @@
 package com.example.yumi.jpushtest.ui.login
 
-import android.content.Context
 import android.os.Bundle
-import android.support.design.R.attr.height
-import android.util.DisplayMetrics
 import android.view.KeyEvent
 import android.view.View
-import android.view.WindowManager
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.utils.BasePagerPool
-import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import com.virtualightning.stateframework.constant.ReferenceType
@@ -27,7 +22,7 @@ import kotlinx.android.synthetic.main.ui_login.*
  * Description : <br>
  * 描述
  */
-class LoginUI : BaseUI<IPresenter<*,*>>() {
+class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
     val stateRecord : StateRecord = StateRecord.newInstance(this.javaClass)
     val basePagerPool : BasePagerPool = BasePagerPool()
 
@@ -48,11 +43,13 @@ class LoginUI : BaseUI<IPresenter<*,*>>() {
         val STATE_SHOW_THIRD = "s0"
         val STATE_FORGIVE = "s1"
         val STATE_ENTER = "s2"
+
     }
 
-    override fun onBaseUICreate(creater: ActionBarUICreater?) {
-        creater!!.setLayoutID(R.layout.ui_login)
-        creater!!.setHasToolBar(false)
+    override fun onBaseUICreate(creater: ActionBarUICreater) {
+        creater.setLayoutID(R.layout.ui_login)
+        creater.setHasToolBar(false)
+        presenter = LoginPresenter(this,LoginMethod(stateRecord,getCustomApplication().httpModule))
         openAutoCancelSoft = true
 
         stateRecord.registerObserver(ObserverBuilder().stateId(STATE_SHOW_THIRD).refType(ReferenceType.STRONG).observer(object:BaseObserver() {
@@ -99,6 +96,8 @@ class LoginUI : BaseUI<IPresenter<*,*>>() {
         transition.addToBackStack(null)
         transition.commit()
     }
+
+    override fun gainStateRecord(): StateRecord? = stateRecord
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return if(keyCode == KeyEvent.KEYCODE_BACK)

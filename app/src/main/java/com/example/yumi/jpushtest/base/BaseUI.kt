@@ -9,14 +9,12 @@ import android.content.IntentFilter
 import android.content.Intent
 import android.view.MotionEvent
 import com.example.yumi.jpushtest.environment.CustomApplication
-import com.example.yumi.jpushtest.utils.ModuleGetter
 import com.example.yumi.jpushtest.utils.sendToast
-import android.opengl.ETC1.getWidth
-import android.opengl.ETC1.getHeight
 import android.view.View
 import android.widget.EditText
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.inputmethod.InputMethodManager
+import com.virtualightning.stateframework.state.ObserverBuilder
+import com.virtualightning.stateframework.state.StateRecord
 
 
 abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
@@ -24,7 +22,6 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
     var presenter : T? = null
     var isFirstCreate : Boolean = false
     var openAutoCancelSoft : Boolean = false
-    val mGetter : ModuleGetter = ModuleGetter(this)
 
 
 
@@ -66,8 +63,6 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
             startActivity(intent)
     }
 
-    fun getModuleGetter() : ModuleGetter = mGetter
-
     fun getCustomApplication(): CustomApplication = application as CustomApplication
 
     fun sendToast(toast: Any) {
@@ -81,6 +76,8 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
     fun unregisterBroadcastReceiver(receiver: BroadcastReceiver) {
         unregisterReceiver(receiver)
     }
+
+    open fun gainStateRecord() : StateRecord? = null
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)

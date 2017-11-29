@@ -22,4 +22,13 @@
     <color name="time_TopColor">#f5f4f4</color>
     <color name="time_TopTextColor">#333333</color>
     <color name="time_ItemTextColor">#7C86A2</color>
+
+    <color name="send_AddressTextColor">#FFFFFF</color>
+    <color name="send_ItemBotColor">#F9F9F9</color>
+    <color name="send_ItemUserNameTextColor">#33425B</color>
+
+    <color name="send_ItemOnlineColor">#7ED321</color>
+    <color name="send_ItemOfflineColor">#999999</color>
+    <color name="send_ItemOnlineTextColor">#3498DB</color>
+    <color name="send_ItemOfflineTextColor">#999999</color>
 </resources>
