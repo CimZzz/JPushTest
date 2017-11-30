@@ -17,7 +17,10 @@
             android:background="#00000000"
             android:textSize="@dimen/login_TextSize"
             android:hint="输入手机号码"
-            android:textColorHint="@color/greyColor"/>
+            android:inputType="phone"
+            android:maxLines="1"
+            android:textColorHint="@color/greyColor"
+            android:id="@+id/forgivePhoneNum"/>
 
         <View
             android:layout_width="match_parent"
@@ -37,7 +40,10 @@
                 android:background="#00000000"
                 android:textSize="@dimen/login_TextSize"
                 android:hint="输入验证码"
-                android:textColorHint="@color/greyColor"/>
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColorHint="@color/greyColor"
+                android:id="@+id/forgivePhoneValidation"/>
 
             <Button
                 android:layout_width="@dimen/login_SmallBtnW"

@@ -6,6 +6,7 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.utils.BasePagerPool
+import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.state.StateRecord
@@ -23,14 +24,28 @@ import kotlinx.android.synthetic.main.pager_forgive_phone.*
 class ForgiveEmailPager : BasePager<IPresenter<*,*>>() {
     var stateRecord : StateRecord? = null
 
+    init {
+        eventSteam = EventSteam {
+            return@EventSteam when(it) {
+                LoginUI.EVENT_CLEAR_UI-> {
+                    if(forgiveEmailText != null)
+                        forgiveEmailText.setText("")
+                    true
+                }
+                else-> false
+            }
+        }
+    }
+
     override fun init() {
     }
 
     override fun initViewID(): Int = R.layout.pager_forgive_mail
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
+        logV("ForgetEmail : ViewInitialization")
         forgiveEmailNext.setOnClickListener {
-            stateRecord!!.notifyState(ForgivePager.STATE_CONFIRM)
+            stateRecord!!.notifyState(ForgivePager.STATE_CONFIRM,false,forgiveEmailText.text.toString(),"123123123")
         }
     }
 }

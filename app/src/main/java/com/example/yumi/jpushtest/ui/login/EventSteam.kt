@@ -6,14 +6,14 @@ package com.example.yumi.jpushtest.ui.login
  * Description : <br>
  * 描述
  */
-class BackEventSteam(val handleMethod : ()->Boolean) {
-    var subBackEventSteam : BackEventSteam? = null
-    var parentBackEventSteam : BackEventSteam? = null
+class EventSteam(val handleMethod : (String)->Boolean) {
+    var subBackEventSteam : EventSteam? = null
+    var parentBackEventSteam : EventSteam? = null
 
-    fun checkBackEvent() : Boolean {
-        return if(subBackEventSteam != null)
-            subBackEventSteam!!.checkBackEvent()
-        else handleMethod.invoke()
+    fun checkEvent(event : String) : Boolean {
+        return if(subBackEventSteam != null && subBackEventSteam!!.checkEvent(event))
+            true
+        else handleMethod(event)
     }
 
     fun clear() {
@@ -23,7 +23,7 @@ class BackEventSteam(val handleMethod : ()->Boolean) {
         parentBackEventSteam = null
     }
 
-    fun addEvent(eventSteam: BackEventSteam?) {
+    fun addEvent(eventSteam: EventSteam?) {
         subBackEventSteam = eventSteam
         if(eventSteam != null)
             eventSteam.parentBackEventSteam = this

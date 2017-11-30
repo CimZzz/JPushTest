@@ -40,13 +40,41 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             override fun notify(vararg objects: Any?) {
                 view.showLoadingBar("正在注册")
                 method.register(objects[0] as String, objects[1] as String,objects[2] as String)
+
             }
+        })
+
+        stateRecord.registerObserver(STATE_UPDATE_PWD,object : BaseObserver() {
+            override fun notify(vararg objects: Any?) {
+                /*
+                * 0 phone num
+                * 1 email
+                * 2 validation
+                * 3 new pwd
+                * 4 confirm
+                * 5 validation
+                *
+                * */
+
+
+
+                if (objects[3] as String != objects[4] as String) {
+                    view.sendToast("两次密码不一致")
+                    return
+                }
+
+                view.showLoadingBar("正在修改密码")
+
+                method.updatePassword(objects[0] as String,objects[1] as String,objects[3] as String, objects[5] as String)
+            }
+
         })
 
         stateRecord.registerObserver(HTTP.Login.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess) {
                     //登录成功
+                    view.sendToast("登录成功")
                     view.closeLoadingBar()
                     view.loginSuccess()
                 }
@@ -55,6 +83,37 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
                     view.sendToast(msg!!)
                 }
             }
+        })
+
+        stateRecord.registerObserver(HTTP.Register.STATE,object : HTTPJSONObserver() {
+            override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
+                if(isSuccess) {
+                    //注册成功
+                    view.sendToast("注册成功")
+                    view.closeLoadingBar()
+                    view.registerSuccess()
+                }
+                else {
+                    view.closeLoadingBar()
+                    view.sendToast(msg!!)
+                }
+            }
+        })
+
+        stateRecord.registerObserver(HTTP.UpdatePwd.STATE,object : HTTPJSONObserver() {
+            override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
+                if(isSuccess) {
+                    //修改密码成功
+                    view.sendToast("密码修改成功")
+                    view.closeLoadingBar()
+                    view.updatePwdSuccess()
+                }
+                else {
+                    view.closeLoadingBar()
+                    view.sendToast(msg!!)
+                }
+            }
+
         })
     }
 }

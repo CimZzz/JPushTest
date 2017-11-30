@@ -11,9 +11,9 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
 import com.bigkoo.svprogresshud.SVProgressHUD
-import com.example.yumi.jpushtest.ui.login.BackEventSteam
+import com.example.yumi.jpushtest.ui.login.EventSteam
+import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.sendToast
-import com.virtualightning.stateframework.state.ObserverBuilder
 import com.virtualightning.stateframework.state.StateRecord
 
 
@@ -27,7 +27,7 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     var customApplication: CustomApplication? = null
     protected var presenter: T? = null
     var rootView: View? = null
-    var backEventSteam : BackEventSteam? = null
+    var eventSteam: EventSteam? = null
 
     private var loadingBar : SVProgressHUD? = null
 
@@ -56,11 +56,12 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        rootView = inflater.inflate(initViewID(), container, false)
+        rootView = inflater.inflate(initViewID(), container,false )
         return rootView
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         onViewInitialization(savedInstanceState)
     }
 
@@ -69,7 +70,7 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     protected abstract fun onViewInitialization(savedInstanceState: Bundle?)
     protected open fun getPresenter(savedInstanceState: Bundle?): T? = null
 
-    fun findViewById(resId: Int): View = rootView!!.findViewById(resId)
+//    fun findViewById(resId: Int): View = rootView!!.findViewById(resId)
 
     fun changeUI(baseUICls: Class<out BaseUI<*>>, requestCode: Int?) {
         changeUI(baseUICls, null, requestCode)

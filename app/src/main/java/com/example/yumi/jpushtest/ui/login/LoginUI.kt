@@ -24,18 +24,33 @@ import kotlinx.android.synthetic.main.ui_login.*
  * 描述
  */
 class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
+
+    companion object {
+        val STATE_SHOW_THIRD = "s0"
+        val STATE_FORGIVE = "s1"
+        val STATE_ENTER = "s2"
+
+
+        val EVENT_BACK = "e0"
+        val EVENT_REGISTER_SUCCESS = "e1"
+        val EVENT_CLEAR_UI = "e2"
+    }
+
     val stateRecord : StateRecord = StateRecord.newInstance(this.javaClass)
     val basePagerPool : BasePagerPool = BasePagerPool()
 
     var lastClickTime : Long = 0
-    val backEventSteam : BackEventSteam = BackEventSteam {
-        val curTime = System.currentTimeMillis()
-        if(curTime - lastClickTime < 3000) {
-            finish()
-        }
-        else {
-            lastClickTime = curTime
-            sendToast("再次点击退出应用")
+    val eventSteam: EventSteam = EventSteam {
+        when(it) {
+            EVENT_BACK-> {
+                val curTime = System.currentTimeMillis()
+                if(curTime - lastClickTime < 3000)
+                    finish()
+                else {
+                    lastClickTime = curTime
+                    sendToast("再次点击退出应用")
+                }
+            }
         }
         true
     }
@@ -47,12 +62,19 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
     }
 
 
-    companion object {
-        val STATE_SHOW_THIRD = "s0"
-        val STATE_FORGIVE = "s1"
-        val STATE_ENTER = "s2"
-
+    override fun registerSuccess() {
+        eventSteam.checkEvent(EVENT_REGISTER_SUCCESS)
     }
+
+    override fun updatePwdSuccess() {
+        stateRecord.notifyState(STATE_SHOW_THIRD,true)
+        stateRecord.notifyState(STATE_ENTER)
+    }
+
+
+
+
+
 
     override fun onBaseUICreate(creater: ActionBarUICreater) {
         creater.setLayoutID(R.layout.ui_login)
@@ -77,6 +99,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
                 val forgivePager = basePagerPool.getPager(ForgivePager::class.java)
                 forgivePager.stateRecord = stateRecord
                 changePager(forgivePager)
+                eventSteam.checkEvent(EVENT_CLEAR_UI)
             }
         }))
 
@@ -85,6 +108,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
                 val enterPager = basePagerPool.getPager(EnterPager::class.java)
                 enterPager.stateRecord = stateRecord
                 changePager(enterPager)
+                eventSteam.checkEvent(EVENT_CLEAR_UI)
             }
         }))
 
@@ -97,7 +121,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
     }
 
     private fun changePager(pager:BasePager<*>) {
-        backEventSteam.addEvent(pager.backEventSteam)
+        eventSteam.addEvent(pager.eventSteam)
         val transition = supportFragmentManager.beginTransaction()
         transition.setCustomAnimations(R.anim.fade_in,0)
         transition.replace(R.id.customContainerId,pager)
@@ -110,7 +134,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return if(keyCode == KeyEvent.KEYCODE_BACK)
         {
-            backEventSteam.checkBackEvent()
+            eventSteam.checkEvent(EVENT_BACK)
             true
         }
         else super.onKeyDown(keyCode, event)

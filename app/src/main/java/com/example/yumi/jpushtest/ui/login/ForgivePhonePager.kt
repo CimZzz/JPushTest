@@ -23,14 +23,32 @@ import kotlinx.android.synthetic.main.pager_forgive_phone.*
 class ForgivePhonePager : BasePager<IPresenter<*,*>>() {
     var stateRecord : StateRecord? = null
 
+    init {
+        eventSteam = EventSteam {
+            return@EventSteam when(it) {
+                LoginUI.EVENT_CLEAR_UI-> {
+                    if(forgivePhoneNum != null)
+                        forgivePhoneNum.setText("")
+                    if(forgivePhoneValidation != null)
+                        forgivePhoneValidation.setText("")
+                    true
+                }
+                else-> false
+            }
+        }
+    }
+
     override fun init() {
     }
 
     override fun initViewID(): Int = R.layout.pager_forgive_phone
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
+        logV("ForgetPhone : ViewInitialization")
         forgivePhoneNext.setOnClickListener {
-            stateRecord!!.notifyState(ForgivePager.STATE_CONFIRM)
+            stateRecord!!.notifyState(ForgivePager.STATE_CONFIRM,true
+                    ,forgivePhoneNum.text.toString()
+                    ,forgivePhoneValidation.text.toString())
         }
     }
 

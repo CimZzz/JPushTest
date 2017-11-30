@@ -18,24 +18,26 @@ import java.io.IOException
  * Description : <br>
  * 描述
  */
-class RegisterRequest(stateRecord: StateRecord) : BaseRequest(stateRecord) {
-    lateinit var userName : String
-    lateinit var userPwd : String
+class UpdatePasswordRequest(stateRecord: StateRecord) : BaseRequest(stateRecord) {
+    var phoneNum : String = ""
+    var email : String = ""
+    lateinit var newPwd : String
     lateinit var validation : String
 
     override fun createRequest(): Request = Request.Builder()
             .method("POST",FormBody.Builder()
                     .add(HTTP.Token.TOKEN,token)
-                    .add(HTTP.Register.USERNAME,userName)
-                    .add(HTTP.Register.USERPWD,userPwd)
-                    .add(HTTP.Register.VALIDATION,validation)
+                    .add(HTTP.UpdatePwd.PHONE_NUM,phoneNum)
+                    .add(HTTP.UpdatePwd.EMAIL,email)
+                    .add(HTTP.UpdatePwd.NEW_PWD,newPwd)
+                    .add(HTTP.UpdatePwd.VALIDATION,validation)
                     .build())
-            .url(HTTP.Register.URL)
+            .url(HTTP.UpdatePwd.URL)
             .build()
 
 
     override fun onSuccess(jsonObject: JSONObject) {
-        stateRecord.notifyState(HTTP.Register.STATE,true,jsonObject,"")
+        stateRecord.notifyState(HTTP.UpdatePwd.STATE,true,jsonObject,"")
     }
 
     override fun onNetworkFailed() {
@@ -43,7 +45,7 @@ class RegisterRequest(stateRecord: StateRecord) : BaseRequest(stateRecord) {
     }
 
     override fun onOccurFailed(code: Int,msg:String) {
-        logV("Register Error : $code")
+        logV("UpdatePassword Error : $code,$phoneNum,$email,$newPwd,$validation")
         stateRecord.notifyState(HTTP.Register.STATE,false,null,msg)
     }
 }

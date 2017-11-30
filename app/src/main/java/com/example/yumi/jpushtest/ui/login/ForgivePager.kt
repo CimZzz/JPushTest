@@ -5,6 +5,7 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.utils.BasePagerPool
+import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.constant.ReferenceType
 import com.virtualightning.stateframework.state.BaseObserver
@@ -29,14 +30,32 @@ class ForgivePager : BasePager<IPresenter<*,*>>() {
     var self : StateRecord = StateRecord.newInstance(this.javaClass)
     var basePagerPool : BasePagerPool = BasePagerPool()
     var isPhone = false
+    var isConfirm = false
 
     init {
-        backEventSteam = BackEventSteam {
-            stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD,true)
-            stateRecord!!.notifyState(LoginUI.STATE_ENTER)
-            backEventSteam!!.clear()
-            closePager(basePagerPool.getPager(ForgivePhonePager::class.java))
-
+        eventSteam = EventSteam {
+            if(it != LoginUI.EVENT_BACK)
+                return@EventSteam false
+            if(isConfirm) {
+                if (isPhone) {
+                    val phonePager = basePagerPool.getPager(ForgivePhonePager::class.java)
+                    phonePager.stateRecord = self
+                    changePager(phonePager)
+                    eventSteam!!.checkEvent(LoginUI.EVENT_CLEAR_UI)
+                } else {
+                    val mailPager = basePagerPool.getPager(ForgiveEmailPager::class.java)
+                    mailPager.stateRecord = self
+                    changePager(mailPager)
+                    eventSteam!!.checkEvent(LoginUI.EVENT_CLEAR_UI)
+                }
+                isConfirm = false
+            }
+            else {
+                stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD, true)
+                stateRecord!!.notifyState(LoginUI.STATE_ENTER)
+                eventSteam!!.clear()
+                closePager(basePagerPool.getPager(ForgivePhonePager::class.java))
+            }
             true
         }
     }
@@ -44,23 +63,19 @@ class ForgivePager : BasePager<IPresenter<*,*>>() {
     override fun init() {
         self.registerObserver(ObserverBuilder().stateId(STATE_CONFIRM).refType(ReferenceType.STRONG).observer(object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
-                val phonePager = basePagerPool.getPager(PasswordConfirmPager::class.java)
-                phonePager.stateRecord = self
-                changePager(phonePager)
-            }
-        }))
-
-        self.registerObserver(ObserverBuilder().stateId(STATE_BACK).refType(ReferenceType.STRONG).observer(object : BaseObserver() {
-            override fun notify(vararg objects: Any?) {
-                if (isPhone) {
-                    val phonePager = basePagerPool.getPager(ForgivePhonePager::class.java)
-                    phonePager.stateRecord = self
-                    changePager(phonePager)
-                } else {
-                    val mailPager = basePagerPool.getPager(ForgiveEmailPager::class.java)
-                    mailPager.stateRecord = self
-                    changePager(mailPager)
+                val confirmPage = basePagerPool.getPager(PasswordConfirmPager::class.java)
+                confirmPage.stateRecord = stateRecord
+                if(objects[0] as Boolean) {
+                    confirmPage.phoneNum = objects[1] as String
+                    confirmPage.email = ""
                 }
+                else {
+                    confirmPage.email = objects[1] as String
+                    confirmPage.phoneNum = ""
+                }
+                confirmPage.validationCode = objects[2] as String
+                isConfirm = true
+                changePager(confirmPage)
             }
         }))
     }
@@ -68,11 +83,13 @@ class ForgivePager : BasePager<IPresenter<*,*>>() {
     override fun initViewID(): Int = R.layout.pager_forgive
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
+        logV("Forget : ViewInitialization")
         stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD,false)
 
         val startPager = basePagerPool.getPager(ForgivePhonePager::class.java)
         startPager.stateRecord = self
         changePager(startPager)
+        eventSteam!!.checkEvent(LoginUI.EVENT_CLEAR_UI)
         isPhone = true
 
         forgiveTab.switchListener = object : SliderSwitchView.ISwitchListener {
@@ -103,7 +120,7 @@ class ForgivePager : BasePager<IPresenter<*,*>>() {
     }
 
     private fun changePager(pager:BasePager<*>) {
-        backEventSteam!!.addEvent(pager.backEventSteam)
+        eventSteam!!.addEvent(pager.eventSteam)
         val transition = fragmentManager.beginTransaction()
         transition.setCustomAnimations(R.anim.fade_in,0)
         transition.replace(R.id.forgiveContainer,pager)

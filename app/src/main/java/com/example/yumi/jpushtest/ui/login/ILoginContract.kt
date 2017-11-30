@@ -12,10 +12,13 @@ import com.example.yumi.jpushtest.base.IView
 interface ILoginContract {
     interface View : IView {
         fun loginSuccess()
+        fun registerSuccess()
+        fun updatePwdSuccess()
     }
 
     interface Method : IMethod {
         fun login(userName : String,userPwd : String)
         fun register(userName : String,userPwd : String,validationCode : String)
+        fun updatePassword(phoneNum : String,email : String,newPwd : String,validationCode : String)
     }
 }

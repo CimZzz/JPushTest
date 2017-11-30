@@ -18,10 +18,8 @@ public interface HTTP {
 
 
     interface Token {
-        String STATE = "gs_token";
         String URL = ConstantKt.HOST + "/api/home/index/";
-
-        String TOKEN = "taoken";
+        String TOKEN = "token";
     }
 
     interface Login {
@@ -30,5 +28,24 @@ public interface HTTP {
 
         String USERNAME = "userName";
         String USERPWD = "userPwd";
+    }
+
+    interface Register {
+        String STATE = "gs_register";
+        String URL = ConstantKt.HOST + "/api/home/index/reg";
+
+        String USERNAME = "userName";
+        String USERPWD = "userPwd";
+        String VALIDATION = "validation";
+    }
+
+    interface UpdatePwd {
+        String STATE = "gs_updatePwd";
+        String URL = ConstantKt.HOST + "/api/home/index/password";
+
+        String PHONE_NUM = "phoneNum";
+        String EMAIL = "email";
+        String NEW_PWD = "newPwd";
+        String VALIDATION = "validation";
     }
 }

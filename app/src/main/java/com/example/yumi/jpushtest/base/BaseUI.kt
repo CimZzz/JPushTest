@@ -33,7 +33,7 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
         }
 
         loadingBar = SVProgressHUD(this)
-        loadingBar!!.showInfoWithStatus(text)
+        loadingBar!!.showWithStatus(text)
     }
 
     fun closeLoadingBar() {
