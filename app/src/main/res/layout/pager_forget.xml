@@ -17,11 +17,11 @@
         app:fontSize="20sp"
         app:lineHeight="@dimen/login_TabLineH"
         app:lineHeightMargin="@dimen/login_TabLineMarginTop"
-        android:id="@+id/forgiveTab"/>
+        android:id="@+id/forgetTab"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/forgiveContainer">
+        android:id="@+id/forgetContainer">
     </FrameLayout>
 </LinearLayout>

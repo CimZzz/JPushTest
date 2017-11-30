@@ -90,7 +90,7 @@
                     android:text="忘记密码？"
                     android:textSize="12sp"
                     android:textColorHint="@color/greyColor"
-                    android:id="@+id/enterForgive"/>
+                    android:id="@+id/enterForget"/>
 
             </FrameLayout>
         </LinearLayout>

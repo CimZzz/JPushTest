@@ -7,13 +7,12 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.environment.config.registerObserver
 import com.example.yumi.jpushtest.ui.main.MainUI
 import com.example.yumi.jpushtest.utils.BasePagerPool
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
-import com.virtualightning.stateframework.constant.ReferenceType
 import com.virtualightning.stateframework.state.BaseObserver
-import com.virtualightning.stateframework.state.ObserverBuilder
 import com.virtualightning.stateframework.state.StateRecord
 import kotlinx.android.synthetic.main.ui_login.*
 
@@ -27,13 +26,10 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
 
     companion object {
         val STATE_SHOW_THIRD = "s0"
-        val STATE_FORGIVE = "s1"
+        val STATE_FORGET = "s1"
         val STATE_ENTER = "s2"
 
-
         val EVENT_BACK = "e0"
-        val EVENT_REGISTER_SUCCESS = "e1"
-        val EVENT_CLEAR_UI = "e2"
     }
 
     val stateRecord : StateRecord = StateRecord.newInstance(this.javaClass)
@@ -61,9 +57,8 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
         finish()
     }
 
-
     override fun registerSuccess() {
-        eventSteam.checkEvent(EVENT_REGISTER_SUCCESS)
+
     }
 
     override fun updatePwdSuccess() {
@@ -74,15 +69,14 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
 
 
 
-
-
     override fun onBaseUICreate(creater: ActionBarUICreater) {
         creater.setLayoutID(R.layout.ui_login)
         creater.setHasToolBar(false)
         presenter = LoginPresenter(this,LoginMethod(stateRecord,getCustomApplication().httpModule))
         openAutoCancelSoft = true
 
-        stateRecord.registerObserver(ObserverBuilder().stateId(STATE_SHOW_THIRD).refType(ReferenceType.STRONG).observer(object:BaseObserver() {
+
+        stateRecord.registerObserver(STATE_SHOW_THIRD,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 if(objects[0] as Boolean) {
                     loginThiLog.visibility = View.VISIBLE
@@ -92,25 +86,24 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
                     startAnimation(loginThiLog,R.anim.fade_out)
                 }
             }
-        }))
+        })
 
-        stateRecord.registerObserver(ObserverBuilder().stateId(STATE_FORGIVE).refType(ReferenceType.STRONG).observer(object:BaseObserver() {
+        stateRecord.registerObserver(STATE_FORGET,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
-                val forgivePager = basePagerPool.getPager(ForgivePager::class.java)
-                forgivePager.stateRecord = stateRecord
-                changePager(forgivePager)
-                eventSteam.checkEvent(EVENT_CLEAR_UI)
+                val forget = basePagerPool.getPager(ForgetPager::class.java)
+                forget.stateRecord = stateRecord
+                changePager(forget)
             }
-        }))
+        })
 
-        stateRecord.registerObserver(ObserverBuilder().stateId(STATE_ENTER).refType(ReferenceType.STRONG).observer(object:BaseObserver() {
+        stateRecord.registerObserver(STATE_ENTER,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val enterPager = basePagerPool.getPager(EnterPager::class.java)
                 enterPager.stateRecord = stateRecord
+                enterPager.isRestore = true
                 changePager(enterPager)
-                eventSteam.checkEvent(EVENT_CLEAR_UI)
             }
-        }))
+        })
 
     }
 

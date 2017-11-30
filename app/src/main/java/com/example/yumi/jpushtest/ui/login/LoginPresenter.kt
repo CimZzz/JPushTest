@@ -56,8 +56,6 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
                 *
                 * */
 
-
-
                 if (objects[3] as String != objects[4] as String) {
                     view.sendToast("两次密码不一致")
                     return

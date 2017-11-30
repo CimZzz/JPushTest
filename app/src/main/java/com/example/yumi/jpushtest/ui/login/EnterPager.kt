@@ -1,13 +1,11 @@
 package com.example.yumi.jpushtest.ui.login
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.environment.config.registerObserver
 import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
@@ -21,88 +19,33 @@ import kotlinx.android.synthetic.main.pager_enter.*
  * 描述
  */
 class EnterPager : BasePager<IPresenter<*,*>>() {
-    var stateRecord : StateRecord? = null
-    var isNeedRegisterInfo = false
+    lateinit var stateRecord : StateRecord
 
-    var loginUserName : EditText? = null
-    lateinit var loginPassword : EditText
-    lateinit var registerUserName : EditText
-    lateinit var registerPassword : EditText
-    lateinit var registerValidation : EditText
+    var isRestore = false
 
-    init {
-        eventSteam = EventSteam {
-            return@EventSteam when(it) {
-                LoginUI.EVENT_REGISTER_SUCCESS-> {
-                    switchToView(true)
-                    loginUserName!!.setText(registerUserName.text.toString())
-                    true
-                }
-                LoginUI.EVENT_CLEAR_UI-> {
-                    loginUserName!!.setText("")
-                    loginPassword.setText("")
-                    registerUserName.setText("")
-                    registerPassword.setText("")
-                    registerValidation.setText("")
-                    true
-                }
-                else-> false
-            }
-        }
-    }
-
-    override fun init() {
-        logV("Enter : Init")
-    }
+    override fun init() = Unit
 
     override fun initViewID(): Int = R.layout.pager_enter
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
-        logV("Enter : ViewInitialization : ${loginUserName?.text}")
-        loginUserName = enterLoginUserName
-        loginPassword = enterLoginUserPwd
-        registerUserName = enterRegisterUserName
-        registerPassword = enterRegisterUserPwd
-        registerValidation = enterRegisterValidation
-
-        if(isNeedRegisterInfo) {
-            enterLoginUserName.setText(enterRegisterUserName.text.toString())
-            isNeedRegisterInfo = false
-        }
-        else enterLoginUserName.setText("")
-        enterRegisterUserName.setText("")
-        enterLoginUserName.text.clear()
-        loginUserName!!.setText("")
-
-        enterRegisterText.setOnClickListener {
-            if(enterTab.isLeftActive) {
-                enterTab.setActiveSide(false)
-                enterLogin.visibility = View.GONE
-                enterRegister.visibility = View.VISIBLE
-                startAnimation(enterRegister,R.anim.fade_in)
-                stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD,false)
-            }
-        }
         enterTab.switchListener = object : SliderSwitchView.ISwitchListener {
             override fun onClick(isLeft: Boolean) {
                 switchToView(isLeft)
             }
         }
-
-        enterForgive.setOnClickListener {
-            stateRecord!!.notifyState(LoginUI.STATE_FORGIVE)
+        findViewById<View>(R.id.enterRegisterText).setOnClickListener {
+            switchToView(false)
         }
-
-        enterLoginBtn.setOnClickListener {
-            stateRecord!!.notifyState(LoginPresenter.STATE_LOGIN,enterLoginUserName.text.toString(),enterLoginUserPwd.text.toString())
+        findViewById<View>(R.id.enterForget).setOnClickListener {
+            stateRecord.notifyState(LoginUI.STATE_FORGET)
         }
-
-        enterRegisterBtn.setOnClickListener {
-            stateRecord!!.notifyState(LoginPresenter.STATE_REGISTER
-                    , enterRegisterUserName.text.toString(),enterRegisterUserPwd.text.toString(),enterRegisterValidation.text.toString())
+        findViewById<View>(R.id.enterLoginBtn).setOnClickListener {
+            stateRecord.notifyState(LoginPresenter.STATE_LOGIN,enterLoginUserName.text.toString(),enterLoginUserPwd.text.toString())
+        }
+        findViewById<View>(R.id.enterRegisterBtn).setOnClickListener {
+            stateRecord.notifyState(LoginPresenter.STATE_REGISTER,enterRegisterUserName.text.toString(),enterRegisterUserPwd.text.toString(),enterRegisterValidation.text.toString())
         }
     }
-
 
     private fun switchToView(isLogin : Boolean) {
         enterTab.setActiveSide(isLogin)
@@ -110,12 +53,23 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
             enterRegister.visibility = View.GONE
             enterLogin.visibility = View.VISIBLE
             startAnimation(enterLogin,R.anim.fade_in)
-            stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD,true)
+            stateRecord.notifyState(LoginUI.STATE_SHOW_THIRD,true)
         } else {
             enterLogin.visibility = View.GONE
             enterRegister.visibility = View.VISIBLE
             startAnimation(enterRegister,R.anim.fade_in)
-            stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD,false)
+            stateRecord.notifyState(LoginUI.STATE_SHOW_THIRD,false)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(isRestore) {
+            enterLoginUserName.setText("")
+            enterLoginUserPwd.setText("")
+            enterRegisterUserName.setText("")
+            enterRegisterUserPwd.setText("")
+            enterRegisterValidation.setText("")
         }
     }
 }

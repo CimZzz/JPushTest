@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true" >
@@ -20,7 +20,7 @@
             android:inputType="phone"
             android:maxLines="1"
             android:textColorHint="@color/greyColor"
-            android:id="@+id/forgivePhoneNum"/>
+            android:id="@+id/forgetPhoneNum"/>
 
         <View
             android:layout_width="match_parent"
@@ -43,7 +43,8 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColorHint="@color/greyColor"
-                android:id="@+id/forgivePhoneValidation"/>
+                android:id="@+id/forgetPhoneValidation"
+                tools:ignore="TextFields" />
 
             <Button
                 android:layout_width="@dimen/login_SmallBtnW"
@@ -66,7 +67,7 @@
             android:text="下一步"
             android:textColor="#FFF"
             style="@style/BtnStyle_Theme"
-            android:id="@+id/forgivePhoneNext"/>
+            android:id="@+id/forgetPhoneNext"/>
 
     </LinearLayout>
 </LinearLayout>
