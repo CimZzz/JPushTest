@@ -28,9 +28,6 @@ public class RecyclerRefreshView extends PullToRefreshBase<View> {
     public RecyclerRefreshView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setScrollingWhileRefreshingEnabled(true);
-        getLoadingLayoutProxy(true,false).setRefreshingLabel("正在获取数据中...");
-        getLoadingLayoutProxy(true,false).setPullLabel("下拉获取更多历史记录...");
-        getLoadingLayoutProxy(true,false).setReleaseLabel("松开以更新");
         recyclerView.setOverScrollMode(OVER_SCROLL_NEVER);
         recyclerView.setFadingEdgeLength(0);
         recyclerView.setVerticalFadingEdgeEnabled(false);

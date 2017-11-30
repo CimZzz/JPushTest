@@ -5,11 +5,9 @@ import android.view.View
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.utils.logV
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.state.StateRecord
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.pager_enter.*
 
 /**
@@ -61,7 +59,8 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
         }
 
         enterRegisterBtn.setOnClickListener {
-            stateRecord!!.notifyState(LoginUI.STATE_SHOW_THIRD)
+            stateRecord!!.notifyState(LoginPresenter.STATE_REGISTER
+                    , enterRegisterUserName.text.toString(),enterRegisterUserPwd.text.toString(),enterRegisterValidation.text.toString())
         }
     }
 

@@ -13,6 +13,7 @@ import com.example.yumi.jpushtest.utils.sendToast
 import android.view.View
 import android.widget.EditText
 import android.view.inputmethod.InputMethodManager
+import com.bigkoo.svprogresshud.SVProgressHUD
 import com.virtualightning.stateframework.state.ObserverBuilder
 import com.virtualightning.stateframework.state.StateRecord
 
@@ -23,7 +24,24 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
     var isFirstCreate : Boolean = false
     var openAutoCancelSoft : Boolean = false
 
+    private var loadingBar : SVProgressHUD? = null
 
+    fun showLoadingBar(text : String) {
+        if(loadingBar != null) {
+            loadingBar!!.dismissImmediately()
+            loadingBar = null
+        }
+
+        loadingBar = SVProgressHUD(this)
+        loadingBar!!.showInfoWithStatus(text)
+    }
+
+    fun closeLoadingBar() {
+        if(loadingBar != null) {
+            loadingBar!!.dismissImmediately()
+            loadingBar = null
+        }
+    }
 
     protected fun openFunctionGroup() {
         functionGroup = FunctionGroup()

@@ -2,6 +2,7 @@ package com.example.yumi.jpushtest.base
 
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
+import com.bigkoo.svprogresshud.SVProgressHUD
 import com.virtualightning.stateframework.state.StateRecord
 
 
@@ -16,4 +17,7 @@ interface IView {
     fun registerBroadcastReceiver(receiver: BroadcastReceiver, intentFilter: IntentFilter)
     fun unregisterBroadcastReceiver(receiver: BroadcastReceiver)
     fun gainStateRecord() : StateRecord?
+
+    fun showLoadingBar(text : String)
+    fun closeLoadingBar()
 }

@@ -31,19 +31,29 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
 
         stateRecord.registerObserver(STATE_LOGIN,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
+                view.showLoadingBar("正在登录")
                 method.login(objects[0] as String, objects[1] as String)
             }
         })
 
         stateRecord.registerObserver(STATE_REGISTER,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
+                view.showLoadingBar("正在注册")
                 method.register(objects[0] as String, objects[1] as String,objects[2] as String)
             }
         })
 
         stateRecord.registerObserver(HTTP.Login.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
-                logV("isSuccess:$isSuccess,json:$json,msg:$msg")
+                if(isSuccess) {
+                    //登录成功
+                    view.closeLoadingBar()
+                    view.loginSuccess()
+                }
+                else {
+                    view.closeLoadingBar()
+                    view.sendToast(msg!!)
+                }
             }
         })
     }

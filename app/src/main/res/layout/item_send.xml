@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/send_ItemH"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/send_ItemTopH"
         android:paddingEnd="@dimen/send_MarginSide"
-        android:paddingStart="@dimen/send_MarginSide">
+        android:paddingStart="@dimen/send_MarginSide"
+        android:background="#fdfdfe">
 
-        <android.support.v4.widget.CircleImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="@dimen/send_ItemHeadSize"
             android:layout_height="@dimen/send_ItemHeadSize"
             android:layout_centerVertical="true"
@@ -39,15 +40,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="在线"
+                android:text="离线"
                 android:textSize="@dimen/send_ItemUserInfoTextSize"
+                android:textColor="@color/send_ItemOfflineTextColor"
                 android:id="@+id/sendItemUserStatusText"/>
 
-            <View
+            <com.example.yumi.jpushtest.widgets.CircleView
                 android:layout_width="@dimen/send_ItemUserStatusSize"
                 android:layout_height="@dimen/send_ItemUserStatusSize"
                 android:layout_marginStart="@dimen/send_ItemUserStatusMarginLeft"
-                android:background="#F00"/>
+                app:circleColor="@color/send_ItemOfflineColor"
+                android:id="@+id/sendItemUserStatus"/>
         </LinearLayout>
 
         
@@ -59,7 +62,8 @@
             android:layout_alignParentEnd="true"
             android:text="沟通"
             android:textSize="@dimen/send_ItemBtnTextSize"
-            android:textColor="#FFF"/>
+            android:textColor="#FFF"
+            android:id="@+id/sendItemContractBtn"/>
 
     </RelativeLayout>
 
@@ -71,6 +75,98 @@
         android:paddingStart="@dimen/send_MarginSide"
         android:paddingEnd="@dimen/send_MarginSide"
         android:background="@color/send_ItemBotColor">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13:35"
+                    android:textSize="@dimen/send_ItemBotTimeTextSize"
+                    android:textColor="@color/send_ItemBotTextColorDeep"
+                    android:id="@+id/sendItemFromTime"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中国"
+                    android:textSize="@dimen/send_ItemBotTimeTextSize"
+                    android:textColor="@color/send_ItemBotTextColor"
+                    android:id="@+id/sendItemFromAddress"/>
+
+
+            </LinearLayout>
+            
+            <ImageView
+                android:layout_width="@dimen/send_ItemBotTimeImageSize"
+                android:layout_height="@dimen/send_ItemBotTimeImageSize"
+                android:layout_marginStart="@dimen/send_ItemBotTimeImageMarginSide"
+                android:layout_marginEnd="@dimen/send_ItemBotTimeImageMarginSide"
+                android:background="#F00"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13:35"
+                    android:textColor="@color/send_ItemBotTextColorDeep"
+                    android:textSize="@dimen/send_ItemBotTimeTextSize"
+                    android:id="@+id/sendItemToTime"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="中国"
+                    android:textSize="@dimen/send_ItemBotTimeTextSize"
+                    android:textColor="@color/send_ItemBotTextColor"
+                    android:id="@+id/sendItemToAddress"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13kg"
+                android:textSize="@dimen/send_ItemBotTimeTextSize"
+                android:textColor="@color/send_ItemBotTextColorDeep"
+                android:id="@+id/sendItemWeight"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="空间"
+                android:textSize="@dimen/send_ItemBotTimeTextSize"
+                android:textColor="@color/send_ItemBotTextColor"/>
+
+
+        </LinearLayout>
 
     </FrameLayout>
 

@@ -49,6 +49,7 @@ dependencies {
     // 此处以JCore 1.1.7 版本为例。
 
 
+    implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.bigkoo:svprogresshud:1.0.6'
     implementation 'com.alibaba:fastjson:1.1.67.android'

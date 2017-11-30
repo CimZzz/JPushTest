@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import com.bigkoo.svprogresshud.SVProgressHUD
 import com.example.yumi.jpushtest.ui.login.BackEventSteam
 import com.example.yumi.jpushtest.utils.sendToast
 import com.virtualightning.stateframework.state.ObserverBuilder
@@ -27,6 +28,25 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
     protected var presenter: T? = null
     var rootView: View? = null
     var backEventSteam : BackEventSteam? = null
+
+    private var loadingBar : SVProgressHUD? = null
+
+    fun showLoadingBar(text : String) {
+        if(loadingBar != null) {
+            loadingBar!!.dismissImmediately()
+            loadingBar = null
+        }
+
+        loadingBar = SVProgressHUD(context)
+        loadingBar!!.showInfoWithStatus(text)
+    }
+
+    fun closeLoadingBar() {
+        if(loadingBar != null) {
+            loadingBar!!.dismissImmediately()
+            loadingBar = null
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

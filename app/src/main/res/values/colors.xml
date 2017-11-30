@@ -31,4 +31,7 @@
     <color name="send_ItemOfflineColor">#999999</color>
     <color name="send_ItemOnlineTextColor">#3498DB</color>
     <color name="send_ItemOfflineTextColor">#999999</color>
+    <color name="send_ItemBotTextColorDeep">#333333</color>
+    <color name="send_ItemBotTextColor">#999999</color>
+    <color name="send_ItemDividerColor">#eeeeee</color>
 </resources>

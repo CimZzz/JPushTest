@@ -7,6 +7,7 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.ui.main.MainUI
 import com.example.yumi.jpushtest.utils.BasePagerPool
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
@@ -38,6 +39,13 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
         }
         true
     }
+
+    /*Implement interface function*/
+    override fun loginSuccess() {
+        changeUI(MainUI::class.java)
+        finish()
+    }
+
 
     companion object {
         val STATE_SHOW_THIRD = "s0"

@@ -42,4 +42,8 @@
         <attr name="letterColor" format="color"/>
         <attr name="letterSize" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleView">
+        <attr name="circleColor" format="color"/>
+    </declare-styleable>
 </resources>

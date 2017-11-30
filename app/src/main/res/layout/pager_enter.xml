@@ -33,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
+                android:maxLines="1"
                 android:textSize="@dimen/login_TextSize"
                 android:hint="输入手机号码/邮箱"
                 android:textColorHint="@color/greyColor"
@@ -48,6 +49,7 @@
                 android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
                 android:inputType="textPassword"
+                android:maxLines="1"
                 android:textSize="@dimen/login_TextSize"
                 android:hint="输入密码"
                 android:textColorHint="@color/greyColor"
@@ -110,7 +112,10 @@
                 android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
                 android:textSize="@dimen/login_TextSize"
-                android:hint="输入手机号码/邮箱"/>
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="输入手机号码/邮箱"
+                android:id="@+id/enterRegisterUserName"/>
 
             <View
                 android:layout_width="match_parent"
@@ -129,7 +134,9 @@
                     android:layout_weight="1"
                     android:background="#00000000"
                     android:textSize="@dimen/login_TextSize"
-                    android:hint="输入验证码"/>
+                    android:maxLines="1"
+                    android:hint="输入验证码"
+                    android:id="@+id/enterRegisterValidation"/>
                 
                 <Button
                     android:layout_width="@dimen/login_SmallBtnW"
@@ -137,7 +144,8 @@
                     android:background="@drawable/bg_enter_validbtn"
                     android:textSize="12sp"
                     android:text="获取验证码"
-                    android:textColor="@color/themeColorBlue"/>
+                    android:textColor="@color/themeColorBlue"
+                    android:id="@+id/enterRegisterValidationBtn"/>
             </LinearLayout>
 
             <View
@@ -150,8 +158,10 @@
                 android:layout_height="@dimen/login_InputH"
                 android:background="#00000000"
                 android:inputType="textPassword"
+                android:maxLines="1"
                 android:textSize="@dimen/login_TextSize"
-                android:hint="输入密码"/>
+                android:hint="输入密码"
+                android:id="@+id/enterRegisterUserPwd"/>
 
             <View
                 android:layout_width="match_parent"
@@ -166,7 +176,7 @@
                 android:clickable="true"
                 android:text="注册"
                 android:textColor="#FFF"
-                android:id="@+id/enterRegisterBtn"/>
+                android:id="@+id/enterRegisterBtn" />
 
             <FrameLayout
                 android:layout_width="match_parent"

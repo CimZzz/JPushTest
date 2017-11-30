@@ -89,4 +89,8 @@
     <dimen name="send_ItemBtnW">57.6dp</dimen>
     <dimen name="send_ItemBtnH">28.8dp</dimen>
     <dimen name="send_ItemBtnTextSize">12sp</dimen>
+    <dimen name="send_ItemBotTimeW">109.4dp</dimen>
+    <dimen name="send_ItemBotTimeTextSize">12sp</dimen>
+    <dimen name="send_ItemBotTimeImageSize">13dp</dimen>
+    <dimen name="send_ItemBotTimeImageMarginSide">14dp</dimen>
 </resources>

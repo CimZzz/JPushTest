@@ -11,7 +11,7 @@ import com.example.yumi.jpushtest.base.IView
  */
 interface ILoginContract {
     interface View : IView {
-
+        fun loginSuccess()
     }
 
     interface Method : IMethod {

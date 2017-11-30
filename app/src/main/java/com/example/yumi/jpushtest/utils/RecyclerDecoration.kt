@@ -1,4 +1,4 @@
-package com.example.yumi.jpushtest.ui.country
+package com.example.yumi.jpushtest.utils
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,7 +6,6 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.example.yumi.jpushtest.R
 
 /**
  * Created by CimZzz(王彦雄) on 2017/11/28.<br>
@@ -14,12 +13,12 @@ import com.example.yumi.jpushtest.R
  * Description : <br>
  * 描述
  */
-class CountryItemDecoration(context : Context) : RecyclerView.ItemDecoration() {
+class RecyclerDecoration(context : Context, resId : Int) : RecyclerView.ItemDecoration() {
     private var mDivider : Drawable? = null
 
 
     init {
-        mDivider = context.resources.getDrawable(R.drawable.divider_country,null)
+        mDivider = context.resources.getDrawable(resId,null)
     }
 
     @Override

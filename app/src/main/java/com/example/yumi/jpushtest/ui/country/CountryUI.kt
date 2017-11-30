@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.utils.RecyclerDecoration
 import com.example.yumi.jpushtest.utils.isEmptyString
 import com.example.yumi.jpushtest.utils.logV
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
@@ -40,7 +41,7 @@ class CountryUI : BaseUI<IPresenter<*,*>>() {
             finish()
         }
         countryList.layoutManager = LinearLayoutManager(this,OrientationHelper.VERTICAL,false)
-        countryList.addItemDecoration(CountryItemDecoration(this))
+        countryList.addItemDecoration(RecyclerDecoration(this,R.color.country_DividerColor))
         val adapter = object : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             val TYPE_CAP = 0
             val TYPE_ITEM = 1

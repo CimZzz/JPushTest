@@ -87,4 +87,18 @@
 
 
     </FrameLayout>
+
+    <com.example.yumi.jpushtest.widgets.RefreshHandleView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/sendHandleView">
+
+        <com.example.yumi.jpushtest.widgets.RecyclerRefreshView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="Content"
+            android:id="@+id/sendList"/>
+
+    </com.example.yumi.jpushtest.widgets.RefreshHandleView>
 </LinearLayout>
