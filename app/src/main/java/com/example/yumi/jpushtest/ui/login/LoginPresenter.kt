@@ -5,10 +5,7 @@ import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.environment.HTTP
 import com.example.yumi.jpushtest.environment.config.registerObserver
 import com.example.yumi.jpushtest.extend.HTTPJSONObserver
-import com.example.yumi.jpushtest.utils.logV
-import com.virtualightning.stateframework.anno.state.BindObserver
 import com.virtualightning.stateframework.state.BaseObserver
-import com.virtualightning.stateframework.utils.Analyzer
 
 /**
  * Created by CimZzz(王彦雄) on 2017/11/29.<br></br>
@@ -33,6 +30,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             override fun notify(vararg objects: Any?) {
                 view.showLoadingBar("正在登录")
                 method.login(objects[0] as String, objects[1] as String)
+                view.loginSuccess()
             }
         })
 
@@ -62,7 +60,6 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
                 }
 
                 view.showLoadingBar("正在修改密码")
-
                 method.updatePassword(objects[0] as String,objects[1] as String,objects[3] as String, objects[5] as String)
             }
 

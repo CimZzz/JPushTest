@@ -10,6 +10,12 @@
     <color name="greyColor">#97A4B0</color>
     <color name="splitterColor">#dadada</color>
 
+    <color name="actionbar_UserStatusTextColor">#b1ffffff</color>
+    <color name="actionbar_OnlineColor">#7ED321</color>
+    <color name="actionbar_OfflineColor">#999999</color>
+    <color name="actionbar_OnlineTextColor">#FFFFFF</color>
+    <color name="actionbar_OfflineTextColor">#999999</color>
+
     <color name="main_BigAddressColor">#2F5573</color>
     <color name="main_SmallAddressColor">#CCCCCC</color>
     <color name="main_TextColor">#393E46</color>
@@ -34,4 +40,23 @@
     <color name="send_ItemBotTextColorDeep">#333333</color>
     <color name="send_ItemBotTextColor">#999999</color>
     <color name="send_ItemDividerColor">#eeeeee</color>
+
+    <color name="chat_ChatContainerOppositeColor">#f6f6f6</color>
+    <color name="chat_ChatContainerOwnColor">@color/themeColorBlue</color>
+    <color name="chat_ItemOppositeTextColor">#626262</color>
+    <color name="chat_ItemOwnTextColor">#ffffff</color>
+    <color name="chat_ChatItemTimeTextColor">#B0B0B0</color>
+
+    <color name="order_TipsColor">#F7F7F7</color>
+    <color name="order_TipsTextColor">#333333</color>
+    <color name="order_LineColor">#E3E3E3</color>
+
+    <color name="checkOrder_TitleTextColor">#33425B</color>
+    <color name="checkOrder_TipsTextColor">#A2A4AA</color>
+    <color name="checkOrder_ContentTextColor">#33425B</color>
+    <color name="checkOrder_LineColor">#E3E3E3</color>
+    <color name="checkOrder_SubmitBtnColor">@color/themeColorBlue</color>
+    <color name="checkOrder_CancelBtnColor">#33425B</color>
+    <color name="checkOrder_CancelBtnColorDark">#293549</color>
+    <color name="checkOrder_BgColor">#f6f6f6</color>
 </resources>

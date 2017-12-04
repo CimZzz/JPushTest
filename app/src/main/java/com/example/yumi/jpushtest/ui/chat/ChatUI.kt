@@ -28,6 +28,7 @@ import com.example.yumi.jpushtest.entity.VoiceChatItem
 import com.example.yumi.jpushtest.environment.REQ_CHAT
 import com.example.yumi.jpushtest.environment.RES_PIC_PATH_CHANGE
 import com.example.yumi.jpushtest.environment.RES_PIC_SUCCESS
+import com.example.yumi.jpushtest.environment.config.getFileModule
 import com.example.yumi.jpushtest.ui.logintest.LoginTestUI
 import com.example.yumi.jpushtest.ui.picpicker.PicPickerUI
 import com.example.yumi.jpushtest.ui.picpreview.PicPreviewUI
@@ -39,7 +40,7 @@ import com.virtualightning.gridpagerview.ViewPool
 import com.virtualightning.gridpagerview.ViewWrapper
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import kotlinx.android.synthetic.main.actionbar_chat.*
-import kotlinx.android.synthetic.main.ui_chat.*
+import kotlinx.android.synthetic.main.ui_chat2.*
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 
@@ -78,7 +79,6 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View ,EasyPermissions.Per
                 sendToast("下载语音失败，请检查网络后重试")
             }
             ChatPresenter.RES_INVALID-> {
-
             }
         }
     }
@@ -99,7 +99,7 @@ class ChatUI : BaseUI<ChatPresenter>() , IChatContract.View ,EasyPermissions.Per
 
 
     override fun onBaseUICreate(creater: ActionBarUICreater) {
-        creater.setLayoutID(R.layout.ui_chat)
+        creater.setLayoutID(R.layout.ui_chat2)
         creater.setActionBarID(R.layout.actionbar_chat)
         presenter = ChatPresenter(this,ChatMethod())
         openAutoCancelSoft = true

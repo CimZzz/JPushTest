@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_TipsH"
+            android:layout_marginStart="@dimen/order_MarginSide"
+            android:layout_marginEnd="@dimen/order_MarginSide"
+            android:background="@color/order_TipsColor">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="收件方式"
+                android:textSize="@dimen/order_TipsTextSize"
+                android:textColor="@color/order_TipsTextColor"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="当面送达"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderModeFace"/>
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="快递送达"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderModeExpress"/>
+            
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_TipsH"
+            android:layout_marginStart="@dimen/order_MarginSide"
+            android:layout_marginEnd="@dimen/order_MarginSide"
+            android:background="@color/order_TipsColor">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="基本信息"
+                android:textSize="@dimen/order_TipsTextSize"
+                android:textColor="@color/order_TipsTextColor"/>
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/order_ListTipsW"
+                android:layout_height="wrap_content"
+                android:text="物品名称"
+                android:textSize="@dimen/order_ListTextSize"/>
+            
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:background="#00FFFFFF"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderName"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/order_ListTipsW"
+                android:layout_height="wrap_content"
+                android:text="商品重量"
+                android:textSize="@dimen/order_ListTextSize"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:background="#00FFFFFF"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderWeight"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/order_ListTipsW"
+                android:layout_height="wrap_content"
+                android:text="收件人"
+                android:textSize="@dimen/order_ListTextSize"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:background="#00FFFFFF"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderReceiver"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/order_ListTipsW"
+                android:layout_height="wrap_content"
+                android:text="收件电话"
+                android:textSize="@dimen/order_ListTextSize"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:background="#00FFFFFF"
+                android:textSize="@dimen/order_ListTextSize"
+                android:id="@+id/orderReceiverPhone"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/order_MarginSide"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="@dimen/order_ListTipsW"
+                android:layout_height="wrap_content"
+                android:text="输入金额"
+                android:textSize="@dimen/order_ListTextSize"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="0.00"
+                android:textSize="@dimen/order_ListTextSize"
+                android:textColor="#F00"
+                android:background="#00FFFFFF"
+                android:id="@+id/orderPrice"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_TipsH"
+            android:layout_marginStart="@dimen/order_MarginSide"
+            android:layout_marginEnd="@dimen/order_MarginSide"
+            android:background="@color/order_TipsColor">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="支付方式"
+                android:textSize="@dimen/order_TipsTextSize"
+                android:textColor="@color/order_TipsTextColor"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:paddingStart="@dimen/order_MarginSide">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderAlipay" />
+
+            <ImageView
+                android:layout_width="@dimen/order_ListIconSize"
+                android:layout_height="@dimen/order_ListIconSize"
+                android:layout_marginStart="@dimen/order_ListIconMarginSide"
+                android:layout_marginEnd="@dimen/order_ListIconMarginSide"
+                android:background="#FF0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支付宝支付"
+                android:textSize="@dimen/order_ListTextSize"
+                android:textColor="#000"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:paddingStart="@dimen/order_MarginSide">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderPayWechat" />
+
+            <ImageView
+                android:layout_width="@dimen/order_ListIconSize"
+                android:layout_height="@dimen/order_ListIconSize"
+                android:layout_marginStart="@dimen/order_ListIconMarginSide"
+                android:layout_marginEnd="@dimen/order_ListIconMarginSide"
+                android:background="#FF0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信支付"
+                android:textSize="@dimen/order_ListTextSize"
+                android:textColor="#000"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/order_ListItemH"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/order_MarginSide"
+            android:paddingStart="@dimen/order_MarginSide">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderPayBank"/>
+
+            <ImageView
+                android:layout_width="@dimen/order_ListIconSize"
+                android:layout_height="@dimen/order_ListIconSize"
+                android:layout_marginStart="@dimen/order_ListIconMarginSide"
+                android:layout_marginEnd="@dimen/order_ListIconMarginSide"
+                android:background="#FF0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="银行卡支付"
+                android:textSize="@dimen/order_ListTextSize"
+                android:textColor="#000"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/order_LineColor"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

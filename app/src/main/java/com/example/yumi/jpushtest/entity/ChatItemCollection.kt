@@ -69,3 +69,13 @@ class VoiceChatItem(
         val media_id : String,
         val fileSize : Long
 ) : BaseChatItem(msgId,fromUser,toUser,createTime,status)
+
+class OrderChatItem(
+        msgId : Int,
+        fromUser : String,
+        toUser : String,
+        createTime : Long,
+        status : Int,
+        var orderId : String,
+        var isRead : Boolean
+) : BaseChatItem(msgId,fromUser,toUser,createTime,status)

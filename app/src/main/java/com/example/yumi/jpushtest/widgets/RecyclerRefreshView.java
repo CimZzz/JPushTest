@@ -7,30 +7,22 @@ package com.example.yumi.jpushtest.widgets;
  * 描述
  */
 
-import android.util.FloatMath;
 import android.view.View;
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 
+import com.example.yumi.jpushtest.utils.LogUtilsKt;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 
-/**
- * Created by CimZzz(王彦雄) on 16/12/1.<br>
- * Since : StormLive_v0.0.1 <br>
- * Company : Virtual-Lightning.com<br>
- * Description : <br>
- * 描述
- */
 public class RecyclerRefreshView extends PullToRefreshBase<View> {
     public RecyclerView recyclerView;
     public RecyclerRefreshView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         setScrollingWhileRefreshingEnabled(true);
-        recyclerView.setOverScrollMode(OVER_SCROLL_NEVER);
-        recyclerView.setFadingEdgeLength(0);
-        recyclerView.setVerticalFadingEdgeEnabled(false);
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -76,7 +68,8 @@ public class RecyclerRefreshView extends PullToRefreshBase<View> {
         if (firstView == null)
             return false;
         int indexOfAdapter = recyclerView.getChildAdapterPosition(firstView);
-        return indexOfAdapter == 0 && firstView.getTop() == recyclerView.getTop();
+        RecyclerView.LayoutParams i = (RecyclerView.LayoutParams) firstView.getLayoutParams();
+        return indexOfAdapter == 0 && ((firstView.getTop() - i.bottomMargin) == recyclerView.getTop());
     }
     public void setAdapter(RecyclerView.Adapter adapter) {
         recyclerView.setAdapter(adapter);

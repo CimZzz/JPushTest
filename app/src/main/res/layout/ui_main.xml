@@ -1,177 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <FrameLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/main_TopH"
-        android:background="@color/themeColorBlue">
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_TopH"
+            android:background="@color/themeColorBlue">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/main_TopLogoW"
+                    android:layout_height="@dimen/main_TopLogoH"
+                    android:src="@drawable/icon_logo" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <com.example.yumi.jpushtest.widgets.CustomContainerView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_marginEnd="@dimen/main_ContentMarginSide"
+            android:layout_marginStart="@dimen/main_ContentMarginSide"
+            android:layout_marginTop="@dimen/main_ContentMarginTop"
+            android:paddingStart="@dimen/main_ContentPaddingSide"
+            android:paddingEnd="@dimen/main_ContentPaddingSide"
+            android:paddingTop="@dimen/main_ContentPaddingBox"
+            android:paddingBottom="@dimen/main_ContentPaddingBox"
+            app:bg="@drawable/img_content_bg">
 
-            <ImageView
-                android:layout_width="@dimen/main_TopLogoW"
-                android:layout_height="@dimen/main_TopLogoH"
-                android:src="@drawable/icon_logo" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_TopImgH"
+                    android:background="#FF00" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.example.yumi.jpushtest.widgets.AddressView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:bigColor="@color/main_BigAddressColor"
+                        app:bigSize="@dimen/main_BigAddressTextSize"
+                        app:bigText="中国"
+                        app:midGap="@dimen/main_AddressMidGap"
+                        app:smallColor="@color/main_SmallAddressColor"
+                        app:smallSize="@dimen/main_SmallAddressTextSize"
+                        app:smallText="China"
+                        android:id="@+id/mainFromAddress"/>
+
+
+                    <ImageView
+                        android:layout_width="@dimen/main_MidImgSize"
+                        android:layout_height="@dimen/main_MidImgSize"
+                        android:layout_marginTop="@dimen/main_AddressDirectorMarginTop"
+                        android:gravity="center"
+                        android:src="@drawable/icon_wechat" />
+
+
+                    <com.example.yumi.jpushtest.widgets.AddressView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:bigColor="@color/main_BigAddressColor"
+                        app:bigSize="@dimen/main_BigAddressTextSize"
+                        app:bigText="日本"
+                        app:midGap="@dimen/main_AddressMidGap"
+                        app:smallColor="@color/main_SmallAddressColor"
+                        app:smallSize="@dimen/main_SmallAddressTextSize"
+                        app:smallText="Japan"
+                        android:id="@+id/mainToAddress" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/main_littleLogoSize"
+                        android:layout_height="@dimen/main_littleLogoSize"
+                        android:layout_marginEnd="@dimen/main_littleLogoMargin"
+                        android:layout_marginStart="@dimen/main_littleLogoMargin"
+                        android:background="#F00" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/login_InputH"
+                        android:background="#00000000"
+                        android:gravity="center_vertical"
+                        android:text="2017-11-24"
+                        android:textColor="@color/main_TextColor"
+                        android:textSize="@dimen/main_ContentTextSize"
+                        android:id="@+id/mainTime"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/main_SplitterMarginStart"
+                    android:background="#F00"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/main_littleLogoSize"
+                        android:layout_height="@dimen/main_littleLogoSize"
+                        android:layout_marginEnd="@dimen/main_littleLogoMargin"
+                        android:layout_marginStart="@dimen/main_littleLogoMargin"
+                        android:background="#F00" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/login_InputH"
+                        android:background="#00000000"
+                        android:gravity="center_vertical"
+                        android:text="5kg"
+                        android:textColor="@color/main_TextColor"
+                        android:textSize="@dimen/main_ContentTextSize"
+                        android:id="@+id/mainWeight"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/main_SplitterMarginStart"
+                    android:background="#F00"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_BigBtnH"
+                    android:layout_marginTop="@dimen/main_BigBtnMarginBox"
+                    android:layout_marginBottom="@dimen/main_BigBtnMarginBox"
+                    style="@style/BtnStyle_Theme"
+                    android:text="我要寄"
+                    android:textColor="#FFF"
+                    android:id="@+id/mainSendBtn"/>
+            </LinearLayout>
+        </com.example.yumi.jpushtest.widgets.CustomContainerView>
+
+
+        <ImageView
+            android:layout_width="@dimen/main_BotBtnSize"
+            android:layout_height="@dimen/main_BotBtnSize"
+            android:layout_marginBottom="@dimen/main_BotBtnMarginBot"
+            android:layout_marginStart="@dimen/main_ContentMarginSide"
+            android:layout_gravity="bottom|start"
+            android:background="#F00"/>
+
+        <ImageView
+            android:layout_width="@dimen/main_BotBtnSize"
+            android:layout_height="@dimen/main_BotBtnSize"
+            android:layout_marginBottom="@dimen/main_BotBtnMarginBot"
+            android:layout_marginEnd="@dimen/main_ContentMarginSide"
+            android:layout_gravity="bottom|end"
+            android:background="#F00"/>
 
     </FrameLayout>
 
-    <com.example.yumi.jpushtest.widgets.CustomContainerView
+    <include layout="@layout/ui_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/main_ContentMarginSide"
-        android:layout_marginStart="@dimen/main_ContentMarginSide"
-        android:layout_marginTop="@dimen/main_ContentMarginTop"
-        android:paddingStart="@dimen/main_ContentPaddingSide"
-        android:paddingEnd="@dimen/main_ContentPaddingSide"
-        android:paddingTop="@dimen/main_ContentPaddingBox"
-        android:paddingBottom="@dimen/main_ContentPaddingBox"
-        app:bg="@drawable/img_content_bg">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/main_TopImgH"
-                android:background="#FF00" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <com.example.yumi.jpushtest.widgets.AddressView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:bigColor="@color/main_BigAddressColor"
-                    app:bigSize="@dimen/main_BigAddressTextSize"
-                    app:bigText="中国"
-                    app:midGap="@dimen/main_AddressMidGap"
-                    app:smallColor="@color/main_SmallAddressColor"
-                    app:smallSize="@dimen/main_SmallAddressTextSize"
-                    app:smallText="China" />
-
-
-                <ImageView
-                    android:layout_width="@dimen/main_MidImgSize"
-                    android:layout_height="@dimen/main_MidImgSize"
-                    android:layout_marginTop="@dimen/main_AddressDirectorMarginTop"
-                    android:gravity="center"
-                    android:src="@drawable/icon_wechat" />
-
-
-                <com.example.yumi.jpushtest.widgets.AddressView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:bigColor="@color/main_BigAddressColor"
-                    app:bigSize="@dimen/main_BigAddressTextSize"
-                    app:bigText="日本"
-                    app:midGap="@dimen/main_AddressMidGap"
-                    app:smallColor="@color/main_SmallAddressColor"
-                    app:smallSize="@dimen/main_SmallAddressTextSize"
-                    app:smallText="Japan" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/main_littleLogoSize"
-                    android:layout_height="@dimen/main_littleLogoSize"
-                    android:layout_marginEnd="@dimen/main_littleLogoMargin"
-                    android:layout_marginStart="@dimen/main_littleLogoMargin"
-                    android:background="#F00" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/login_InputH"
-                    android:background="#00000000"
-                    android:gravity="center_vertical"
-                    android:text="输入手机号码/邮箱"
-                    android:textColor="@color/main_TextColor"
-                    android:textSize="@dimen/main_ContentTextSize" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/main_SplitterMarginStart"
-                android:background="#F00"/>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/main_littleLogoSize"
-                    android:layout_height="@dimen/main_littleLogoSize"
-                    android:layout_marginEnd="@dimen/main_littleLogoMargin"
-                    android:layout_marginStart="@dimen/main_littleLogoMargin"
-                    android:background="#F00" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/login_InputH"
-                    android:background="#00000000"
-                    android:gravity="center_vertical"
-                    android:text="输入手机号码/邮箱"
-                    android:textColor="@color/main_TextColor"
-                    android:textSize="@dimen/main_ContentTextSize" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/main_SplitterMarginStart"
-                android:background="#F00"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/main_BigBtnH"
-                android:layout_marginTop="@dimen/main_BigBtnMarginBox"
-                android:layout_marginBottom="@dimen/main_BigBtnMarginBox"
-                style="@style/BtnStyle_Theme"
-                android:text="我要寄"
-                android:textColor="#FFF"/>
-        </LinearLayout>
-    </com.example.yumi.jpushtest.widgets.CustomContainerView>
-
-
-    <ImageView
-        android:layout_width="@dimen/main_BotBtnSize"
-        android:layout_height="@dimen/main_BotBtnSize"
-        android:layout_marginBottom="@dimen/main_BotBtnMarginBot"
-        android:layout_marginStart="@dimen/main_ContentMarginSide"
-        android:layout_gravity="bottom|start"
-        android:background="#F00"/>
-
-    <ImageView
-        android:layout_width="@dimen/main_BotBtnSize"
-        android:layout_height="@dimen/main_BotBtnSize"
-        android:layout_marginBottom="@dimen/main_BotBtnMarginBot"
-        android:layout_marginEnd="@dimen/main_ContentMarginSide"
-        android:layout_gravity="bottom|end"
-        android:background="#F00"/>
-
-</FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_gravity="start"/>
+</android.support.v4.widget.DrawerLayout>

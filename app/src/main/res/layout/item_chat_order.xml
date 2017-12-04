@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/chat_ItemPaddingSide"
+    android:paddingEnd="@dimen/chat_ItemPaddingSide"
+    android:paddingTop="@dimen/chat_ItemMarginBox"
+    android:paddingBottom="@dimen/chat_ItemMarginBox">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/chatItemHeadPic"
+        android:layout_width="@dimen/chat_ItemHeadPicSize"
+        android:layout_height="@dimen/chat_ItemHeadPicSize"
+        android:layout_gravity="bottom" />
+
+    <com.example.yumi.jpushtest.widgets.ChatContainer2
+        android:id="@+id/chatItemContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="@dimen/chat_ItemOrderW"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Samuel Spencer发来了寄件单"
+                android:textColor="@color/chat_ItemOppositeTextColor"
+                android:textSize="@dimen/chat_ItemOrderTextSize"
+                android:id="@+id/chatItemOrderTitle" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/chat_ItemOrderTextMarginTop"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/chat_ItemOrderImageSize"
+                    android:layout_height="@dimen/chat_ItemOrderImageSize"
+                    android:background="#FF0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/chat_ItemOrderTextMarginStart"
+                    android:text="请查看Samuel Spencer的寄件单"
+                    android:layout_gravity="center"
+                    android:textColor="@color/chat_ItemOppositeTextColor"
+                    android:textSize="@dimen/chat_ItemOrderTextSize"
+                    android:id="@+id/chatItemOrderCheckTips"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/chat_ItemOrderTextMarginStart"
+                android:text="未查看"
+                android:layout_gravity="end"
+                android:textColor="@color/chat_ItemOppositeTextColor"
+                android:textSize="@dimen/chat_ItemOrderTextSize"
+                android:id="@+id/chatItemOrderReadTips"/>
+        </LinearLayout>
+
+    </com.example.yumi.jpushtest.widgets.ChatContainer2>
+
+
+    <TextView
+        android:id="@+id/chatItemTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/chat_ItemTimeMarginSide"
+        android:layout_marginStart="@dimen/chat_ItemTimeMarginSide"
+        android:text="11:45 pm"
+        android:textColor="@color/chat_ChatItemTimeTextColor"
+        android:textSize="@dimen/chat_ItemTimeTextSize" />
+</LinearLayout>

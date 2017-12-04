@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/chat_ItemPaddingSide"
+    android:paddingEnd="@dimen/chat_ItemPaddingSide"
+    android:paddingTop="@dimen/chat_ItemMarginBox"
+    android:paddingBottom="@dimen/chat_ItemMarginBox">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/chat_ItemHeadPicSize"
+        android:layout_height="@dimen/chat_ItemHeadPicSize"
+        android:id="@+id/chatItemHeadPic"
+        android:layout_gravity="bottom"/>
+
+    <com.example.yumi.jpushtest.widgets.ChatContainer2
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chatItemContainer">
+
+        <RelativeLayout
+            android:layout_width="@dimen/chat_ItemVoiceW"
+            android:layout_height="@dimen/chat_ItemVoiceImageSize"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/chatItemVoiceBtn"
+                android:layout_width="@dimen/chat_ItemVoiceImageSize"
+                android:layout_height="@dimen/chat_ItemVoiceImageSize"
+                android:layout_marginEnd="@dimen/chat_ItemVoiceImageMarginEnd"
+                android:background="#F00" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:text="1"
+                android:textSize="@dimen/chat_ItemVoiceTextSize"
+                android:textColor="@color/chat_ItemOppositeTextColor"
+                android:id="@+id/chatItemVoiceTime"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/chatItemVoiceBtn"
+                android:layout_above="@+id/chatItemVoiceTime"
+                android:layout_alignParentTop="true"
+                android:background="#FF0" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/chatItemVoiceBtn"
+                android:text="Voice Message"
+                android:textSize="@dimen/chat_ItemVoiceTextSize"
+                android:textColor="@color/chat_ItemOppositeTextColor"
+                android:id="@+id/chatItemVoiceTips"/>
+
+        </RelativeLayout>
+
+    </com.example.yumi.jpushtest.widgets.ChatContainer2>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/chat_ItemTimeMarginSide"
+        android:layout_marginEnd="@dimen/chat_ItemTimeMarginSide"
+        android:text="11:45 pm"
+        android:textSize="@dimen/chat_ItemTimeTextSize"
+        android:textColor="@color/chat_ChatItemTimeTextColor"
+        android:id="@+id/chatItemTime"/>
+</LinearLayout>

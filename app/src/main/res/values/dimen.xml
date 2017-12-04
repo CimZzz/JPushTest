@@ -4,6 +4,12 @@
     <dimen name="actionbar_backW">43.2dp</dimen>
     <dimen name="actionbar_backH">34.56dp</dimen>
     <dimen name="actionbar_titleTextSize">16sp</dimen>
+    <dimen name="actionbar_HeadPicSize">30.71dp</dimen>
+    <dimen name="actionbar_HeadPicMarginEnd">11.52dp</dimen>
+    <dimen name="actionbar_UserStatusSize">5.76dp</dimen>
+    <dimen name="actionbar_UserStatusMarginStart">3.84dp</dimen>
+    <dimen name="actionbar_UserNameTextSize">16sp</dimen>
+    <dimen name="actionbar_UserStatusTextSize">12sp</dimen>
 
     <dimen name="load_BotTextMarginBot">42.7dp</dimen>
 
@@ -93,4 +99,53 @@
     <dimen name="send_ItemBotTimeTextSize">12sp</dimen>
     <dimen name="send_ItemBotTimeImageSize">13dp</dimen>
     <dimen name="send_ItemBotTimeImageMarginSide">14dp</dimen>
+    
+    <dimen name="chat_MarginSide">14.4dp</dimen>
+    <dimen name="chat_BotH">76.79dp</dimen>
+    <dimen name="chat_BotImgW">17.856dp</dimen>
+    <dimen name="chat_BotImgH">19.008dp</dimen>
+    <dimen name="chat_InputPaddingSide">9.60dp</dimen>
+    <dimen name="chat_InputMarginBox">4.3dp</dimen>
+    <dimen name="chat_ChatContainerPaddingSide">10dp</dimen>
+    <dimen name="chat_ChatContainerPaddingBox">14dp</dimen>
+    <dimen name="chat_ItemHeadPicSize">30.71dp</dimen>
+    <dimen name="chat_ItemPaddingSide">19.19dp</dimen>
+    <dimen name="chat_ItemMarginBox">9.84dp</dimen>
+    <dimen name="chat_ItemTimeMarginSide">13.43dp</dimen>
+    <dimen name="chat_ItemTimeTextSize">10sp</dimen>
+    <dimen name="chat_ItemVoiceW">150.56dp</dimen>
+    <dimen name="chat_ItemVoiceImageMarginEnd">7.81dp</dimen>
+    <dimen name="chat_ItemVoiceImageSize">25.28dp</dimen>
+    <dimen name="chat_ItemVoiceTextSize">9sp</dimen>
+    <dimen name="chat_ItemOrderW">170dp</dimen>
+    <dimen name="chat_ItemOrderImageSize">24.00dp</dimen>
+    <dimen name="chat_ItemOrderTextMarginStart">5dp</dimen>
+    <dimen name="chat_ItemOrderTextMarginTop">7dp</dimen>
+    <dimen name="chat_ItemOrderTextSize">10sp</dimen>
+    
+    <dimen name="order_MarginSide">24dp</dimen>
+    <dimen name="order_TipsH">38.40dp</dimen>
+    <dimen name="order_TipsTextSize">10sp</dimen>
+    <dimen name="order_ListItemH">47.99dp</dimen>
+    <dimen name="order_ListIconSize">25dp</dimen>
+    <dimen name="order_ListIconMarginSide">6.23dp</dimen>
+    <dimen name="order_ListTextSize">12sp</dimen>
+    <dimen name="order_ListTipsW">53.75dp</dimen>
+    
+    <dimen name="checkOrder_TitleH">45dp</dimen>
+    <dimen name="checkOrder_TitleTextSize">16sp</dimen>
+    <dimen name="checkOrder_MarginSide">24.00dp</dimen>
+    <dimen name="checkOrder_MarginBox">17.75dp</dimen>
+    <dimen name="checkOrder_TipsH">46dp</dimen>
+    <dimen name="checkOrder_TipsW">60dp</dimen>
+    <dimen name="checkOrder_TipsMarginSide">19.19dp</dimen>
+    <dimen name="checkOrder_BtnW">86.4dp</dimen>
+    <dimen name="checkOrder_BtnH">33.55dp</dimen>
+    <dimen name="checkOrder_BtnMarginTop">23.51dp</dimen>
+
+
+    <dimen name="menu_H">144dp</dimen>
+    <dimen name="menu_HeaderPicSize">57.6dp</dimen>
+    <dimen name="menu_TopMarginSide">24.008dp</dimen>
+    <dimen name="menu_HeaderMarginSide">10.552dp</dimen>
 </resources>

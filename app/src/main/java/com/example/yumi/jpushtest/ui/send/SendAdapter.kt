@@ -20,6 +20,7 @@ import com.example.yumi.jpushtest.widgets.CircleView
  */
 class SendAdapter : RecyclerView.Adapter<SendAdapter.SendHolder>() {
     val sendItemList = ArrayList<SendItem>()
+    lateinit var listener : View.OnClickListener
 
     fun addFirst(vararg items : SendItem) {
         sendItemList.addAll(0, items.toList())
@@ -79,5 +80,9 @@ class SendAdapter : RecyclerView.Adapter<SendAdapter.SendHolder>() {
         val toTime : TextView = itemView.findViewById(R.id.sendItemToTime)
         val toAddress : TextView = itemView.findViewById(R.id.sendItemToAddress)
         val weight : TextView = itemView.findViewById(R.id.sendItemWeight)
+
+        init {
+            btn.setOnClickListener(listener)
+        }
     }
 }

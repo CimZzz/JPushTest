@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionbar_H"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/themeColorBlue">
+    
+    <ImageView
+        android:layout_width="@dimen/actionbar_backW"
+        android:layout_height="@dimen/actionbar_backH"
+        android:background="#F00"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/actionbarBack"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/actionbar_HeadPicSize"
+            android:layout_height="@dimen/actionbar_HeadPicSize"
+            android:layout_centerVertical="true"
+            app:border_width="2dp"
+            app:border_color="#FF0"
+            android:id="@+id/actionbarHeadPic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/actionbar_HeadPicMarginEnd"
+            android:layout_toEndOf="@+id/actionbarHeadPic"
+            android:textColor="#FFF"
+            android:textSize="@dimen/actionbar_UserNameTextSize"
+            android:id="@+id/actionbarUserName"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/actionbar_HeadPicMarginEnd"
+            android:layout_toEndOf="@+id/actionbarHeadPic"
+            android:layout_alignBottom="@id/actionbarHeadPic"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在线"
+                android:textColor="#b1ffffff"
+                android:textSize="@dimen/actionbar_UserStatusTextSize"
+                android:id="@+id/actionbarStatusText"/>
+
+            <com.example.yumi.jpushtest.widgets.CircleView
+                android:layout_width="@dimen/actionbar_UserStatusSize"
+                android:layout_height="@dimen/actionbar_UserStatusSize"
+                android:layout_marginStart="@dimen/actionbar_UserStatusMarginStart"
+                app:circleColor="@color/send_ItemOnlineColor"
+                android:id="@+id/actionbarStatus"/>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

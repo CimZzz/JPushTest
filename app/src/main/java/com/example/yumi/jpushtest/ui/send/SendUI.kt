@@ -3,10 +3,12 @@ package com.example.yumi.jpushtest.ui.send
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.OrientationHelper
+import android.view.View
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.entity.SendItem
+import com.example.yumi.jpushtest.ui.chat2.ChatUI2
 import com.example.yumi.jpushtest.utils.RecyclerDecoration
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import kotlinx.android.synthetic.main.actionbar_title_back.*
@@ -29,7 +31,16 @@ class SendUI : BaseUI<IPresenter<*, *>>() {
 
     override fun onViewInit(savedInstanceState: Bundle?) {
         actionbarTitle.text = "我要寄"
+        actionbarBack.setOnClickListener {
+            finish()
+        }
+
         sendHandleView.refreshComplete()
+
+        adapter.listener = View.OnClickListener {
+            changeUI(ChatUI2::class.java)
+        }
+
 
         sendList.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在获取数据中...")
         sendList.getLoadingLayoutProxy(true, false).setPullLabel("下拉更新...")
@@ -46,7 +57,6 @@ class SendUI : BaseUI<IPresenter<*, *>>() {
         adapter.addFirst(
                 SendItem("-1","CimZzz",SendItem.ONLINE,"13:35","中国","15:40","日本",3.5f)
                 ,SendItem("-2","TiwZzz",SendItem.ONLINE,"7:52","日本","15:40","中国",3.5f)
-
         )
     }
 }

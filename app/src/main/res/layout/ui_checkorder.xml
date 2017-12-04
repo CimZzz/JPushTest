@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/checkOrder_MarginBox"
+    android:background="@color/checkOrder_BgColor"
+    android:id="@+id/checkOrderContainer">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/checkOrder_TitleH"
+        android:text="xxxx的寄件单"
+        android:textSize="@dimen/checkOrder_TitleTextSize"
+        android:textColor="@color/checkOrder_TitleTextColor"
+        android:gravity="center_vertical"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_content_bg"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/checkOrder_MarginSide"
+                android:paddingEnd="@dimen/checkOrder_MarginSide"
+                android:paddingBottom="@dimen/checkOrder_MarginBox"
+                android:paddingTop="@dimen/checkOrder_MarginBox"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="物品名称"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="礼品盒"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="物品重量"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5kg"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="收件人"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="落夕颜"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="收件电话"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12345678901"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="收件地址"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="你猜你猜你猜猜猜"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="收件方式"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="快递送达"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="支付方式"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="支付宝支付"
+                        android:textColor="@color/checkOrder_ContentTextColor"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/checkOrder_TipsH"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/checkOrder_TipsW"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/checkOrder_TipsMarginSide"
+                        android:text="支付金额"
+                        android:textColor="@color/checkOrder_TipsTextColor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="200.00"
+                        android:textColor="#F00"/>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/checkOrder_LineColor"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="@dimen/checkOrder_BtnW"
+                        android:layout_height="@dimen/checkOrder_BtnH"
+                        android:text="接受"
+                        android:textColor="#FFF"
+                        android:layout_marginTop="@dimen/checkOrder_BtnMarginTop"
+                        android:background="@drawable/bg_checkorder_submit"
+                        android:layout_gravity="start"/>
+
+                    <Button
+                        android:layout_width="@dimen/checkOrder_BtnW"
+                        android:layout_height="@dimen/checkOrder_BtnH"
+                        android:text="取消"
+                        android:textColor="#FFF"
+                        android:layout_marginTop="@dimen/checkOrder_BtnMarginTop"
+                        android:layout_marginEnd="@dimen/checkOrder_MarginSide"
+                        android:background="@drawable/bg_checkorder_cancel"
+                        android:layout_gravity="end"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+
+
+</LinearLayout>

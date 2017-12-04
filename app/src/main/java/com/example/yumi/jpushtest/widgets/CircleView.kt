@@ -36,7 +36,6 @@ class CircleView(context: Context, attrs: AttributeSet) : View(context, attrs) {
     }
 
     override fun onDraw(canvas: Canvas) {
-        canvas.drawARGB(255,255,255,255)
         paint.color = color
         canvas.drawCircle(canvas.width * 1.0f / 2,canvas.height * 1.0f / 2,canvas.width * 1.0f / 2,paint)
     }

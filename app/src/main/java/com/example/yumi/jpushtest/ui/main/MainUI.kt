@@ -4,7 +4,11 @@ import android.os.Bundle
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.ui.country.CountryUI
+import com.example.yumi.jpushtest.ui.send.SendUI
+import com.example.yumi.jpushtest.ui.time.TimeUI
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
+import kotlinx.android.synthetic.main.ui_main.*
 
 /**
  * Created by CimZzz(王彦雄) on 11/27/17.<br>
@@ -18,6 +22,18 @@ class MainUI : BaseUI<IPresenter<*,*>>() {
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
+        mainFromAddress.setOnClickListener {
+            changeUI(CountryUI::class.java)
+        }
+        mainToAddress.setOnClickListener {
+            changeUI(CountryUI::class.java)
+        }
+        mainTime.setOnClickListener {
+            changeUI(TimeUI::class.java)
+        }
+        mainSendBtn.setOnClickListener {
+            changeUI(SendUI::class.java)
+        }
 
     }
 
