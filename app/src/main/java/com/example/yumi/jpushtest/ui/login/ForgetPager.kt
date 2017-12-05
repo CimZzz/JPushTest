@@ -39,6 +39,7 @@ class ForgetPager : BasePager<IPresenter<*,*>>() {
             }
             else {
                 stateRecord.notifyState(LoginUI.STATE_SHOW_THIRD, true)
+                stateRecord.notifyState(LoginUI.STATE_SHOW_BACK, false)
                 stateRecord.notifyState(LoginUI.STATE_ENTER)
                 eventSteam!!.clear()
 
@@ -84,6 +85,7 @@ class ForgetPager : BasePager<IPresenter<*,*>>() {
 
         }
         stateRecord.notifyState(LoginUI.STATE_SHOW_THIRD,false)
+        stateRecord.notifyState(LoginUI.STATE_SHOW_BACK, true)
 
         changeToPhonePage(true)
     }

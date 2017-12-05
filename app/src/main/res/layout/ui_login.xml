@@ -10,19 +10,20 @@
         android:layout_height="@dimen/login_TopH"
         android:background="@color/themeColorBlue">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="@dimen/login_TopLogoW"
+            android:layout_height="@dimen/login_TopLogoH"
             android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:src="@drawable/icon_logo" />
 
-            <ImageView
-                android:layout_width="@dimen/login_TopLogoW"
-                android:layout_height="@dimen/login_TopLogoH"
-                android:src="@drawable/icon_logo" />
 
-        </LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/actionbar_backW"
+            android:layout_height="@dimen/actionbar_backH"
+            android:visibility="gone"
+            android:background="#F00"
+            android:id="@+id/loginBack"/>
+
 
     </FrameLayout>
 
