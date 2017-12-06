@@ -7,13 +7,9 @@ package com.example.yumi.jpushtest.entity;
  * 描述
  */
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-import io.realm.annotations.RealmClass;
 
-@RealmClass
-public class MessageItem extends RealmObject{
-    @PrimaryKey
+
+public class MessageItem{
     public long id;
     public long createTime;
     public String fromUser;

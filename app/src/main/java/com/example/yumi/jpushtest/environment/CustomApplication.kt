@@ -1,13 +1,11 @@
 package com.example.yumi.jpushtest.environment
 
 import android.app.Application
-import cn.jpush.im.android.api.JMessageClient
 import com.example.yumi.jpushtest.environment.module.FileModule
 import com.example.yumi.jpushtest.environment.module.HttpModule
 import com.example.yumi.jpushtest.environment.module.IMModule
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
-import io.realm.Realm
 
 /**
  * Created by CimZzz(王彦雄) on 2017/11/22.<br>

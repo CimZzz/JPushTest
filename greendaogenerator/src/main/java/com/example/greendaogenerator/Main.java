@@ -1,6 +1,5 @@
 package com.example.greendaogenerator;
 
-import java.io.IOException;
 
 import de.greenrobot.daogenerator.DaoGenerator;
 import de.greenrobot.daogenerator.Entity;
@@ -13,12 +12,14 @@ public class Main {
         new DaoGenerator().generateAll(schema, "./app/src/main/java-green");
     }
 
-
     private static void addMessageItem(Schema schema) {
-        Entity note = schema.addEntity("MessageItem");
-        note.addIdProperty().primaryKey().autoincrement();
-        note.addStringProperty("text").notNull();
-        note.addStringProperty("comment");
-        note.addDateProperty("date");
+        Entity msgItem = schema.addEntity("MessageItem");
+        msgItem.addIdProperty().primaryKey().autoincrement();
+        msgItem.addLongProperty("createTime");
+        msgItem.addStringProperty("fromUser");
+        msgItem.addStringProperty("toUser");
+        msgItem.addIntProperty("status");
+        msgItem.addIntProperty("type");
+        msgItem.addStringProperty("jsonData");
     }
 }

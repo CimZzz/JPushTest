@@ -11,6 +11,7 @@ import com.example.yumi.jpushtest.entity.*
 import com.example.yumi.jpushtest.environment.config.getIMModule
 import com.handmark.pulltorefresh.library.PullToRefreshBase
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
+import com.virtualightning.stateframework.state.StateRecord
 import kotlinx.android.synthetic.main.actionbar_user_back.*
 import kotlinx.android.synthetic.main.ui_chat.*
 
@@ -20,12 +21,13 @@ import kotlinx.android.synthetic.main.ui_chat.*
  * Description : <br>
  * 描述
  */
-class ChatUI2 : BaseUI<IPresenter<*,*>>() {
+class ChatUI2 : BaseUI<ChatPresenter>() {
     companion object {
         val KV_OPPOSITE_USER_NAME = "OppositeUserName"
         val KV_OPPOSITE_HEAD_PIC = "OppositeHeadPic"
         val KV_OPPOSITE_USER_STATUS = "OppositeUserStatus"
     }
+    val stateRecord : StateRecord = StateRecord.newInstance(ChatUI2::class.java)
 
     lateinit var oppositeUserName : String
     lateinit var headPic : String
@@ -35,7 +37,6 @@ class ChatUI2 : BaseUI<IPresenter<*,*>>() {
 
 
     override fun onBaseUICreate(creater: ActionBarUICreater) {
-        val layout : DrawerLayout
         creater.setLayoutID(R.layout.ui_chat)
         creater.setActionBarID(R.layout.actionbar_user_back)
         openAutoCancelSoft = true
