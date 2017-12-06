@@ -35,6 +35,10 @@ class RegisterRequest(stateRecord: StateRecord) : BaseRequest(stateRecord) {
 
 
     override fun onSuccess(jsonObject: JSONObject) {
+        val obj = JSONObject()
+        obj.put(HTTP.Register.USERNAME,userName)
+        obj.put(HTTP.Register.USERPWD,userPwd)
+        jsonObject.put(HTTP.DATA,obj)
         stateRecord.notifyState(HTTP.Register.STATE,true,jsonObject,"")
     }
 

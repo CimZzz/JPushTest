@@ -58,6 +58,11 @@ abstract class BasePager<T : IPresenter<*, *>> : Fragment() {
 
     fun<T : View> findViewById(id : Int) : T = rootView!!.findViewById(id)
 
+
+    fun showInfoBar(text : String) {
+        SVProgressHUD(context).showInfoWithStatus(text)
+    }
+
     fun showLoadingBar(text : String) {
         if(loadingBar != null) {
             loadingBar!!.dismissImmediately()

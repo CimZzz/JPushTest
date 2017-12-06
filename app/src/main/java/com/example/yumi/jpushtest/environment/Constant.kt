@@ -19,6 +19,7 @@ const val REQ_MAIN = 101
 /*Result code*/
 const val RES_PIC_SUCCESS = 100
 const val RES_PIC_PATH_CHANGE = 101
+const val RES_DATE_CHANGE = 102
 
 /*URL*/
 const val HOST_1 = "http://bbsd.yllfbaobao.cn"

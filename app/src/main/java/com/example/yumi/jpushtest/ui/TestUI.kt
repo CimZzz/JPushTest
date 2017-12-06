@@ -4,9 +4,9 @@ import android.os.Bundle
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.utils.logV
+import com.example.yumi.jpushtest.entity.MessageItem
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
-import kotlinx.android.synthetic.main.ui_test.*
+
 
 /**
  * Created by CimZzz(王彦雄) on 11/25/17.<br>
@@ -20,10 +20,6 @@ class TestUI : BaseUI<IPresenter<*,*>>() {
     }
 
     override fun onViewInit(savedInstanceState: Bundle?) {
-        testClick.setOnClickListener {
-            logV("click")
-            testContainer.setSide(!testContainer.isOwn)
-        }
     }
 
 }

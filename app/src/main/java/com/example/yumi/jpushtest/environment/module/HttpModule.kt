@@ -29,7 +29,8 @@ class HttpModule(context: Context) : IModule(context) {
     fun enqueue(baseRequest: BaseRequest) {
         synchronized(this,{
             if(token == null) {
-                requestList.add(baseRequest)
+                if(!requestList.contains(baseRequest))
+                    requestList.add(baseRequest)
                 if(!isGetting)
                     requestNewToken()
                 return
@@ -47,7 +48,8 @@ class HttpModule(context: Context) : IModule(context) {
         synchronized(this,{
             if(token == null) {
                 if(isGetting) {
-                    requestList.add(baseRequest)
+                    if(!requestList.contains(baseRequest))
+                        requestList.add(baseRequest)
                     return
                 } else {
                     requestNewToken()

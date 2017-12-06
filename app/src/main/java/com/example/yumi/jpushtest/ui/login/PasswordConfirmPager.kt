@@ -30,7 +30,7 @@ class PasswordConfirmPager : BasePager<IPresenter<*,*>>() {
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
         pwdConfirmCompleted.setOnClickListener {
-            stateRecord!!.notifyState(LoginPresenter.STATE_UPDATE_PWD,phoneNum,email,validationCode,pwdConfirmNewPwd.text.toString(),
+            stateRecord!!.notifyState(LoginPresenter.STATE_UPDATE_PWD,phoneNum,email,pwdConfirmNewPwd.text.toString(),
                     pwdConfirmConfirm.text.toString(),validationCode)
         }
     }

@@ -6,6 +6,8 @@ import android.widget.EditText
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.utils.isEmptyString
+import com.example.yumi.jpushtest.utils.isPhoneNum
 import com.virtualightning.stateframework.state.StateRecord
 import kotlinx.android.synthetic.main.pager_forget_phone.*
 
@@ -24,9 +26,30 @@ class ForgetPhonePager : BasePager<IPresenter<*,*>>() {
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
         forgetPhoneNext.setOnClickListener {
-            stateRecord!!.notifyState(ForgetPager.STATE_CONFIRM,true
-                    , forgetPhoneNum.text.toString()
-                    , forgetPhoneValidation.text.toString())
+            val phoneNum = forgetPhoneNum.text.toString()
+            val validation = forgetPhoneValidation.text.toString()
+
+            if(isEmptyString(validation)) {
+                sendToast("验证码不能为空")
+                return@setOnClickListener
+            }
+
+            if(!isPhoneNum(phoneNum)) {
+                sendToast("不是一个合法的手机号")
+                return@setOnClickListener
+            }
+
+
+            if(isPhoneNum(phoneNum))
+                stateRecord!!.notifyState(ForgetPager.STATE_CONFIRM,true
+                    , phoneNum
+                    , validation)
+
+        }
+
+        forgetPhoneValidationBtn.setOnClickListener {
+            val phoneNum = forgetPhoneNum.text.toString()
+            stateRecord!!.notifyState(LoginPresenter.STATE_PHONE_VALIDATION,phoneNum)
         }
     }
 

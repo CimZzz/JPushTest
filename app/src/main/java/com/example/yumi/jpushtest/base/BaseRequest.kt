@@ -3,6 +3,7 @@ package com.example.yumi.jpushtest.base
 import com.alibaba.fastjson.JSONObject
 import com.example.yumi.jpushtest.environment.HTTP
 import com.example.yumi.jpushtest.environment.module.HttpModule
+import com.example.yumi.jpushtest.utils.logV
 import com.virtualightning.stateframework.state.StateRecord
 import okhttp3.Call
 import okhttp3.Callback
@@ -38,6 +39,7 @@ import java.io.IOException
 
     override fun onResponse(call: Call?, response: Response) {
         val json = JSONObject.parseObject(response.body()!!.string())
+        logV(json)
         val code = json.getIntValue(HTTP.CODE)
         if(code == 0) {
             onSuccess(json)
@@ -49,5 +51,11 @@ import java.io.IOException
             onOccurFailed(code,json.getString(HTTP.MSG))
         }
 
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if(other is BaseRequest)
+            return this.javaClass == other.javaClass
+        return super.equals(other)
     }
 }

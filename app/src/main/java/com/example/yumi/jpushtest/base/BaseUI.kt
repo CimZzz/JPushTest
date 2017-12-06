@@ -26,6 +26,10 @@ abstract class BaseUI<T : IPresenter<*,*>> : ActionBarUI() {
 
     private var loadingBar : SVProgressHUD? = null
 
+    fun showInfoBar(text : String) {
+        SVProgressHUD(this).showInfoWithStatus(text)
+    }
+
     fun showLoadingBar(text : String) {
         if(loadingBar != null) {
             loadingBar!!.dismissImmediately()

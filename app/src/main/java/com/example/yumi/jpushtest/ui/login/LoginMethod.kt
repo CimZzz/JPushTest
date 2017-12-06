@@ -1,9 +1,7 @@
 package com.example.yumi.jpushtest.ui.login
 
 import com.example.yumi.jpushtest.environment.module.HttpModule
-import com.example.yumi.jpushtest.request.LoginRequest
-import com.example.yumi.jpushtest.request.RegisterRequest
-import com.example.yumi.jpushtest.request.UpdatePasswordRequest
+import com.example.yumi.jpushtest.request.*
 import com.virtualightning.stateframework.state.StateRecord
 
 /**
@@ -13,6 +11,18 @@ import com.virtualightning.stateframework.state.StateRecord
  * 描述
  */
 class LoginMethod(val stateRecord: StateRecord,val httpModule: HttpModule) : ILoginContract.Method {
+    override fun getEmailCode(email: String) {
+        val emailCodeRequest = EmailCodeRequest(stateRecord)
+        emailCodeRequest.email = email
+        httpModule.enqueue(emailCodeRequest)
+    }
+
+    override fun getPhoneCode(phoneNum: String) {
+        val phoneCodeRequest = PhoneCodeRequest(stateRecord)
+        phoneCodeRequest.phoneNum = phoneNum
+        httpModule.enqueue(phoneCodeRequest)
+    }
+
     override fun updatePassword(phoneNum: String, email: String, newPwd: String, validationCode: String) {
         val updateRequest = UpdatePasswordRequest(stateRecord)
         updateRequest.phoneNum = phoneNum

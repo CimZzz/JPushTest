@@ -7,6 +7,7 @@ import com.example.yumi.jpushtest.environment.module.HttpModule
 import com.example.yumi.jpushtest.environment.module.IMModule
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
+import io.realm.Realm
 
 /**
  * Created by CimZzz(王彦雄) on 2017/11/22.<br>
@@ -23,7 +24,6 @@ class CustomApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this))
-
 
         fileModule = FileModule(this)
         httpModule = HttpModule(this)

@@ -36,7 +36,7 @@ public interface HTTP {
 
         String USERNAME = "userName";
         String USERPWD = "userPwd";
-        String VALIDATION = "validation";
+        String VALIDATION = "validationCode";
     }
 
     interface UpdatePwd {
@@ -47,5 +47,20 @@ public interface HTTP {
         String EMAIL = "email";
         String NEW_PWD = "newPwd";
         String VALIDATION = "validation";
+    }
+
+    interface EmailCode {
+        String STATE = "gs_emailCode";
+        String URL = ConstantKt.HOST + "/api/home/index/reg";
+
+        String EMAIL = "email";
+    }
+
+    interface PhoneCode {
+        String STATE = "gs_phoneCode";
+        String URL = ConstantKt.HOST + "/api/home/index/phone";
+
+        String PHONE_NUM = "phoneNum";
+        String CODE = "data";
     }
 }

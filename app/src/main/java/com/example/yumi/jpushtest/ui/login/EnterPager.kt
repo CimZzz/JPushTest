@@ -2,13 +2,16 @@ package com.example.yumi.jpushtest.ui.login
 
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.utils.logV
+import com.example.yumi.jpushtest.environment.config.registerObserver
+import com.example.yumi.jpushtest.utils.isEmail
+import com.example.yumi.jpushtest.utils.isEmptyString
+import com.example.yumi.jpushtest.utils.isPhoneNum
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
+import com.virtualightning.stateframework.state.BaseObserver
 import com.virtualightning.stateframework.state.StateRecord
 import kotlinx.android.synthetic.main.pager_enter.*
 
@@ -23,8 +26,16 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
 
     var isRestore = false
 
-    override fun init() = Unit
-
+    override fun init() = stateRecord.registerObserver(LoginUI.STATE_REGISTER_SUCCESS, object : BaseObserver() {
+        override fun notify(vararg objects: Any?) {
+            enterLoginUserName.setText(objects[0] as String)
+            enterLoginUserPwd.setText(objects[1] as String)
+            enterRegisterUserName.setText("")
+            enterRegisterUserPwd.setText("")
+            enterRegisterValidation.setText("")
+            switchToView(true)
+        }
+    })
     override fun initViewID(): Int = R.layout.pager_enter
 
     override fun onViewInitialization(savedInstanceState: Bundle?) {
@@ -33,17 +44,25 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
                 switchToView(isLeft)
             }
         }
-        findViewById<View>(R.id.enterRegisterText).setOnClickListener {
+        enterRegisterText.setOnClickListener {
             switchToView(false)
         }
-        findViewById<View>(R.id.enterForget).setOnClickListener {
+        enterForget.setOnClickListener {
             stateRecord.notifyState(LoginUI.STATE_FORGET)
         }
-        findViewById<View>(R.id.enterLoginBtn).setOnClickListener {
+        enterLoginBtn.setOnClickListener {
             stateRecord.notifyState(LoginPresenter.STATE_LOGIN,enterLoginUserName.text.toString(),enterLoginUserPwd.text.toString())
         }
-        findViewById<View>(R.id.enterRegisterBtn).setOnClickListener {
+        enterRegisterBtn.setOnClickListener {
             stateRecord.notifyState(LoginPresenter.STATE_REGISTER,enterRegisterUserName.text.toString(),enterRegisterUserPwd.text.toString(),enterRegisterValidation.text.toString())
+        }
+        enterRegisterValidationBtn.setOnClickListener {
+            val userName = enterRegisterUserName.text.toString()
+            if(isPhoneNum(userName))
+                stateRecord.notifyState(LoginPresenter.STATE_PHONE_VALIDATION,userName,enterRegisterValidationBtn)
+            else if(isEmail(userName))
+                stateRecord.notifyState(LoginPresenter.STATE_EMAIL_VALIDATION,userName,enterRegisterValidationBtn)
+            else sendToast("用户名格式不正确，必须为手机号或邮箱")
         }
     }
 

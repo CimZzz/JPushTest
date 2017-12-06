@@ -1,9 +1,12 @@
 package com.example.yumi.jpushtest.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.environment.REQ_MAIN
+import com.example.yumi.jpushtest.environment.RES_DATE_CHANGE
 import com.example.yumi.jpushtest.ui.country.CountryUI
 import com.example.yumi.jpushtest.ui.send.SendUI
 import com.example.yumi.jpushtest.ui.time.TimeUI
@@ -17,6 +20,7 @@ import kotlinx.android.synthetic.main.ui_main.*
  * 描述
  */
 class MainUI : BaseUI<IPresenter<*,*>>() {
+
     override fun onBaseUICreate(creater: ActionBarUICreater) {
         creater.setLayoutID(R.layout.ui_main)
     }
@@ -35,6 +39,17 @@ class MainUI : BaseUI<IPresenter<*,*>>() {
             changeUI(SendUI::class.java)
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(requestCode == REQ_MAIN) {
+            when(resultCode) {
+                RES_DATE_CHANGE-> {
+
+                }
+            }
+        }
+        else super.onActivityResult(requestCode, resultCode, data)
     }
 
 }

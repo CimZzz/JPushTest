@@ -10,8 +10,6 @@ import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.environment.config.registerObserver
 import com.example.yumi.jpushtest.ui.main.MainUI
 import com.example.yumi.jpushtest.utils.BasePagerPool
-import com.example.yumi.jpushtest.utils.logV
-import com.example.yumi.jpushtest.utils.startAnimation
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import com.virtualightning.stateframework.state.BaseObserver
 import com.virtualightning.stateframework.state.StateRecord
@@ -30,6 +28,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
         val STATE_FORGET = "s1"
         val STATE_ENTER = "s2"
         val STATE_SHOW_BACK = "s3"
+        val STATE_REGISTER_SUCCESS = "s4"
 
         val EVENT_BACK = "e0"
     }
@@ -59,10 +58,6 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
         finish()
     }
 
-    override fun registerSuccess() {
-
-    }
-
     override fun updatePwdSuccess() {
         stateRecord.notifyState(STATE_SHOW_THIRD,true)
         stateRecord.notifyState(STATE_SHOW_BACK,false)
@@ -84,23 +79,18 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
             override fun notify(vararg objects: Any?) {
                 if(objects[0] as Boolean) {
                     loginThiLog.visibility = View.VISIBLE
-                    startAnimation(loginThiLog,R.anim.fade_in)
                 } else {
                     loginThiLog.visibility = View.GONE
-                    startAnimation(loginThiLog,R.anim.fade_out)
                 }
             }
         })
 
         stateRecord.registerObserver(STATE_SHOW_BACK,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
-                logV("213123213123")
                 if(objects[0] as Boolean) {
                     loginBack.visibility = View.VISIBLE
-                    startAnimation(loginThiLog,R.anim.fade_in)
                 } else {
                     loginBack.visibility = View.GONE
-                    startAnimation(loginThiLog,R.anim.fade_out)
                 }
             }
         })

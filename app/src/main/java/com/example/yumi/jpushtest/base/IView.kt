@@ -18,6 +18,7 @@ interface IView {
     fun unregisterBroadcastReceiver(receiver: BroadcastReceiver)
     fun gainStateRecord() : StateRecord?
 
+    fun showInfoBar(text: String)
     fun showLoadingBar(text : String)
     fun closeLoadingBar()
 }
