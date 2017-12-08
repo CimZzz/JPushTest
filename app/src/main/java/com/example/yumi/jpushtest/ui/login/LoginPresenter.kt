@@ -3,7 +3,7 @@ package com.example.yumi.jpushtest.ui.login
 import com.alibaba.fastjson.JSONObject
 import com.example.yumi.jpushtest.base.IPresenter
 import com.example.yumi.jpushtest.environment.HTTP
-import com.example.yumi.jpushtest.environment.config.registerObserver
+import com.example.yumi.jpushtest.environment.config.observer
 import com.example.yumi.jpushtest.extend.HTTPJSONObserver
 import com.example.yumi.jpushtest.utils.isEmail
 import com.example.yumi.jpushtest.utils.isEmptyString
@@ -30,7 +30,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
     init {
         val stateRecord = view.gainStateRecord()!!
 
-        stateRecord.registerObserver(STATE_LOGIN,object : BaseObserver() {
+        stateRecord.observer(STATE_LOGIN,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val userName = objects[0] as String
                 val userPwd =  objects[1] as String
@@ -52,7 +52,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(STATE_REGISTER,object : BaseObserver() {
+        stateRecord.observer(STATE_REGISTER,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val userName = objects[0] as String
                 val userPwd =  objects[1] as String
@@ -78,7 +78,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(STATE_UPDATE_PWD,object : BaseObserver() {
+        stateRecord.observer(STATE_UPDATE_PWD,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 /*
                 * 0 phone num
@@ -122,7 +122,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
 
         })
 
-        stateRecord.registerObserver(STATE_PHONE_VALIDATION,object : BaseObserver() {
+        stateRecord.observer(STATE_PHONE_VALIDATION,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val phoneNum = objects[0] as String
                 if(!isPhoneNum(phoneNum)) {
@@ -134,7 +134,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(STATE_EMAIL_VALIDATION,object : BaseObserver() {
+        stateRecord.observer(STATE_EMAIL_VALIDATION,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val email = objects[0] as String
                 if(!isEmail(email)) {
@@ -146,7 +146,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(HTTP.Login.STATE,object : HTTPJSONObserver() {
+        stateRecord.observer(HTTP.Login.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess) {
                     //登录成功
@@ -161,7 +161,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(HTTP.Register.STATE,object : HTTPJSONObserver() {
+        stateRecord.observer(HTTP.Register.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess) {
                     //注册成功
@@ -179,7 +179,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(HTTP.UpdatePwd.STATE,object : HTTPJSONObserver() {
+        stateRecord.observer(HTTP.UpdatePwd.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess) {
                     //修改密码成功
@@ -194,7 +194,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(HTTP.PhoneCode.STATE,object : HTTPJSONObserver() {
+        stateRecord.observer(HTTP.PhoneCode.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess) {
                     val data = json!!.getJSONObject(HTTP.DATA)
@@ -204,7 +204,7 @@ class LoginPresenter(view: ILoginContract.View, method: ILoginContract.Method) :
             }
         })
 
-        stateRecord.registerObserver(HTTP.EmailCode.STATE,object : HTTPJSONObserver() {
+        stateRecord.observer(HTTP.EmailCode.STATE,object : HTTPJSONObserver() {
             override fun onHttpCallBack(isSuccess: Boolean, json: JSONObject?, msg: String?) {
                 if(isSuccess)
                     view.sendToast("发送邮件验证码成功")

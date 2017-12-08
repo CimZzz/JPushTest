@@ -10,4 +10,7 @@ import com.example.yumi.jpushtest.base.IPresenter
  */
 class ChatPresenter(view: IChatContract.View, method: IChatContract.Method) : IPresenter<IChatContract.View, IChatContract.Method>(view, method) {
 
+    fun sendTextMessage(message : String) {
+
+    }
 }

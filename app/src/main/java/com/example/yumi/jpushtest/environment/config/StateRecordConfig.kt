@@ -13,8 +13,16 @@ import com.virtualightning.stateframework.state.StateRecord
  * 描述
  */
 
-fun StateRecord.registerObserver(stateId : String,observer: BaseObserver) {
+fun StateRecord.observer(stateId : String, observer: BaseObserver) {
     registerObserver(ObserverBuilder()
+            .stateId(stateId)
+            .allowStop(false)
+            .refType(ReferenceType.STRONG)
+            .observer(observer))
+}
+
+fun StateRecord.wholeObserver(stateId : String, observer: BaseObserver) {
+    registerWholeObserver(ObserverBuilder()
             .stateId(stateId)
             .allowStop(false)
             .refType(ReferenceType.STRONG)

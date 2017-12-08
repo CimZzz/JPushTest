@@ -5,9 +5,8 @@ import android.view.View
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.environment.config.registerObserver
+import com.example.yumi.jpushtest.environment.config.observer
 import com.example.yumi.jpushtest.utils.isEmail
-import com.example.yumi.jpushtest.utils.isEmptyString
 import com.example.yumi.jpushtest.utils.isPhoneNum
 import com.example.yumi.jpushtest.utils.startAnimation
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
@@ -26,7 +25,7 @@ class EnterPager : BasePager<IPresenter<*,*>>() {
 
     var isRestore = false
 
-    override fun init() = stateRecord.registerObserver(LoginUI.STATE_REGISTER_SUCCESS, object : BaseObserver() {
+    override fun init() = stateRecord.observer(LoginUI.STATE_REGISTER_SUCCESS, object : BaseObserver() {
         override fun notify(vararg objects: Any?) {
             enterLoginUserName.setText(objects[0] as String)
             enterLoginUserPwd.setText(objects[1] as String)

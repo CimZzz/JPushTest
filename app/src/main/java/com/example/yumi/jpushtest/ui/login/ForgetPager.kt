@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.environment.config.registerObserver
+import com.example.yumi.jpushtest.environment.config.observer
 import com.example.yumi.jpushtest.utils.BasePagerPool
 import com.example.yumi.jpushtest.widgets.SliderSwitchView
 import com.virtualightning.stateframework.state.BaseObserver
@@ -52,7 +52,7 @@ class ForgetPager : BasePager<IPresenter<*,*>>() {
     }
 
     override fun init() {
-        stateRecord.registerObserver(STATE_CONFIRM,object : BaseObserver() {
+        stateRecord.observer(STATE_CONFIRM,object : BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val confirmPage = basePagerPool.getPager(PasswordConfirmPager::class.java)
                 confirmPage.stateRecord = stateRecord

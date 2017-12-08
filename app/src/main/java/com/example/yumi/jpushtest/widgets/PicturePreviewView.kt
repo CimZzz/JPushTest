@@ -279,6 +279,7 @@ class PicturePreviewView(context: Context, attrs: AttributeSet) : View(context, 
                     opt.inSampleSize = 1
                 else opt.inSampleSize = if(measureRatioW > measureRatioH) measureRatioW.toInt() else measureRatioH.toInt()
 
+
                 tmpBitmap = BitmapFactory.decodeFile(picPath,opt)
                 bitmap = tmpBitmap
 

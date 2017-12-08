@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.entity.*
 import com.example.yumi.jpushtest.utils.convert2TimeStr
+import com.example.yumi.jpushtest.utils.isEmptyString
 import com.example.yumi.jpushtest.utils.loadPic
 import com.example.yumi.jpushtest.widgets.ChatContainer2
 import com.example.yumi.jpushtest.widgets.VoiceIconView
@@ -32,7 +33,7 @@ class ChatAdapter2(val curUserName : String) : RecyclerView.Adapter<RecyclerView
     val OREDER_CHAT_ITEM: Int = 3
 
     val msgArray : ArrayList<BaseItem> = ArrayList()
-    val dateFormat = SimpleDateFormat("h:MM a")
+    val dateFormat = SimpleDateFormat("h:MM a",Locale.getDefault())
     var listener : IContentClickListener? = null
 
     val headPicClick = View.OnClickListener {
@@ -45,7 +46,7 @@ class ChatAdapter2(val curUserName : String) : RecyclerView.Adapter<RecyclerView
             listener?.onImageContentClick(item,it)
         }
         else if(item is VoiceChatItem) {
-            listener?.onVoiceContentClick(item,it.findViewById(R.id.chatItemVoice))
+            listener?.onVoiceContentClick(item)
         }
     }
 
@@ -152,10 +153,15 @@ class ChatAdapter2(val curUserName : String) : RecyclerView.Adapter<RecyclerView
             else if (holder is ImageChatHolder) {
                 val concretedItem = item as ImageChatItem
                 holder.chatContainer.tag = concretedItem
-                loadPic(item.imgLink,holder.imageMsgView)
+                if(isEmptyString(concretedItem.imgLink)) {
+
+                }
+                else loadPic("file:///"+concretedItem.imgLink,holder.imageMsgView)
             }
+
             else if(holder is VoiceChatHolder) {
                 val concretedItem = item as VoiceChatItem
+                holder.chatContainer.tag = concretedItem
                 holder.voiceSecond.text = convert2TimeStr(concretedItem.second)
             }
             else if(holder is OrderChatHolder) {
@@ -318,7 +324,7 @@ class ChatAdapter2(val curUserName : String) : RecyclerView.Adapter<RecyclerView
     interface IContentClickListener {
         fun onTextContentClick(text : String)
         fun onImageContentClick(item : ImageChatItem,view : View)
-        fun onVoiceContentClick(item : VoiceChatItem,view : VoiceIconView)
+        fun onVoiceContentClick(item : VoiceChatItem)
         fun onUploadFailedClick(item : BaseChatItem)
     }
 }

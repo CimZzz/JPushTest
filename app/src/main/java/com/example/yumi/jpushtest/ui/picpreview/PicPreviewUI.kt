@@ -86,8 +86,9 @@ class PicPreviewUI : BaseUI<PicPreviewPresenter>(),IPicPreviewContract.View {
         }
         else picPreviewDownload.visibility = View.GONE
 
+        var path = intent.getStringExtra(KV_PREVIEW_PATH)
 
-        picPreviewGallery.setPicture(intent.getStringExtra(KV_PREVIEW_PATH))
+        picPreviewGallery.setPicture(path)
         picPreviewGallery.listener = object : PicturePreviewView.OnLongPressListener {
             override fun onLongPress() {
                 logV("Trigger long press! Looper : ${Looper.myLooper() == Looper.getMainLooper()}")

@@ -7,7 +7,7 @@ import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BasePager
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
-import com.example.yumi.jpushtest.environment.config.registerObserver
+import com.example.yumi.jpushtest.environment.config.observer
 import com.example.yumi.jpushtest.ui.main.MainUI
 import com.example.yumi.jpushtest.utils.BasePagerPool
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
@@ -75,7 +75,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
         openAutoCancelSoft = true
 
 
-        stateRecord.registerObserver(STATE_SHOW_THIRD,object:BaseObserver() {
+        stateRecord.observer(STATE_SHOW_THIRD,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 if(objects[0] as Boolean) {
                     loginThiLog.visibility = View.VISIBLE
@@ -85,7 +85,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
             }
         })
 
-        stateRecord.registerObserver(STATE_SHOW_BACK,object:BaseObserver() {
+        stateRecord.observer(STATE_SHOW_BACK,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 if(objects[0] as Boolean) {
                     loginBack.visibility = View.VISIBLE
@@ -95,7 +95,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
             }
         })
 
-        stateRecord.registerObserver(STATE_FORGET,object:BaseObserver() {
+        stateRecord.observer(STATE_FORGET,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val forget = basePagerPool.getPager(ForgetPager::class.java)
                 forget.stateRecord = stateRecord
@@ -103,7 +103,7 @@ class LoginUI : BaseUI<IPresenter<*,*>>(),ILoginContract.View {
             }
         })
 
-        stateRecord.registerObserver(STATE_ENTER,object:BaseObserver() {
+        stateRecord.observer(STATE_ENTER,object:BaseObserver() {
             override fun notify(vararg objects: Any?) {
                 val enterPager = basePagerPool.getPager(EnterPager::class.java)
                 enterPager.stateRecord = stateRecord

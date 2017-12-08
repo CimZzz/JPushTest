@@ -20,18 +20,32 @@
         android:background="#f6f6f6"
         android:orientation="vertical">
 
-        <EditText
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:paddingStart="@dimen/chat_InputPaddingSide"
             android:paddingEnd="@dimen/chat_InputPaddingSide"
             android:layout_marginTop="@dimen/chat_InputMarginBox"
-            android:layout_marginBottom="@dimen/chat_InputMarginBox"
-            android:hint="输入文字...."
-            android:inputType="text"
-            android:imeOptions="actionSend"
-            android:background="@drawable/bg_chat_input"/>
+            android:layout_marginBottom="@dimen/chat_InputMarginBox">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="@drawable/bg_chat_voice"
+                android:gravity="center"
+                android:text="按住发送语音"
+                android:id="@+id/chatVoice"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="输入文字...."
+                android:inputType="text"
+                android:imeOptions="actionSend"
+                android:background="@drawable/bg_chat_input"
+                android:id="@+id/chatInput"/>
+        </FrameLayout>
 
 
         <LinearLayout
@@ -40,37 +54,53 @@
             android:layout_weight="1"
             android:gravity="center_vertical">
 
-            <ImageView
+            <FrameLayout
                 android:layout_width="@dimen/chat_BotImgW"
-                android:layout_height="@dimen/chat_BotImgH"
-                android:background="#F00"/>
-
-            <ImageView
-                android:layout_width="@dimen/chat_BotImgW"
-                android:layout_height="@dimen/chat_BotImgH"
-                android:layout_marginStart="@dimen/chat_MarginSide"
-                android:background="#F00"/>
-
-
-            <ImageView
-                android:layout_width="@dimen/chat_BotImgW"
-                android:layout_height="@dimen/chat_BotImgH"
-                android:layout_marginStart="@dimen/chat_MarginSide"
-                android:background="#F00"/>
-
-
-            <ImageView
-                android:layout_width="@dimen/chat_BotImgW"
-                android:layout_height="@dimen/chat_BotImgH"
-                android:layout_marginStart="@dimen/chat_MarginSide"
-                android:background="#F00"/>
+                android:layout_height="@dimen/chat_BotImgH">
+                <ImageView
+                    android:layout_width="@dimen/chat_BotImgW"
+                    android:layout_height="@dimen/chat_BotImgH"
+                    android:background="#0037ff"
+                    android:visibility="gone"
+                    android:id="@+id/chatBotText"/>
+                <ImageView
+                    android:layout_width="@dimen/chat_BotImgW"
+                    android:layout_height="@dimen/chat_BotImgH"
+                    android:background="#ff0000"
+                    android:id="@+id/chatBotVoice"/>
+            </FrameLayout>
 
 
             <ImageView
                 android:layout_width="@dimen/chat_BotImgW"
                 android:layout_height="@dimen/chat_BotImgH"
                 android:layout_marginStart="@dimen/chat_MarginSide"
-                android:background="#F00"/>
+                android:background="#F00"
+                android:id="@+id/chatBotPhoto"/>
+
+
+            <ImageView
+                android:layout_width="@dimen/chat_BotImgW"
+                android:layout_height="@dimen/chat_BotImgH"
+                android:layout_marginStart="@dimen/chat_MarginSide"
+                android:background="#F00"
+                android:id="@+id/chatBotPic"/>
+
+
+            <ImageView
+                android:layout_width="@dimen/chat_BotImgW"
+                android:layout_height="@dimen/chat_BotImgH"
+                android:layout_marginStart="@dimen/chat_MarginSide"
+                android:background="#F00"
+                android:id="@+id/chatBotEmoji"/>
+
+
+            <ImageView
+                android:layout_width="@dimen/chat_BotImgW"
+                android:layout_height="@dimen/chat_BotImgH"
+                android:layout_marginStart="@dimen/chat_MarginSide"
+                android:background="#F00"
+                android:id="@+id/chatBotOrder"/>
 
         </LinearLayout>
 

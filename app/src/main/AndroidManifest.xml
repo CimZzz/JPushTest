@@ -87,13 +87,13 @@
 
 
         <activity android:name=".ui.TestUI">
+        </activity>
+
+        <activity android:name=".ui.logintest.LoginTestUI">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-
-        <activity android:name=".ui.logintest.LoginTestUI">
         </activity>
         <activity android:name=".ui.chat.ChatUI"
             android:screenOrientation="portrait"

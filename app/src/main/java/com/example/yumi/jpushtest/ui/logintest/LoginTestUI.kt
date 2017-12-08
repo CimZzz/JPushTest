@@ -9,7 +9,9 @@ import cn.jpush.im.api.BasicCallback
 import com.example.yumi.jpushtest.R
 import com.example.yumi.jpushtest.base.BaseUI
 import com.example.yumi.jpushtest.base.IPresenter
+import com.example.yumi.jpushtest.environment.config.getIMModule
 import com.example.yumi.jpushtest.ui.chat.ChatUI
+import com.example.yumi.jpushtest.ui.chat2.ChatUI2
 import com.example.yumi.jpushtest.utils.logV
 import com.virtualightning.library.simple2develop.ui.ActionBarUICreater
 import kotlinx.android.synthetic.main.ui_logintest.*
@@ -46,10 +48,10 @@ class LoginTestUI : BaseUI<IPresenter<*,*>>() {
                 override fun gotResult(p0: Int, p1: String?) {
                     if(p0 == 0) {
                         val bundle = Bundle()
+                        getIMModule().curUserName = userName
                         bundle.putString("UserName",userName)
                         bundle.putString("OppositeUserName",oppositeUserName)
-                        JMessageClient.registerEventReceiver(this@LoginTestUI)
-                        changeUI(ChatUI::class.java,bundle)
+                        changeUI(ChatUI2::class.java,bundle)
                     } else {
                         sendToast("登陆失败:$p1")
                     }
@@ -62,14 +64,4 @@ class LoginTestUI : BaseUI<IPresenter<*,*>>() {
         tiwzzzLogin.setOnClickListener(clickListener)
     }
 
-
-
-    fun onEventMainThread(event: OfflineMessageEvent) {
-        event.offlineMessageList.forEach {
-            logV("Offline message : LoginUI")
-        }
-    }
-
-    fun onEventMainThread(event: MessageEvent) {
-    }
 }
